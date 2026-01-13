@@ -15,6 +15,10 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const page = await getPayloadPage('home')
 
+  // Get store configuration for dynamic branding
+  const siteSettings = await getPayloadGlobal("site-settings")
+  const storeName = siteSettings?.general?.siteName || "BusinessX"
+
   if (page && page.seo) {
     return {
       title: page.seo.title || page.title,
