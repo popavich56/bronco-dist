@@ -55,17 +55,17 @@ const StoreToolbar = ({ sortBy, limit, view }: StoreToolbarProps) => {
                     onClick={() => setQueryParams("view", "grid")}
                     className={clx(
                         "p-2 transition-colors hover:bg-terminal-highlight dark:hover:bg-terminal-black/10",
-                        view === "grid" ? "bg-bronco-black text-white hover:bg-bronco-black dark:bg-terminal-black dark:text-black dark:hover:bg-terminal-black" : "bg-terminal-black text-terminal-dim  "
+                        view === "grid" ? "bg-businessx-black text-white hover:bg-businessx-black dark:bg-terminal-black dark:text-black dark:hover:bg-terminal-black" : "bg-terminal-black text-terminal-dim  "
                     )}
                 >
                     <Grip className="w-5 h-5" />
                 </button>
-                <div className="w-[2px] bg-bronco-black dark:bg-terminal-black" />
+                <div className="w-[2px] bg-businessx-black dark:bg-terminal-black" />
                 <button
                     onClick={() => setQueryParams("view", "list")}
                     className={clx(
                         "p-2 transition-colors hover:bg-terminal-highlight dark:hover:bg-terminal-black/10",
-                        view === "list" ? "bg-bronco-black text-white hover:bg-bronco-black dark:bg-terminal-black dark:text-black dark:hover:bg-terminal-black" : "bg-terminal-black text-terminal-dim  "
+                        view === "list" ? "bg-businessx-black text-white hover:bg-businessx-black dark:bg-terminal-black dark:text-black dark:hover:bg-terminal-black" : "bg-terminal-black text-terminal-dim  "
                     )}
                 >
                     <List className="w-5 h-5" />

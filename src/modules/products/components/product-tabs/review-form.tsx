@@ -39,7 +39,7 @@ const ReviewForm = ({
         </p>
         <Button
           onClick={() => (window.location.href = "/account/login")}
-          className="bg-bronco-black text-white hover:bg-bronco-black/80 dark:bg-terminal-black dark:text-black dark:hover:bg-gray-200 font-display font-medium uppercase tracking-wide"
+          className="bg-businessx-black text-white hover:bg-businessx-black/80 dark:bg-terminal-black dark:text-black dark:hover:bg-gray-200 font-display font-medium uppercase tracking-wide"
         >
           Sign In
         </Button>
@@ -145,7 +145,7 @@ const ReviewForm = ({
               onClick={() => setRating(star)}
               className={`text-2xl transition-colors ${
                 star <= rating
-                  ? "text-bronco-yellow"
+                  ? "text-businessx-yellow"
                   : "text-gray-300 dark:text-zinc-700"
               }`}
             >
@@ -180,7 +180,7 @@ const ReviewForm = ({
       <Button
         type="submit"
         isLoading={submitting}
-        className="w-full bg-bronco-black hover:bg-bronco-black/80 text-white font-display font-bold uppercase tracking-wide rounded-none h-12"
+        className="w-full bg-businessx-black hover:bg-businessx-black/80 text-white font-display font-bold uppercase tracking-wide rounded-none h-12"
       >
         Submit Review
       </Button>

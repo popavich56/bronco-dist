@@ -36,7 +36,7 @@ export function Pagination({
     <button
       key={p}
       className={clx("font-mono text-base font-bold transition-colors duration-200 px-2 min-w-[32px] h-[32px] flex items-center justify-center", {
-        "text-bronco-orange border border-bronco-orange bg-bronco-orange/10": isCurrent,
+        "text-businessx-orange border border-businessx-orange bg-businessx-orange/10": isCurrent,
         "text-terminal-dim hover:text-terminal-white hover:bg-terminal-highlight": !isCurrent,
       })}
       disabled={isCurrent}

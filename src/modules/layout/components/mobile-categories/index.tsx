@@ -41,7 +41,7 @@ const MobileCategories = ({ isOpen, close, categories }: MobileCategoriesProps) 
             </h2>
             <button
               onClick={close}
-              className="p-2 text-terminal-white/50 /50 hover:text-terminal-white dark:hover:text-white transition-colors rounded-full hover:bg-bronco-black/5 dark:hover:bg-terminal-black/10"
+              className="p-2 text-terminal-white/50 /50 hover:text-terminal-white dark:hover:text-white transition-colors rounded-full hover:bg-businessx-black/5 dark:hover:bg-terminal-black/10"
             >
               <span className="sr-only">Close</span>
               <XMark className="w-6 h-6" />
@@ -59,7 +59,7 @@ const MobileCategories = ({ isOpen, close, categories }: MobileCategoriesProps) 
                   <span className="font-display font-bold text-lg text-terminal-white  uppercase">
                     All Products
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-bronco-black dark:bg-terminal-black text-white dark:text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="w-8 h-8 rounded-full bg-businessx-black dark:bg-terminal-black text-white dark:text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <span className="text-lg leading-none">&rarr;</span>
                   </div>
                 </div>
@@ -86,7 +86,7 @@ const MobileCategories = ({ isOpen, close, categories }: MobileCategoriesProps) 
                         {hasChildren && (
                             <button
                             onClick={(e) => toggleCategory(category.id, e)}
-                            className="w-10 h-10 flex items-center justify-center rounded-none hover:bg-bronco-black/5  text-terminal-white/60 /60 transition-colors"
+                            className="w-10 h-10 flex items-center justify-center rounded-none hover:bg-businessx-black/5  text-terminal-white/60 /60 transition-colors"
                             >
                             {isActive ? (
                                 <Minus className="w-5 h-5" />

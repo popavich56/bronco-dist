@@ -101,7 +101,7 @@ const SearchBarInner = () => {
             onFocus={() => setFocused(true)}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search catalog..."
-            className="w-full h-10 pl-10 pr-10 bg-terminal-surface border border-terminal-border text-terminal-white placeholder-terminal-dim font-mono text-xs rounded-none focus:outline-none focus:border-bronco-orange focus:ring-0 transition-all uppercase tracking-wide"
+            className="w-full h-10 pl-10 pr-10 bg-terminal-surface border border-terminal-border text-terminal-white placeholder-terminal-dim font-mono text-xs rounded-none focus:outline-none focus:border-businessx-orange focus:ring-0 transition-all uppercase tracking-wide"
           />
           <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-terminal-dim">
             <MagnifyingGlassMini className="w-5 h-5" />
@@ -110,7 +110,7 @@ const SearchBarInner = () => {
             <button
               type="button"
               onClick={clearSearch}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-terminal-dim hover:text-bronco-orange transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-terminal-dim hover:text-businessx-orange transition-colors"
             >
               <XMark className="w-5 h-5" />
             </button>
@@ -143,7 +143,7 @@ const SearchBarInner = () => {
                         className="w-full flex items-center justify-between px-4 py-2 hover:bg-terminal-highlight transition-colors group text-left"
                       >
                         <span className="flex items-center gap-2">
-                          <Box className="w-3 h-3 text-terminal-dim group-hover:text-bronco-orange transition-colors" />
+                          <Box className="w-3 h-3 text-terminal-dim group-hover:text-businessx-orange transition-colors" />
                           <span className="font-display font-bold text-terminal-white text-sm uppercase transition-colors">
                             {category.value}
                           </span>
@@ -203,7 +203,7 @@ const SearchBarInner = () => {
                         router.push(`/search?q=${encodeURIComponent(query)}`)
                         setFocused(false)
                     }}
-                    className="w-full py-2 text-center text-xs font-bold font-mono uppercase bg-terminal-surface hover:bg-bronco-orange hover:text-white transition-all border border-terminal-border hover:border-bronco-orange text-terminal-white"
+                    className="w-full py-2 text-center text-xs font-bold font-mono uppercase bg-terminal-surface hover:bg-businessx-orange hover:text-white transition-all border border-terminal-border hover:border-businessx-orange text-terminal-white"
                   >
                     View all {data?.count} results
                   </button>

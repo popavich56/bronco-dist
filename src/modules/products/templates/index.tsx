@@ -42,7 +42,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
       {/* Breadcrumb Top Bar */}
       <div className="border-b border-terminal-border bg-terminal-panel/50 /50 backdrop-blur-sm sticky top-0 z-40">
         <div className="content-container py-3 flex items-center gap-2 text-[10px] font-mono uppercase text-terminal-dim tracking-widest">
-          <span className="text-bronco-orange">Inventory</span>
+          <span className="text-businessx-orange">Inventory</span>
           <span>/</span>
           <span>{product.collection?.title || "General"}</span>
           <span>/</span>

@@ -31,7 +31,7 @@ function CartMismatchBanner(props: {
   }
 
   return (
-    <div className="flex items-center justify-center small:p-4 p-2 text-center bg-bronco-orange text-black border-b border-black font-bold uppercase tracking-wide text-xs">
+    <div className="flex items-center justify-center small:p-4 p-2 text-center bg-businessx-orange text-black border-b border-black font-bold uppercase tracking-wide text-xs">
       <div className="flex flex-col small:flex-row small:gap-2 gap-1 items-center">
         <span className="flex items-center gap-1">
           <ExclamationCircleSolid className="inline" />

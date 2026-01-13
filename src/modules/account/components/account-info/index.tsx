@@ -74,7 +74,7 @@ const AccountInfo = ({
             <button
               type="submit"
               disabled={pending}
-              className="w-[120px] h-[40px] flex items-center justify-center bg-bronco-black text-white text-xs font-bold uppercase tracking-widest hover:bg-bronco-yellow hover:text-terminal-white transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-[120px] h-[40px] flex items-center justify-center bg-businessx-black text-white text-xs font-bold uppercase tracking-widest hover:bg-businessx-yellow hover:text-terminal-white transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {pending ? <Spinner /> : "Save"}
             </button>

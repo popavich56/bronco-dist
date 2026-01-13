@@ -77,7 +77,7 @@ export default function VariantTable({
                 <td className="p-4 border-r border-terminal-border">
                   <div className="flex flex-col">
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-bronco-orange">
+                      <span className="font-bold text-businessx-orange">
                         {variant.title}
                       </span>
                       {!canBuy && (
@@ -107,7 +107,7 @@ export default function VariantTable({
                         min={1}
                         value={quantities[variant.id] || 1}
                         onChange={(e) => handleQuantityChange(variant.id, e.target.value)}
-                        className="w-16 h-9 bg-terminal-black border border-terminal-border text-center text-terminal-white font-mono font-bold focus:outline-none focus:border-bronco-orange transition-colors"
+                        className="w-16 h-9 bg-terminal-black border border-terminal-border text-center text-terminal-white font-mono font-bold focus:outline-none focus:border-businessx-orange transition-colors"
                         disabled={!canBuy || disabled || !isValidCustomer}
                     />
                     <Button
@@ -121,7 +121,7 @@ export default function VariantTable({
                         !isValidCustomer
                         }
                         isLoading={addingVariantId === variant.id}
-                        className="flex-1 bg-transparent text-bronco-orange hover:bg-bronco-orange hover:text-black border border-bronco-orange transition-all rounded-none font-bold uppercase text-[10px] tracking-widest disabled:border-terminal-border disabled:text-terminal-dim disabled:hover:bg-transparent h-9"
+                        className="flex-1 bg-transparent text-businessx-orange hover:bg-businessx-orange hover:text-black border border-businessx-orange transition-all rounded-none font-bold uppercase text-[10px] tracking-widest disabled:border-terminal-border disabled:text-terminal-dim disabled:hover:bg-transparent h-9"
                         size="base"
                     >
                         {addingVariantId === variant.id

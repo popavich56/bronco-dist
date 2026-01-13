@@ -45,7 +45,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             id={props.id || name}
             placeholder=" "
             required={required}
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 bg-terminal-black border border-terminal-border/20 rounded-none appearance-none focus:outline-none focus:ring-0 focus:shadow-none-sm focus:border-terminal-border hover:bg-bronco-gray/10 transition-all duration-300 ease-in-out"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 bg-terminal-black border border-terminal-border/20 rounded-none appearance-none focus:outline-none focus:ring-0 focus:shadow-none-sm focus:border-terminal-border hover:bg-businessx-gray/10 transition-all duration-300 ease-in-out"
             {...props}
             ref={inputRef}
           />
@@ -55,7 +55,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className="flex items-center justify-center mx-3 px-1 transition-all absolute duration-300 top-3 -z-1 origin-0 text-ui-fg-subtle uppercase font-bold text-xs tracking-wider"
           >
             {label}
-            {required && <span className="text-bronco-yellow ml-1">*</span>}
+            {required && <span className="text-businessx-yellow ml-1">*</span>}
           </label>
           {type === "password" && (
             <button

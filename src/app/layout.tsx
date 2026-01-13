@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${outfit.variable} ${nunito.variable} antialiased font-body bg-bronco-white text-bronco-black dark:bg-[#0a0a0a] dark:text-[#ededed] transition-colors duration-200`}>
+      <body className={`${outfit.variable} ${nunito.variable} antialiased font-body bg-businessx-white text-businessx-black dark:bg-[#0a0a0a] dark:text-[#ededed] transition-colors duration-200`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

@@ -37,13 +37,13 @@ export const BlogPostsBlock = (props: BlogPostsBlockProps) => {
                 <div className="mb-4">
                   {/* @ts-ignore */}
                    {post.categories && post.categories.length > 0 && typeof post.categories[0] === 'object' && (
-                       <span className="text-xs font-semibold tracking-wider text-bronco-yellow uppercase mb-2 inline-block">
+                       <span className="text-xs font-semibold tracking-wider text-businessx-yellow uppercase mb-2 inline-block">
                            {/* @ts-ignore */}
                            {post.categories[0].name}
                        </span>
                    )}
                    <h3 className="text-xl font-bold text-terminal-white mb-2 line-clamp-2">
-                     <Link href={`/blog/${post.slug}`} className="hover:text-bronco-yellow transition-colors">
+                     <Link href={`/blog/${post.slug}`} className="hover:text-businessx-yellow transition-colors">
                        {post.title}
                      </Link>
                    </h3>
@@ -63,7 +63,7 @@ export const BlogPostsBlock = (props: BlogPostsBlockProps) => {
                 )}
 
                 {showReadMore && (
-                  <Link href={`/blog/${post.slug}`} className="inline-flex items-center text-terminal-white font-semibold hover:text-bronco-yellow transition-colors mt-auto">
+                  <Link href={`/blog/${post.slug}`} className="inline-flex items-center text-terminal-white font-semibold hover:text-businessx-yellow transition-colors mt-auto">
                     Read Article 
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                   </Link>

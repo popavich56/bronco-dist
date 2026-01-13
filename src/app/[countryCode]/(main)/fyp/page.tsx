@@ -10,7 +10,7 @@ import { Product } from "@xclade/types"
 import RefreshButton from "./refresh-button"
 
 export const metadata: Metadata = {
-  title: "For You | Bronco Distribution",
+  title: "For You | BusinessX",
   description: "Personalized product recommendations.",
 }
 
@@ -26,17 +26,17 @@ export default async function FYPPage({ params }: Props) {
   if (!customer || !region) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[70vh] gap-6 text-center px-4">
-        <div className="w-24 h-24 bg-bronco-yellow/20 rounded-full flex items-center justify-center mb-4 text-4xl">
+        <div className="w-24 h-24 bg-businessx-yellow/20 rounded-full flex items-center justify-center mb-4 text-4xl">
            👾
         </div>
-        <Heading level="h1" className="text-4xl font-display uppercase font-extrabold text-bronco-black">
+        <Heading level="h1" className="text-4xl font-display uppercase font-extrabold text-businessx-black">
           Login Required
         </Heading>
-        <Text className="text-lg text-bronco-gray max-w-md font-bold">
+        <Text className="text-lg text-businessx-gray max-w-md font-bold">
           To see your personalized "For You" selection, we need to know who you are!
         </Text>
         <LocalizedClientLink href="/account">
-           <Button variant="primary" className="bg-bronco-yellow text-bronco-black hover:bg-bronco-black hover:text-bronco-yellow border-2 border-bronco-black font-bold uppercase tracking-wider px-8 py-3 h-auto text-lg transition-all shadow-[4px_4px_0px_0px_rgba(30,30,30,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none">
+           <Button variant="primary" className="bg-businessx-yellow text-businessx-black hover:bg-businessx-black hover:text-businessx-yellow border-2 border-businessx-black font-bold uppercase tracking-wider px-8 py-3 h-auto text-lg transition-all shadow-[4px_4px_0px_0px_rgba(30,30,30,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none">
              Login / Register
            </Button>
         </LocalizedClientLink>
@@ -70,13 +70,13 @@ export default async function FYPPage({ params }: Props) {
 
 
   return (
-    <div className="bg-bronco-white min-h-screen pb-20">
+    <div className="bg-businessx-white min-h-screen pb-20">
       
       {/* Hero Header */}
-      <div className="bg-bronco-black py-20 mb-12 relative overflow-hidden">
-         <div className="absolute top-0 right-0 w-96 h-96 bg-bronco-yellow/20 -translate-y-1/2 translate-x-1/2 rounded-full blur-[100px]" />
+      <div className="bg-businessx-black py-20 mb-12 relative overflow-hidden">
+         <div className="absolute top-0 right-0 w-96 h-96 bg-businessx-yellow/20 -translate-y-1/2 translate-x-1/2 rounded-full blur-[100px]" />
          <div className="content-container relative z-10">
-            <Text className="text-bronco-yellow font-bold uppercase tracking-widest mb-2">
+            <Text className="text-businessx-yellow font-bold uppercase tracking-widest mb-2">
                 Personalized Selection
             </Text>
             <Heading level="h1" className="text-5xl md:text-7xl font-display font-extrabold text-white uppercase tracking-tighter mb-4">
@@ -84,7 +84,7 @@ export default async function FYPPage({ params }: Props) {
             </Heading>
             <div className="flex flex-col gap-4">
                 <Text className="text-xl text-gray-400 font-bold max-w-2xl">
-                    Curated specifically for <span className="text-bronco-yellow">{customer.first_name || "you"}</span> based on the latest drops and trending heat.
+                    Curated specifically for <span className="text-businessx-yellow">{customer.first_name || "you"}</span> based on the latest drops and trending heat.
                 </Text>
                 <div className="mt-4">
                     <RefreshButton />
@@ -105,7 +105,7 @@ export default async function FYPPage({ params }: Props) {
             </ul>
         ) : (
             <div className="py-20 text-center">
-                <Text className="text-xl font-bold text-bronco-gray mb-4">No recommendations found just yet.</Text>
+                <Text className="text-xl font-bold text-businessx-gray mb-4">No recommendations found just yet.</Text>
                 <Text>Start browsing to build your profile!</Text>
             </div>
         )}

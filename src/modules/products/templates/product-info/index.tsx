@@ -15,7 +15,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
       {product.collection && (
         <LocalizedClientLink
           href={`/collections/${product.collection.handle}`}
-          className="text-[10px] font-mono font-bold text-bronco-orange uppercase tracking-[0.2em] hover:text-terminal-white transition-colors w-fit border border-bronco-orange/30 px-2 py-0.5"
+          className="text-[10px] font-mono font-bold text-businessx-orange uppercase tracking-[0.2em] hover:text-terminal-white transition-colors w-fit border border-businessx-orange/30 px-2 py-0.5"
         >
           {product.collection.title}
         </LocalizedClientLink>
@@ -38,7 +38,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
 
       {product.rating_summary && product.rating_summary.review_count > 0 && (
         <div className="flex items-center gap-x-2">
-          <div className="flex gap-0.5 text-bronco-orange">
+          <div className="flex gap-0.5 text-businessx-orange">
             {[...Array(5)].map((_, i) => (
               <Star
                 key={i}

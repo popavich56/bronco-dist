@@ -32,8 +32,7 @@ export const Hero = () => {
              className="flex flex-col items-center"
           >
             <Heading level="h1" className="text-6xl md:text-8xl lg:text-[7rem] font-bold text-terminal-white  leading-[0.9] tracking-tighter uppercase mix-blend-normal transform-gpu">
-              Wholesale <br/>
-              <span className="text-bronco-orange">Distribution</span>
+              <span className="text-businessx-orange">BusinessX</span>
             </Heading>
           </motion.div>
 
@@ -55,7 +54,7 @@ export const Hero = () => {
           >
              <LocalizedClientLink href="/store">
                  <Button 
-                   className="h-12 px-8 rounded-none bg-bronco-orange hover:bg-orange-600 text-black font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 hover:gap-4"
+                   className="h-12 px-8 rounded-none bg-businessx-orange hover:bg-orange-600 text-black font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 hover:gap-4"
                  >
                     View Catalog
                     <ArrowRight className="w-4 h-4" />
@@ -66,7 +65,7 @@ export const Hero = () => {
              <LocalizedClientLink href="/account">
                <Button 
                  variant="secondary"
-                 className="h-12 px-8 rounded-none border border-terminal-border dark:border-white/20 bg-transparent text-terminal-white  hover:border-bronco-orange hover:text-bronco-orange font-mono uppercase text-xs transition-all tracking-wider"
+                 className="h-12 px-8 rounded-none border border-terminal-border dark:border-white/20 bg-transparent text-terminal-white  hover:border-businessx-orange hover:text-businessx-orange font-mono uppercase text-xs transition-all tracking-wider"
                >
                   Create An Account
                </Button>

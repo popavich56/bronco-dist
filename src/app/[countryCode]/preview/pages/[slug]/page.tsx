@@ -27,7 +27,7 @@ export default async function PreviewPage({ params }: Props) {
   if (!hasBlocks) {
     return (
       <>
-        <div className="bg-bronco-yellow text-bronco-black text-center py-2 font-bold uppercase tracking-wider text-sm sticky top-0 z-50">
+        <div className="bg-businessx-yellow text-businessx-black text-center py-2 font-bold uppercase tracking-wider text-sm sticky top-0 z-50">
           Preview Mode
         </div>
         <div className="container mx-auto py-20 text-center">
@@ -41,7 +41,7 @@ export default async function PreviewPage({ params }: Props) {
   return (
     <>
 
-      <div className="bg-bronco-yellow text-bronco-black text-center py-2 font-bold uppercase tracking-wider text-sm sticky top-0 z-50">
+      <div className="bg-businessx-yellow text-businessx-black text-center py-2 font-bold uppercase tracking-wider text-sm sticky top-0 z-50">
         Live Preview Mode
       </div>
       {/* We pass the whole page object to LiveBlockRenderer to handle live updates */}

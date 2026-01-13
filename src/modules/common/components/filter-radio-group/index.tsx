@@ -46,7 +46,7 @@ const FilterRadioGroup = ({
               data-testid="radio-label"
               data-active={i.value === value}
             >
-              {i.value === value && <span className="mr-2 text-bronco-yellow">►</span>}
+              {i.value === value && <span className="mr-2 text-businessx-yellow">►</span>}
               {i.label}
             </Label>
           </div>

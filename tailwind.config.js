@@ -25,7 +25,7 @@ module.exports = {
           dim: "var(--terminal-dim)", // Dim text: Cool Gray 500 / Dark Mode: Neutral 400
           tech: "var(--terminal-tech)", // Tech text: Cool Gray 400 / Dark Mode: Zinc 400
         },
-        bronco: {
+        businessx: {
           black: "#111111", // Keeping explicit dark
           white: "#ffffff",
           yellow: "#FF5500",

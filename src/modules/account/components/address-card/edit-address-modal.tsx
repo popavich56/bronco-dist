@@ -67,7 +67,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
         className={clx(
           "border-2 border-terminal-border shadow-none-sm p-5 min-h-[220px] h-full w-full flex flex-col justify-between transition-all bg-terminal-panel",
           {
-            "ring-2 ring-bronco-yellow ring-offset-2": isActive,
+            "ring-2 ring-businessx-yellow ring-offset-2": isActive,
           }
         )}
         data-testid="address-container"

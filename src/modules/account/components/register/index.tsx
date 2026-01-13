@@ -36,7 +36,7 @@ const Register = ({ setCurrentView, countryCode }: Props) => {
             required
             autoComplete="given-name"
             data-testid="first-name-input"
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-bronco-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
           <Input
             label="Last name"
@@ -44,7 +44,7 @@ const Register = ({ setCurrentView, countryCode }: Props) => {
             required
             autoComplete="family-name"
             data-testid="last-name-input"
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-bronco-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
           <Input
             label="Email"
@@ -53,7 +53,7 @@ const Register = ({ setCurrentView, countryCode }: Props) => {
             type="email"
             autoComplete="email"
             data-testid="email-input"
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-bronco-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
           <Input
             label="Phone"
@@ -61,7 +61,7 @@ const Register = ({ setCurrentView, countryCode }: Props) => {
             type="tel"
             autoComplete="tel"
             data-testid="phone-input"
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-bronco-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
           <Input
             label="Company Name"
@@ -69,7 +69,7 @@ const Register = ({ setCurrentView, countryCode }: Props) => {
             required
             autoComplete="organization"
             data-testid="company-name-input"
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-bronco-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
           <Input
             label="Address"
@@ -77,14 +77,14 @@ const Register = ({ setCurrentView, countryCode }: Props) => {
             required
             autoComplete="address-line1"
             data-testid="address-1-input"
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-bronco-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
           <Input
             label="Apartment, suite, etc."
             name="address_2"
             autoComplete="address-line2"
             data-testid="address-2-input"
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-bronco-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
           <div className="grid grid-cols-2 gap-x-2">
             <Input
@@ -93,7 +93,7 @@ const Register = ({ setCurrentView, countryCode }: Props) => {
               required
               autoComplete="address-level2"
               data-testid="city-input"
-              className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-bronco-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+              className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
             />
             <Input
               label="State / Province"
@@ -101,7 +101,7 @@ const Register = ({ setCurrentView, countryCode }: Props) => {
               required
               autoComplete="address-level1"
               data-testid="state-input"
-              className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-bronco-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+              className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
             />
           </div>
           <Input
@@ -110,7 +110,7 @@ const Register = ({ setCurrentView, countryCode }: Props) => {
             required
             autoComplete="postal-code"
             data-testid="postal-code-input"
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-bronco-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
           <Input
             label="Password"
@@ -119,7 +119,7 @@ const Register = ({ setCurrentView, countryCode }: Props) => {
             type="password"
             autoComplete="new-password"
             data-testid="password-input"
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-bronco-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
         </div>
         <ErrorMessage error={message} data-testid="register-error" />
@@ -127,21 +127,21 @@ const Register = ({ setCurrentView, countryCode }: Props) => {
           By creating an account, you agree to our{" "}
           <LocalizedClientLink
             href="/content/privacy-policy"
-            className="underline font-bold text-bronco-orange hover:text-bronco-yellow"
+            className="underline font-bold text-businessx-orange hover:text-businessx-yellow"
           >
             Privacy Policy
           </LocalizedClientLink>{" "}
           and{" "}
           <LocalizedClientLink
             href="/content/terms-of-use"
-            className="underline font-bold text-bronco-orange hover:text-bronco-yellow"
+            className="underline font-bold text-businessx-orange hover:text-businessx-yellow"
           >
             Terms of Use
           </LocalizedClientLink>
           .
         </span>
         <SubmitButton
-          className="w-full mt-8 bg-bronco-orange text-black hover:bg-terminal-panel hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-transparent hover:border-terminal-border transition-all shadow-none py-4 h-12"
+          className="w-full mt-8 bg-businessx-orange text-black hover:bg-terminal-panel hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-transparent hover:border-terminal-border transition-all shadow-none py-4 h-12"
           data-testid="register-button"
         >
           Join
@@ -151,7 +151,7 @@ const Register = ({ setCurrentView, countryCode }: Props) => {
         Already a member?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
-          className="underline font-bold text-bronco-orange hover:text-bronco-yellow transition-colors"
+          className="underline font-bold text-businessx-orange hover:text-businessx-yellow transition-colors"
         >
           Sign in
         </button>

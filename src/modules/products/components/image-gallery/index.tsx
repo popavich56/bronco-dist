@@ -46,8 +46,8 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                 className={clx(
                   "relative aspect-square w-full overflow-hidden border transition-all duration-200 bg-terminal-panel",
                   {
-                    "border-bronco-orange": index === selectedImageIndex,
-                    "border-terminal-border hover:border-bronco-orange/50":
+                    "border-businessx-orange": index === selectedImageIndex,
+                    "border-terminal-border hover:border-businessx-orange/50":
                       index !== selectedImageIndex,
                   }
                 )}

@@ -48,7 +48,7 @@ const CartItemSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
           </option>
           {children}
         </select>
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-terminal-dim group-hover:text-bronco-orange transition-colors w-4 h-4 flex items-center justify-center bg-terminal-black">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-terminal-dim group-hover:text-businessx-orange transition-colors w-4 h-4 flex items-center justify-center bg-terminal-black">
             <ChevronDown className="w-3 h-3" />
         </div>
       </div>

@@ -42,7 +42,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                 </h3>
                 <div className="flex items-end gap-x-2">
                   <span
-                    className="text-4xl font-display font-black text-bronco-orange"
+                    className="text-4xl font-display font-black text-businessx-orange"
                     data-testid="customer-profile-completion"
                     data-value={getProfileCompletion(customer)}
                   >
@@ -60,7 +60,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                 </h3>
                 <div className="flex items-end gap-x-2">
                   <span
-                    className="text-4xl font-display font-black text-bronco-orange"
+                    className="text-4xl font-display font-black text-businessx-orange"
                     data-testid="addresses-count"
                     data-value={customer?.addresses?.length || 0}
                   >
@@ -94,7 +94,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                         <LocalizedClientLink
                           href={`/account/orders/${order.id}`}
                         >
-                          <Container className="bg-terminal-black border border-terminal-border hover:border-bronco-orange transition-colors flex justify-between items-center p-4 rounded-none shadow-none">
+                          <Container className="bg-terminal-black border border-terminal-border hover:border-businessx-orange transition-colors flex justify-between items-center p-4 rounded-none shadow-none">
                             <div className="grid grid-cols-3 grid-rows-2 text-sm gap-x-4 flex-1">
                               <span className="font-mono font-bold uppercase text-terminal-dim text-[10px] tracking-wider">
                                 Date placed
@@ -129,7 +129,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                               </span>
                             </div>
                             <button
-                              className="flex items-center justify-between text-terminal-dim hover:text-bronco-orange transition-colors"
+                              className="flex items-center justify-between text-terminal-dim hover:text-businessx-orange transition-colors"
                               data-testid="open-order-button"
                             >
                               <span className="sr-only">

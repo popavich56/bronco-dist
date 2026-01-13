@@ -62,7 +62,7 @@ const QuoteSummary = ({ cart }: QuoteSummaryProps) => {
         
         <div className="flex items-center justify-between font-bold text-terminal-white">
           <span className="uppercase tracking-wider">Total</span>
-          <span className="text-lg font-mono bg-bronco-yellow px-1">
+          <span className="text-lg font-mono bg-businessx-yellow px-1">
             {getAmount(cart.total ?? 0)}
           </span>
         </div>

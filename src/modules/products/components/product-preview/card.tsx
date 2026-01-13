@@ -28,7 +28,7 @@ export const ProductPreviewCard = ({
       >
         <div
           data-testid="product-wrapper"
-          className="flex bg-terminal-panel border border-terminal-border p-4 transition-all hover:border-bronco-orange duration-200 gap-6 items-center"
+          className="flex bg-terminal-panel border border-terminal-border p-4 transition-all hover:border-businessx-orange duration-200 gap-6 items-center"
         >
           <div className="relative overflow-hidden w-24 h-24 shrink-0 bg-terminal-surface border border-terminal-border">
             <Thumbnail
@@ -50,7 +50,7 @@ export const ProductPreviewCard = ({
                 )}
 
                 <Text
-                  className="font-display font-bold text-lg leading-tight text-terminal-white group-hover:text-bronco-orange transition-colors"
+                  className="font-display font-bold text-lg leading-tight text-terminal-white group-hover:text-businessx-orange transition-colors"
                   data-testid="product-title"
                 >
                   {product.title}
@@ -75,7 +75,7 @@ export const ProductPreviewCard = ({
       <div
         data-testid="product-wrapper"
         // 'Terminal Prime' Grid Cell Style - Minimalist
-        className="h-full flex flex-col justify-between bg-terminal-black hover:bg-terminal-panel border-b-4 border-transparent p-6 transition-all duration-200 group-hover:border-bronco-orange relative overflow-hidden"
+        className="h-full flex flex-col justify-between bg-terminal-black hover:bg-terminal-panel border-b-4 border-transparent p-6 transition-all duration-200 group-hover:border-businessx-orange relative overflow-hidden"
       >
         <div className="mb-4 relative overflow-hidden aspect-square bg-terminal-surface border border-terminal-border group-hover:border-terminal-active transition-colors">
           <Thumbnail
@@ -91,7 +91,7 @@ export const ProductPreviewCard = ({
         <div className="space-y-3">
           <div className="flex flex-col gap-1">
             <Text
-              className="font-display font-bold text-base leading-tight text-terminal-white line-clamp-2 md:h-10 group-hover:text-bronco-orange transition-colors"
+              className="font-display font-bold text-base leading-tight text-terminal-white line-clamp-2 md:h-10 group-hover:text-businessx-orange transition-colors"
               data-testid="product-title"
             >
               {product.title}
@@ -103,7 +103,7 @@ export const ProductPreviewCard = ({
                 <div className="flex flex-col">
                 {/* Price removed as per request */}
                 </div>
-                <ArrowUpRight className="w-4 h-4 text-terminal-dim group-hover:text-bronco-orange transition-colors" />
+                <ArrowUpRight className="w-4 h-4 text-terminal-dim group-hover:text-businessx-orange transition-colors" />
             </div>
         </div>
       </div>

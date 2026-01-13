@@ -25,7 +25,7 @@ export default function NotFound() {
 
       <Link
         href="/"
-        className="px-8 py-3 bg-bronco-orange border border-bronco-orange font-bold text-black font-mono uppercase tracking-widest text-xs hover:bg-orange-600 transition-all"
+        className="px-8 py-3 bg-businessx-orange border border-businessx-orange font-bold text-black font-mono uppercase tracking-widest text-xs hover:bg-orange-600 transition-all"
       >
         GO TO HOME
       </Link>

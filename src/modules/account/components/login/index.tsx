@@ -32,7 +32,7 @@ const Login = ({ setCurrentView, countryCode }: Props) => {
             autoComplete="email"
             required
             data-testid="email-input"
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-bronco-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
           <Input
             label="Password"
@@ -41,13 +41,13 @@ const Login = ({ setCurrentView, countryCode }: Props) => {
             autoComplete="current-password"
             required
             data-testid="password-input"
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-bronco-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
         </div>
         <ErrorMessage error={message} data-testid="login-error-message" />
         <SubmitButton
           data-testid="sign-in-button"
-          className="w-full mt-8 bg-bronco-orange text-black hover:bg-terminal-panel hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-transparent hover:border-terminal-border transition-all shadow-none py-4 h-12"
+          className="w-full mt-8 bg-businessx-orange text-black hover:bg-terminal-panel hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-transparent hover:border-terminal-border transition-all shadow-none py-4 h-12"
         >
           Sign in
         </SubmitButton>
@@ -56,7 +56,7 @@ const Login = ({ setCurrentView, countryCode }: Props) => {
         Not a member?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
-          className="underline font-bold text-bronco-orange hover:text-bronco-yellow transition-colors"
+          className="underline font-bold text-businessx-orange hover:text-businessx-yellow transition-colors"
           data-testid="register-button"
         >
           Join us

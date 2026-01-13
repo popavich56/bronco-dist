@@ -27,7 +27,7 @@ export default function ProductPrice({
     <div className="flex flex-col">
       <div className="flex items-baseline gap-2">
         {selectedPrice.price_type === "sale" && (
-          <span className="text-terminal-dim font-mono text-sm line-through decoration-bronco-orange/50">
+          <span className="text-terminal-dim font-mono text-sm line-through decoration-businessx-orange/50">
             {selectedPrice.original_price}
           </span>
         )}
@@ -35,7 +35,7 @@ export default function ProductPrice({
           className={clx(
             "text-4xl font-mono font-bold tracking-tight tabular-nums",
             {
-              "text-bronco-orange": selectedPrice.price_type === "sale",
+              "text-businessx-orange": selectedPrice.price_type === "sale",
               "text-terminal-white": selectedPrice.price_type !== "sale",
             }
           )}
@@ -58,7 +58,7 @@ export default function ProductPrice({
       </div>
 
       {selectedPrice.price_type === "sale" && (
-        <span className="text-bronco-orange font-mono text-xs uppercase tracking-widest mt-1">
+        <span className="text-businessx-orange font-mono text-xs uppercase tracking-widest mt-1">
           :: Price Override Detected [-{selectedPrice.percentage_diff}%]
         </span>
       )}

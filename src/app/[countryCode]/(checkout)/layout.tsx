@@ -18,10 +18,10 @@ export default async function CheckoutLayout({
         <nav className="flex h-full items-center content-container justify-between">
           <LocalizedClientLink
             href="/cart"
-            className="text-small-semi text-terminal-dim hover:text-bronco-orange transition-colors flex items-center gap-x-2 uppercase flex-1 basis-0 group"
+            className="text-small-semi text-terminal-dim hover:text-businessx-orange transition-colors flex items-center gap-x-2 uppercase flex-1 basis-0 group"
             data-testid="back-to-cart-link"
           >
-            <ChevronDown className="rotate-90 group-hover:text-bronco-orange text-terminal-dim transition-colors" size={16} />
+            <ChevronDown className="rotate-90 group-hover:text-businessx-orange text-terminal-dim transition-colors" size={16} />
             <span className="mt-px hidden small:block font-mono font-bold text-xs uppercase tracking-wider">
               Return to Cart
             </span>
@@ -31,7 +31,7 @@ export default async function CheckoutLayout({
           </LocalizedClientLink>
           <LocalizedClientLink
             href="/"
-            className="font-display font-black text-2xl uppercase tracking-wider text-terminal-white hover:text-bronco-orange transition-colors"
+            className="font-display font-black text-2xl uppercase tracking-wider text-terminal-white hover:text-businessx-orange transition-colors"
             data-testid="store-link"
           >
              {logoUrl ? (
@@ -43,7 +43,7 @@ export default async function CheckoutLayout({
                   className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all"
                 />
               ) : (
-                <span className="uppercase tracking-tight">{siteSettings?.general?.siteName || "bronco"}</span>
+                <span className="uppercase tracking-tight">{siteSettings?.general?.siteName || "businessx"}</span>
               )}
           </LocalizedClientLink>
           <div className="flex-1 basis-0 flex justify-end">

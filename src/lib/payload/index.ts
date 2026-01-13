@@ -37,7 +37,7 @@ async function fetchBackendSiteSettings() {
 
     return {
       general: {
-        siteName: brand.site_name === "Bronco" ? "BusinessX" : brand.site_name,
+        siteName: brand.site_name,
         siteDescription: brand.site_description,
       },
       branding: {

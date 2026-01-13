@@ -43,8 +43,8 @@ export const CtaBlock = (props: CtaBlockProps) => {
             ${buttonStyle === 'secondary' 
               ? 'bg-transparent border-2 border-white text-white hover:bg-terminal-black hover:text-black' 
               : buttonStyle === 'outline' && !bgImage
-              ? 'bg-transparent border-2 border-terminal-border text-terminal-white hover:bg-bronco-black hover:text-white'
-              : 'bg-bronco-black text-white hover:bg-bronco-yellow hover:text-black border-2 border-transparent'
+              ? 'bg-transparent border-2 border-terminal-border text-terminal-white hover:bg-businessx-black hover:text-white'
+              : 'bg-businessx-black text-white hover:bg-businessx-yellow hover:text-black border-2 border-transparent'
             }
           `}
         >

@@ -23,7 +23,7 @@ export default function NotFound() {
       <div className="mt-4">
         <LocalizedClientLink 
           href="/"
-          className="px-8 py-3 bg-bronco-orange border border-bronco-orange font-bold text-black font-mono uppercase tracking-widest text-xs hover:bg-orange-600 transition-all block"
+          className="px-8 py-3 bg-businessx-orange border border-businessx-orange font-bold text-black font-mono uppercase tracking-widest text-xs hover:bg-orange-600 transition-all block"
         >
           GO TO HOME
         </LocalizedClientLink>

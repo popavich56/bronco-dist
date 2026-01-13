@@ -22,7 +22,7 @@ export function SubmitButton({
       size="large"
       className={`rounded-none font-bold uppercase tracking-widest text-xs h-10 shadow-none transition-all ${
         variant === "primary" 
-          ? "bg-bronco-black text-white hover:bg-bronco-black/90 border-0" 
+          ? "bg-businessx-black text-white hover:bg-businessx-black/90 border-0" 
           : variant === "secondary"
             ? "bg-terminal-black border-2 border-terminal-border text-terminal-dim hover:border-terminal-border hover:text-terminal-white"
             : ""

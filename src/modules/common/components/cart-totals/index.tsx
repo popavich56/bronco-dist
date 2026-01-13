@@ -42,9 +42,9 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
         </div>
         {!!discount_subtotal && (
           <div className="flex items-center justify-between">
-            <span className="font-mono uppercase tracking-widest text-[10px] text-bronco-orange font-bold">Discount</span>
+            <span className="font-mono uppercase tracking-widest text-[10px] text-businessx-orange font-bold">Discount</span>
             <span
-              className="text-bronco-orange font-mono font-bold"
+              className="text-businessx-orange font-mono font-bold"
               data-testid="cart-discount"
               data-value={discount_subtotal || 0}
             >
@@ -67,7 +67,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
       <div className="flex items-center justify-between text-terminal-white mb-2">
         <span className="font-display font-black uppercase text-2xl tracking-tight">Total</span>
         <span
-          className="font-display font-black text-2xl tracking-tight text-bronco-orange"
+          className="font-display font-black text-2xl tracking-tight text-businessx-orange"
           data-testid="cart-total"
           data-value={total || 0}
         >

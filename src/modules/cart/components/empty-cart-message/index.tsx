@@ -15,7 +15,7 @@ const EmptyCartMessage = () => {
       </Text>
       <div>
         <LocalizedClientLink href="/store">
-          <Button className="h-12 bg-bronco-orange text-black hover:bg-terminal-black hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-transparent hover:border-terminal-border transition-all px-8 text-lg">
+          <Button className="h-12 bg-businessx-orange text-black hover:bg-terminal-black hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-transparent hover:border-terminal-border transition-all px-8 text-lg">
             Explore Products
           </Button>
         </LocalizedClientLink>

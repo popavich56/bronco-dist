@@ -45,7 +45,7 @@ const BottomNav = ({ mainNavigation }: BottomNavProps) => {
                     onClick={() => setActiveTab(activeTab === "shop" ? null : "shop")}
                     className={clx(
                         "flex flex-col items-center justify-center gap-1 transition-colors",
-                        activeTab === "shop" ? "bg-bronco-black text-white" : "text-terminal-white hover:bg-terminal-highlight"
+                        activeTab === "shop" ? "bg-businessx-black text-white" : "text-terminal-white hover:bg-terminal-highlight"
                     )}
                 >
                     <SquaresPlus className="w-6 h-6" />
@@ -57,7 +57,7 @@ const BottomNav = ({ mainNavigation }: BottomNavProps) => {
                     onClick={() => setActiveTab(activeTab === "search" ? null : "search")}
                     className={clx(
                         "flex flex-col items-center justify-center gap-1 transition-colors",
-                        activeTab === "search" ? "bg-bronco-black text-white" : "text-terminal-white hover:bg-terminal-highlight"
+                        activeTab === "search" ? "bg-businessx-black text-white" : "text-terminal-white hover:bg-terminal-highlight"
                     )}
                 >
                     <MagnifyingGlassMini className="w-6 h-6" />

@@ -219,7 +219,7 @@ const AccountNavLink = ({
       className={clx(
         "text-terminal-dim hover:text-terminal-white font-medium transition-colors uppercase tracking-wide",
         {
-          "text-bronco-orange font-black": active,
+          "text-businessx-orange font-black": active,
         }
       )}
       data-testid={dataTestId}

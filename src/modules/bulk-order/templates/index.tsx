@@ -63,7 +63,7 @@ export default function BulkOrderTemplate() {
             placeholder="Search by product name..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="h-12 text-lg border-2 border-terminal-border focus:border-bronco-yellow transition-colors"
+            className="h-12 text-lg border-2 border-terminal-border focus:border-businessx-yellow transition-colors"
             autoFocus
           />
         </div>

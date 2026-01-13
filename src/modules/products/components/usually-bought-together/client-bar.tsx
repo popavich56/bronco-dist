@@ -95,9 +95,9 @@ export default function UsuallyBoughtTogetherBar({
     >
       {/* Glassmorphism Container */}
       <div className="mx-auto max-w-5xl mb-6 px-4">
-        <div className="bg-bronco-black/90 backdrop-blur-xl border border-bronco-gray/20 p-5 md:p-6 rounded-none shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+        <div className="bg-businessx-black/90 backdrop-blur-xl border border-businessx-gray/20 p-5 md:p-6 rounded-none shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
           {/* Ambient Glow */}
-          <div className="absolute -top-20 -left-20 w-60 h-60 bg-bronco-yellow/10 rounded-full blur-[80px] pointer-events-none" />
+          <div className="absolute -top-20 -left-20 w-60 h-60 bg-businessx-yellow/10 rounded-full blur-[80px] pointer-events-none" />
 
           {/* Content Left: Products Stack */}
           <div className="flex items-center gap-6 z-10 w-full md:w-auto">
@@ -114,7 +114,7 @@ export default function UsuallyBoughtTogetherBar({
                     size="full"
                   />
                   {i > 0 && (
-                    <div className="absolute top-0 right-0 w-5 h-5 bg-bronco-yellow text-terminal-white text-[10px] font-extrabold flex items-center justify-center rounded-bl-lg shadow-none">
+                    <div className="absolute top-0 right-0 w-5 h-5 bg-businessx-yellow text-terminal-white text-[10px] font-extrabold flex items-center justify-center rounded-bl-lg shadow-none">
                       +
                     </div>
                   )}
@@ -123,12 +123,12 @@ export default function UsuallyBoughtTogetherBar({
             </div>
 
             <div className="flex flex-col">
-              <Text className="text-bronco-white font-display uppercase font-extrabold text-lg tracking-wide leading-tight">
+              <Text className="text-businessx-white font-display uppercase font-extrabold text-lg tracking-wide leading-tight">
                 Usually Bought Together
               </Text>
-              <Text className="text-bronco-gray font-medium text-sm mt-1">
+              <Text className="text-businessx-gray font-medium text-sm mt-1">
                 Buy {bundle.length} items for{" "}
-                <span className="text-bronco-yellow font-bold text-base ml-1">
+                <span className="text-businessx-yellow font-bold text-base ml-1">
                   {formatPrice(bundleTotal)}
                 </span>
               </Text>
@@ -139,7 +139,7 @@ export default function UsuallyBoughtTogetherBar({
           <div className="flex items-center gap-4 z-10 w-full md:w-auto mt-2 md:mt-0">
             <Button
               variant="primary"
-              className="w-full md:w-auto bg-bronco-yellow text-terminal-white hover:bg-terminal-black hover:text-terminal-white border-2 border-transparent hover:border-bronco-yellow font-extrabold uppercase tracking-wider h-12 px-8 text-sm md:text-base shadow-none hover:shadow-bronco-yellow/20 transition-all"
+              className="w-full md:w-auto bg-businessx-yellow text-terminal-white hover:bg-terminal-black hover:text-terminal-white border-2 border-transparent hover:border-businessx-yellow font-extrabold uppercase tracking-wider h-12 px-8 text-sm md:text-base shadow-none hover:shadow-businessx-yellow/20 transition-all"
               onClick={handleAddAll}
               isLoading={adding}
             >

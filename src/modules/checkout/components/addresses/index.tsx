@@ -55,13 +55,13 @@ const Addresses = ({
           )}
         >
           Shipping Address
-          {!isOpen && cart?.shipping_address && <CheckCircleSolid className="text-bronco-orange" />}
+          {!isOpen && cart?.shipping_address && <CheckCircleSolid className="text-businessx-orange" />}
         </Heading>
         {!isOpen && cart?.shipping_address && onEdit && (
           <Button
             onClick={onEdit}
             variant="transparent"
-            className="text-bronco-orange hover:text-white font-bold uppercase tracking-wide decoration-2 hover:underline font-mono text-xs"
+            className="text-businessx-orange hover:text-white font-bold uppercase tracking-wide decoration-2 hover:underline font-mono text-xs"
             data-testid="edit-address-button"
           >
             Edit
@@ -91,7 +91,7 @@ const Addresses = ({
                 <BillingAddress cart={cart} />
               </div>
             )}
-            <SubmitButton className="mt-6 w-full bg-bronco-orange text-black hover:bg-terminal-black hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-transparent hover:border-terminal-border transition-all shadow-none text-base h-12" data-testid="submit-address-button">
+            <SubmitButton className="mt-6 w-full bg-businessx-orange text-black hover:bg-terminal-black hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-transparent hover:border-terminal-border transition-all shadow-none text-base h-12" data-testid="submit-address-button">
               Confirm Address
             </SubmitButton>
             <ErrorMessage error={message} data-testid="address-error-message" />

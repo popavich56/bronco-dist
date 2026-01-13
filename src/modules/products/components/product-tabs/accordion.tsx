@@ -56,7 +56,7 @@ const Item: React.FC<AccordionItemProps> = ({
       <AccordionPrimitive.Header className="px-1">
         <AccordionPrimitive.Trigger className="w-full flex items-center justify-between group focus:outline-none">
           <div className="flex flex-col text-left">
-            <span className="font-display font-bold uppercase tracking-wide text-sm text-terminal-white group-hover:text-bronco-orange transition-colors">
+            <span className="font-display font-bold uppercase tracking-wide text-sm text-terminal-white group-hover:text-businessx-orange transition-colors">
               {title}
             </span>
             {subtitle && (
@@ -88,7 +88,7 @@ Accordion.Item = Item
 
 const TerminalTrigger = () => {
   return (
-    <div className="relative w-4 h-4 text-terminal-dim group-hover:text-bronco-orange transition-colors">
+    <div className="relative w-4 h-4 text-terminal-dim group-hover:text-businessx-orange transition-colors">
       <Minus className="absolute inset-0 w-4 h-4 transition-transform duration-300 group-data-[state=closed]:rotate-90 group-data-[state=closed]:opacity-0" />
       <Plus className="absolute inset-0 w-4 h-4 transition-transform duration-300 group-data-[state=open]:rotate-90 group-data-[state=open]:opacity-0" />
     </div>

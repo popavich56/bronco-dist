@@ -79,7 +79,7 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
       {type === "full" && (
         <Table.Cell className="align-top py-4 text-center">
           <div className="flex flex-col items-center gap-2">
-            <div className="relative border border-terminal-border bg-terminal-black hover:border-bronco-orange transition-colors h-8 w-16">
+            <div className="relative border border-terminal-border bg-terminal-black hover:border-businessx-orange transition-colors h-8 w-16">
                  <CartItemSelect
                     value={item.quantity}
                     onChange={(value) => changeQuantity(parseInt(value.target.value))}

@@ -26,7 +26,7 @@ export default async function Nav() {
              
              <LocalizedClientLink
               href="/"
-              className="font-display font-extrabold text-2xl tracking-tighter text-terminal-white hover:text-bronco-orange transition-colors uppercase flex items-center gap-2"
+              className="font-display font-extrabold text-2xl tracking-tighter text-terminal-white hover:text-businessx-orange transition-colors uppercase flex items-center gap-2"
               data-testid="nav-store-link"
             >
               {logoUrl ? (
@@ -66,7 +66,7 @@ export default async function Nav() {
                  return (
                   <LocalizedClientLink
                     key={i}
-                    className="hover:text-bronco-orange transition-colors uppercase tracking-wider text-xs font-bold"
+                    className="hover:text-businessx-orange transition-colors uppercase tracking-wider text-xs font-bold"
                     href={href}
                     target={link.newTab ? "_blank" : undefined}
                   >
@@ -78,14 +78,14 @@ export default async function Nav() {
               {!mainNavigation && (
                 <>
                   <LocalizedClientLink
-                    className="hover:text-bronco-orange transition-colors uppercase tracking-wider text-xs font-bold"
+                    className="hover:text-businessx-orange transition-colors uppercase tracking-wider text-xs font-bold"
                     href="/bulk-order"
                     data-testid="nav-bulk-link"
                   >
                     Bulk Order
                   </LocalizedClientLink>
                   <LocalizedClientLink
-                    className="hover:text-bronco-orange transition-colors uppercase tracking-wider text-xs font-bold"
+                    className="hover:text-businessx-orange transition-colors uppercase tracking-wider text-xs font-bold"
                     href="/account"
                     data-testid="nav-account-link"
                   >
@@ -100,7 +100,7 @@ export default async function Nav() {
                 <Suspense
                 fallback={
                     <LocalizedClientLink
-                    className="hover:text-bronco-orange transition-colors flex gap-2 font-mono text-xs font-bold"
+                    className="hover:text-businessx-orange transition-colors flex gap-2 font-mono text-xs font-bold"
                     href="/cart"
                     data-testid="nav-cart-link"
                     >

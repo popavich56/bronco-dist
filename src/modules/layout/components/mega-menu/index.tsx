@@ -17,7 +17,7 @@ const MegaMenu = () => {
           <Popover.Button
             className={clx(
               "h-full flex items-center px-4 font-bold font-mono text-xs uppercase tracking-widest transition-colors focus:outline-none gap-2",
-              open ? "text-bronco-orange bg-terminal-surface  border-x border-terminal-border " : "text-terminal-white dark:text-neutral-300 hover:text-bronco-orange"
+              open ? "text-businessx-orange bg-terminal-surface  border-x border-terminal-border " : "text-terminal-white dark:text-neutral-300 hover:text-businessx-orange"
             )}
             data-testid="nav-shop-link"
           >
@@ -46,7 +46,7 @@ const MegaMenu = () => {
                     <div key={category.id} className="flex flex-col gap-3 group">
                       <LocalizedClientLink
                         href={`/categories/${category.handle}`}
-                        className="font-display font-bold text-sm uppercase tracking-wide text-terminal-white dark:text-neutral-200 hover:text-bronco-orange transition-colors flex items-center gap-2"
+                        className="font-display font-bold text-sm uppercase tracking-wide text-terminal-white dark:text-neutral-200 hover:text-businessx-orange transition-colors flex items-center gap-2"
                         onClick={close}
                       > 
                         {/* Removed Box Icon here as well for consistency */}
@@ -76,7 +76,7 @@ const MegaMenu = () => {
                  {categories.length === 0 && (
                     <div className="flex flex-col gap-2 items-center justify-center py-12 text-terminal-dim dark:text-terminal-dim font-mono text-xs">
                         <Text>No Categories Found.</Text>
-                        <LocalizedClientLink href="/store" className="underline hover:text-bronco-orange" onClick={close}>
+                        <LocalizedClientLink href="/store" className="underline hover:text-businessx-orange" onClick={close}>
                             View Full Inventory
                         </LocalizedClientLink>
                     </div>

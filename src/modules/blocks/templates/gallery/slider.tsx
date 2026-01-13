@@ -147,7 +147,7 @@ const GallerySlider = ({ images, settings }: SliderProps) => {
                             <button
                                 key={i}
                                 onClick={() => scrollTo(i)}
-                                className={`transition-colors text-white hover:text-bronco-yellow ${i === currentIndex ? 'text-bronco-yellow' : 'text-white/50'}`}
+                                className={`transition-colors text-white hover:text-businessx-yellow ${i === currentIndex ? 'text-businessx-yellow' : 'text-white/50'}`}
                                 aria-label={`Go to slide ${i + 1}`}
                             >
                                 {i === currentIndex ? <CircleDot size={12} fill="currentColor" /> : <Circle size={12} fill="currentColor" />}

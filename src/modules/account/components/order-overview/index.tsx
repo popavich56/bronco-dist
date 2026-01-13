@@ -31,7 +31,7 @@ const OrderOverview = ({ orders }: { orders: Order[] }) => {
       <div className="mt-4">
         <LocalizedClientLink href="/" passHref>
           <Button 
-            className="bg-bronco-orange text-black hover:bg-terminal-black hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-transparent hover:border-terminal-border transition-all h-10 px-6"
+            className="bg-businessx-orange text-black hover:bg-terminal-black hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-transparent hover:border-terminal-border transition-all h-10 px-6"
             data-testid="continue-shopping-button"
           >
             Continue shopping

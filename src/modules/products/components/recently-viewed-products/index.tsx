@@ -71,14 +71,14 @@ export default function RecentlyViewedProducts({
             href={`/products/${product.handle}`}
             className="group flex flex-col gap-y-1 w-24 flex-shrink-0"
           >
-            <div className="aspect-[1/1] w-full overflow-hidden bg-terminal-highlight rounded-sm border border-transparent group-hover:border-bronco-yellow transition-colors relative">
+            <div className="aspect-[1/1] w-full overflow-hidden bg-terminal-highlight rounded-sm border border-transparent group-hover:border-businessx-yellow transition-colors relative">
               <Thumbnail
                 thumbnail={product.thumbnail}
                 images={product.images}
                 size="full"
               />
             </div>
-            <Text className="text-[10px] leading-tight font-bold font-display uppercase truncate group-hover:text-bronco-yellow transition-colors">
+            <Text className="text-[10px] leading-tight font-bold font-display uppercase truncate group-hover:text-businessx-yellow transition-colors">
               {product.title}
             </Text>
           </LocalizedClientLink>

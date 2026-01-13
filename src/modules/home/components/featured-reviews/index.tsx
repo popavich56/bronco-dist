@@ -11,14 +11,14 @@ export const FeaturedReviews = ({ reviews }: { reviews: any[] }) => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
              <div className="flex items-center gap-2 mb-4">
-               <span className="font-mono text-xs font-bold text-bronco-orange uppercase tracking-widest">Feedback</span>
+               <span className="font-mono text-xs font-bold text-businessx-orange uppercase tracking-widest">Feedback</span>
              </div>
              <Heading level="h2" className="text-5xl md:text-6xl font-bold font-display text-terminal-white uppercase leading-none tracking-tighter">
                Operator Reviews
              </Heading>
           </div>
           
-          <LocalizedClientLink href="/products" className="group flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-terminal-dim hover:text-bronco-orange transition-colors">
+          <LocalizedClientLink href="/products" className="group flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-terminal-dim hover:text-businessx-orange transition-colors">
             See All
             <span className="block w-4 h-[1px] bg-current transition-all group-hover:w-8" />
           </LocalizedClientLink>
@@ -28,10 +28,10 @@ export const FeaturedReviews = ({ reviews }: { reviews: any[] }) => {
           {reviews.map((review, index) => (
             <div 
               key={review.id} 
-              className="bg-terminal-panel p-8 border border-terminal-border hover:border-bronco-orange transition-all duration-300 flex flex-col justify-between h-full group"
+              className="bg-terminal-panel p-8 border border-terminal-border hover:border-businessx-orange transition-all duration-300 flex flex-col justify-between h-full group"
             >
               <div>
-                <div className="flex gap-1 mb-6 text-bronco-orange">
+                <div className="flex gap-1 mb-6 text-businessx-orange">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className={`w-4 h-4 ${i < review.rating ? "fill-current" : "text-terminal-active fill-terminal-active"}`} />
                   ))}
@@ -54,7 +54,7 @@ export const FeaturedReviews = ({ reviews }: { reviews: any[] }) => {
                      {review.first_name} {review.last_name}
                    </p>
                    {review.product && (
-                     <LocalizedClientLink href={`/products/${review.product.handle}`} className="text-[10px] font-mono text-terminal-tech uppercase hover:text-bronco-orange transition-colors flex items-center gap-1">
+                     <LocalizedClientLink href={`/products/${review.product.handle}`} className="text-[10px] font-mono text-terminal-tech uppercase hover:text-businessx-orange transition-colors flex items-center gap-1">
                        <MessageSquare className="w-3 h-3" />
                        Verified Purchase
                      </LocalizedClientLink>

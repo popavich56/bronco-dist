@@ -87,7 +87,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                   )}
                   <span
                     className={clx({
-                      "text-ui-fg-interactive dark:text-bronco-yellow":
+                      "text-ui-fg-interactive dark:text-businessx-yellow":
                         selectedPrice.price_type === "sale",
                     })}
                   >
@@ -123,7 +123,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
               <Button
                 onClick={handleAddToCart}
                 disabled={!inStock || !variant}
-                className="w-full h-12 border-2 border-terminal-border rounded-none uppercase font-black font-display text-terminal-white bg-bronco-yellow shadow-none hover:shadow-none transition-all"
+                className="w-full h-12 border-2 border-terminal-border rounded-none uppercase font-black font-display text-terminal-white bg-businessx-yellow shadow-none hover:shadow-none transition-all"
                 isLoading={isAdding}
                 data-testid="mobile-cart-button"
               >

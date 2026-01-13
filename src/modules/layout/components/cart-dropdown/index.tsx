@@ -85,7 +85,7 @@ const CartDropdown = ({
       <Popover className="relative h-full">
         <PopoverButton className="h-full focus:outline-none">
           <LocalizedClientLink
-            className="hover:text-bronco-orange text-terminal-white transition-colors font-bold uppercase font-mono tracking-wider text-xs"
+            className="hover:text-businessx-orange text-terminal-white transition-colors font-bold uppercase font-mono tracking-wider text-xs"
             href="/cart"
             data-testid="nav-cart-link"
           >{`Cart (${totalItems})`}</LocalizedClientLink>
@@ -144,7 +144,7 @@ const CartDropdown = ({
                                   <LocalizedClientLink
                                     href={`/products/${item.product_handle}`}
                                     data-testid="product-link"
-                                    className="hover:text-bronco-orange transition-colors"
+                                    className="hover:text-businessx-orange transition-colors"
                                   >
                                     {item.title}
                                   </LocalizedClientLink>
@@ -201,7 +201,7 @@ const CartDropdown = ({
                   </div>
                   <LocalizedClientLink href="/cart" passHref>
                     <Button
-                      className="w-full h-10 bg-bronco-orange text-black hover:bg-terminal-black hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-transparent hover:border-terminal-border transition-all"
+                      className="w-full h-10 bg-businessx-orange text-black hover:bg-terminal-black hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-transparent hover:border-terminal-border transition-all"
                       size="large"
                       data-testid="go-to-cart-button"
                     >
@@ -223,7 +223,7 @@ const CartDropdown = ({
                         <span className="sr-only">Go to all products page</span>
                         <Button
                             onClick={close}
-                            className="h-8 bg-transparent text-bronco-orange hover:bg-bronco-orange hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-bronco-orange transition-all"
+                            className="h-8 bg-transparent text-businessx-orange hover:bg-businessx-orange hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-businessx-orange transition-all"
                         >
                             Browse Products
                         </Button>

@@ -54,7 +54,7 @@ export default function BulkOrderTable({ products }: BulkOrderTableProps) {
     <div className="w-full overflow-x-auto border-2 border-terminal-border shadow-none bg-terminal-black">
       <table className="w-full text-left border-collapse min-w-[800px]">
         <thead>
-          <tr className="bg-bronco-black text-white font-display uppercase text-sm tracking-wider">
+          <tr className="bg-businessx-black text-white font-display uppercase text-sm tracking-wider">
             <th className="p-4 border-r border-white/20 w-[80px]">Image</th>
             <th className="p-4 border-r border-white/20">Product</th>
             <th className="p-4 border-r border-white/20">Variant</th>
@@ -64,7 +64,7 @@ export default function BulkOrderTable({ products }: BulkOrderTableProps) {
             <th className="p-4 text-center w-[120px]">Action</th>
           </tr>
         </thead>
-        <tbody className="divide-y-2 divide-bronco-black text-terminal-white font-medium">
+        <tbody className="divide-y-2 divide-businessx-black text-terminal-white font-medium">
           {products.flatMap((product) => {
             // If product has no variants, skip? Or show placeholder?
             // Medusa products usually have at least 1 variant (the default one).
@@ -83,7 +83,7 @@ export default function BulkOrderTable({ products }: BulkOrderTableProps) {
               const canBuy = inStock || variant.allow_backorder
 
               return (
-                <tr key={variant.id} className="hover:bg-bronco-gray transition-colors group">
+                <tr key={variant.id} className="hover:bg-businessx-gray transition-colors group">
                   {/* Show image only for first variant or if variant has specific image? 
                       For simplicity, let's show product thumbnail on first variant of the product group,
                       or if we want to be fancy, match variant image.
@@ -126,7 +126,7 @@ export default function BulkOrderTable({ products }: BulkOrderTableProps) {
                     <input
                       type="number"
                       min={1}
-                      className="w-full p-2 border border-terminal-border font-mono text-center focus:ring-2 focus:ring-bronco-yellow outline-none"
+                      className="w-full p-2 border border-terminal-border font-mono text-center focus:ring-2 focus:ring-businessx-yellow outline-none"
                       value={quantities[variant.id] || 1}
                       onChange={(e) => handleQuantityChange(variant.id, parseInt(e.target.value))}
                       disabled={!canBuy}
@@ -137,7 +137,7 @@ export default function BulkOrderTable({ products }: BulkOrderTableProps) {
                       onClick={() => handleAddToCart(variant.id)}
                       disabled={!canBuy || addingState[variant.id]}
                       isLoading={addingState[variant.id]}
-                      className="w-full bg-bronco-black text-white hover:bg-bronco-yellow hover:text-terminal-white border border-transparent hover:border-terminal-border transition-all rounded-none font-bold uppercase shadow-none text-xs h-10"
+                      className="w-full bg-businessx-black text-white hover:bg-businessx-yellow hover:text-terminal-white border border-transparent hover:border-terminal-border transition-all rounded-none font-bold uppercase shadow-none text-xs h-10"
                     >
                       Add
                     </Button>

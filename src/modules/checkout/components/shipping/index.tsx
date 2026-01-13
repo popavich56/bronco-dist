@@ -160,13 +160,13 @@ const Shipping: React.FC<ShippingProps> = ({
           )}
         >
           Delivery Method
-          {selectedMethodId && !isOpen && <CheckCircleSolid className="text-bronco-orange" />}
+          {selectedMethodId && !isOpen && <CheckCircleSolid className="text-businessx-orange" />}
         </Heading>
         {selectedMethodId && !isOpen && onEdit && (
           <Button
             onClick={onEdit}
             variant="transparent"
-            className="text-bronco-orange hover:text-white font-bold uppercase tracking-wide decoration-2 hover:underline font-mono text-xs"
+            className="text-businessx-orange hover:text-white font-bold uppercase tracking-wide decoration-2 hover:underline font-mono text-xs"
             data-testid="edit-delivery-button"
           >
             Edit
@@ -205,7 +205,7 @@ const Shipping: React.FC<ShippingProps> = ({
                       className={clx(
                         "flex items-center justify-between text-base-regular cursor-pointer py-4 border border-terminal-border px-8 mb-4 transition-all hover:bg-terminal-highlight/20",
                         {
-                          "bg-terminal-highlight/30 border-bronco-orange":
+                          "bg-terminal-highlight/30 border-businessx-orange":
                             showPickupOptions === PICKUP_OPTION_ON,
                           "bg-terminal-black":
                             showPickupOptions !== PICKUP_OPTION_ON,
@@ -249,7 +249,7 @@ const Shipping: React.FC<ShippingProps> = ({
                         className={clx(
                           "flex items-center justify-between text-base-regular cursor-pointer py-4 border border-terminal-border px-8 mb-4 transition-all hover:bg-terminal-highlight/20",
                           {
-                            "bg-terminal-highlight/30 border-bronco-orange":
+                            "bg-terminal-highlight/30 border-businessx-orange":
                               option.id === shippingMethodId,
                             "bg-terminal-black":
                               option.id !== shippingMethodId,
@@ -321,7 +321,7 @@ const Shipping: React.FC<ShippingProps> = ({
                           className={clx(
                             "flex items-center justify-between text-base-regular cursor-pointer py-4 border border-terminal-border px-8 mb-4 transition-all hover:bg-terminal-highlight/20",
                             {
-                              "bg-terminal-highlight/30 border-bronco-orange":
+                              "bg-terminal-highlight/30 border-businessx-orange":
                                 option.id === shippingMethodId,
                               "bg-terminal-black":
                                   option.id !== shippingMethodId,

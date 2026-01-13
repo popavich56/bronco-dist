@@ -23,13 +23,13 @@ export default async function OrderCompletedTemplate({
   const itemsCount = order.items?.length || 0
 
   return (
-    <div className="bg-bronco-gray py-12 min-h-[calc(100vh-64px)]">
+    <div className="bg-businessx-gray py-12 min-h-[calc(100vh-64px)]">
       <div className="content-container flex flex-col justify-center items-center gap-y-10 max-w-6xl mx-auto w-full px-4">
         {isOnboarding && <OnboardingCta orderId={order.id} />}
         
         {/* Success Header Card */}
         <div className="w-full bg-terminal-panel border-2 border-terminal-border p-8 shadow-none-lg text-center flex flex-col items-center rounded-none">
-            <div className="w-16 h-16 bg-bronco-yellow rounded-full flex items-center justify-center border-2 border-terminal-border mb-6 shadow-none-sm">
+            <div className="w-16 h-16 bg-businessx-yellow rounded-full flex items-center justify-center border-2 border-terminal-border mb-6 shadow-none-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8 text-terminal-white">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
@@ -50,7 +50,7 @@ export default async function OrderCompletedTemplate({
                 <div className="bg-terminal-panel border-2 border-terminal-border p-0 shadow-none overflow-hidden rounded-none">
                     <div className="p-6 border-b-2 border-terminal-border bg-terminal-surface flex items-center justify-between">
                         <Heading level="h2" className="text-xl font-display font-black uppercase text-terminal-white">Order Summary</Heading>
-                        <Text className="text-sm font-bold bg-bronco-black text-white px-3 py-1 rounded-full border border-terminal-border">{itemsCount} {itemsCount === 1 ? 'Item' : 'Items'}</Text>
+                        <Text className="text-sm font-bold bg-businessx-black text-white px-3 py-1 rounded-full border border-terminal-border">{itemsCount} {itemsCount === 1 ? 'Item' : 'Items'}</Text>
                     </div>
                     <div className="p-6">
                         <Items order={order} />
@@ -77,7 +77,7 @@ export default async function OrderCompletedTemplate({
                     <PaymentDetails order={order} />
                  </div>
 
-                 <div className="bg-bronco-yellow border-2 border-terminal-border p-6 shadow-none text-terminal-white rounded-none">
+                 <div className="bg-businessx-yellow border-2 border-terminal-border p-6 shadow-none text-terminal-white rounded-none">
                     <Heading level="h2" className="text-lg font-display font-black uppercase border-b-2 border-terminal-border pb-3 mb-4">Need Help?</Heading>
                     <Help />
                  </div>

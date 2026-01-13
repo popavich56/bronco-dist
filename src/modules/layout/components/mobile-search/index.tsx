@@ -81,7 +81,7 @@ const MobileSearch = ({ isOpen, close }: MobileSearchProps) => {
                 <form onSubmit={handleSubmit} className="flex-1 relative">
                     <div className="relative group">
                         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <MagnifyingGlassMini className="w-5 h-5 text-terminal-dim group-focus-within:text-bronco-yellow transition-colors" />
+                            <MagnifyingGlassMini className="w-5 h-5 text-terminal-dim group-focus-within:text-businessx-yellow transition-colors" />
                         </div>
                         <input
                             ref={inputRef}
@@ -149,7 +149,7 @@ const MobileSearch = ({ isOpen, close }: MobileSearchProps) => {
                                             router.push(`/search?q=${encodeURIComponent(cat.value)}`)
                                             close()
                                         }}
-                                        className="px-3 py-1.5 bg-terminal-panel  border border-terminal-border dark:border-zinc-700 rounded-full text-xs font-bold uppercase text-terminal-white dark:text-neutral-200 hover:border-terminal-border dark:hover:border-white hover:bg-bronco-black dark:hover:bg-terminal-black hover:text-white dark:hover:text-black transition-all"
+                                        className="px-3 py-1.5 bg-terminal-panel  border border-terminal-border dark:border-zinc-700 rounded-full text-xs font-bold uppercase text-terminal-white dark:text-neutral-200 hover:border-terminal-border dark:hover:border-white hover:bg-businessx-black dark:hover:bg-terminal-black hover:text-white dark:hover:text-black transition-all"
                                     >
                                         {cat.value}
                                     </button>
@@ -168,7 +168,7 @@ const MobileSearch = ({ isOpen, close }: MobileSearchProps) => {
                                 <LocalizedClientLink
                                     key={product.id}
                                     href={`/products/${product.handle}`}
-                                    className="flex items-center gap-4 px-6 py-4 border-b border-gray-50  hover:bg-bronco-yellow/5  transition-colors group"
+                                    className="flex items-center gap-4 px-6 py-4 border-b border-gray-50  hover:bg-businessx-yellow/5  transition-colors group"
                                     onClick={close}
                                 >
                                     <div className="w-16 h-16 rounded-none bg-terminal-highlight  border border-terminal-border  overflow-hidden shrink-0 relative">
@@ -206,7 +206,7 @@ const MobileSearch = ({ isOpen, close }: MobileSearchProps) => {
                                 router.push(`/search?q=${encodeURIComponent(query)}`)
                                 close()
                             }}
-                            className="w-full py-3 bg-bronco-black dark:bg-terminal-black text-white dark:text-black font-bold uppercase rounded-none hover:bg-bronco-black/90 dark:hover:bg-gray-200 transition-colors shadow-none-sm"
+                            className="w-full py-3 bg-businessx-black dark:bg-terminal-black text-white dark:text-black font-bold uppercase rounded-none hover:bg-businessx-black/90 dark:hover:bg-gray-200 transition-colors shadow-none-sm"
                         >
                             View all {data?.count} results
                         </button>

@@ -43,9 +43,9 @@ export const ProductCollectionBlock = async (props: ProductCollectionBlockProps)
   return (
     <section className="py-24 bg-terminal-black border-t border-terminal-border relative overflow-hidden">
       <div className="content-container px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 border-l-2 border-bronco-orange pl-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 border-l-2 border-businessx-orange pl-6">
           <div className="max-w-2xl">
-             <div className="flex items-center gap-2 mb-2 text-bronco-orange">
+             <div className="flex items-center gap-2 mb-2 text-businessx-orange">
                 <Box className="w-4 h-4" />
                 <span className="text-xs font-mono font-bold uppercase tracking-widest">Inventory Sector</span>
              </div>
@@ -58,7 +58,7 @@ export const ProductCollectionBlock = async (props: ProductCollectionBlockProps)
           </div>
           <Link 
             href={`/collections/${collectionHandle}`}
-            className="flex items-center gap-2 px-6 py-3 bg-transparent border border-terminal-border text-terminal-white hover:border-bronco-orange hover:text-bronco-orange font-mono text-xs font-bold uppercase tracking-widest transition-all group"
+            className="flex items-center gap-2 px-6 py-3 bg-transparent border border-terminal-border text-terminal-white hover:border-businessx-orange hover:text-businessx-orange font-mono text-xs font-bold uppercase tracking-widest transition-all group"
           >
             Access Full List
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

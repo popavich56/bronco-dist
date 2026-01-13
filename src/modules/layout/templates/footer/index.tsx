@@ -22,7 +22,7 @@ export default async function Footer() {
           <div className="space-y-6">
             <LocalizedClientLink
               href="/"
-              className="font-display font-extrabold text-3xl tracking-tighter text-terminal-white  hover:text-bronco-orange transition-colors uppercase block"
+              className="font-display font-extrabold text-3xl tracking-tighter text-terminal-white  hover:text-businessx-orange transition-colors uppercase block"
             >
               {logoUrl ? (
                 <Image 
@@ -42,10 +42,10 @@ export default async function Footer() {
             {(siteSettings?.contact?.email || siteSettings?.contact?.phone) && (
               <div className="flex flex-col gap-1 text-xs font-mono font-bold text-terminal-dim">
                  {siteSettings?.contact?.email && (
-                    <a href={`mailto:${siteSettings.contact.email}`} className="hover:text-bronco-orange transition-colors uppercase">{siteSettings.contact.email}</a>
+                    <a href={`mailto:${siteSettings.contact.email}`} className="hover:text-businessx-orange transition-colors uppercase">{siteSettings.contact.email}</a>
                  )}
                  {siteSettings?.contact?.phone && (
-                    <a href={`tel:${siteSettings.contact.phone}`} className="hover:text-bronco-orange transition-colors uppercase">{siteSettings.contact.phone}</a>
+                    <a href={`tel:${siteSettings.contact.phone}`} className="hover:text-businessx-orange transition-colors uppercase">{siteSettings.contact.phone}</a>
                  )}
               </div>
             )}
@@ -64,7 +64,7 @@ export default async function Footer() {
                     return (
                       <li key={c.id}>
                         <LocalizedClientLink
-                          className="font-bold font-display text-sm hover:text-bronco-orange uppercase transition-colors"
+                          className="font-bold font-display text-sm hover:text-businessx-orange uppercase transition-colors"
                           href={`/categories/${c.handle}`}
                           data-testid="category-link"
                         >
@@ -86,7 +86,7 @@ export default async function Footer() {
                   {collections?.slice(0, 6).map((c) => (
                     <li key={c.id}>
                       <LocalizedClientLink
-                        className="font-bold font-display text-sm hover:text-bronco-orange uppercase transition-colors"
+                        className="font-bold font-display text-sm hover:text-businessx-orange uppercase transition-colors"
                         href={`/collections/${c.handle}`}
                       >
                         {c.title}
@@ -111,7 +111,7 @@ export default async function Footer() {
                       <li key={i}>
                         <LocalizedClientLink
                            href={href}
-                           className="font-bold font-display text-sm hover:text-bronco-orange uppercase transition-colors"
+                           className="font-bold font-display text-sm hover:text-businessx-orange uppercase transition-colors"
                            target={item.openInNewTab ? "_blank" : undefined}
                         >
                           {item.label}
@@ -125,7 +125,7 @@ export default async function Footer() {
                     <li>
                       <LocalizedClientLink
                          href="/customer-service" 
-                         className="font-bold font-display text-sm hover:text-bronco-orange uppercase transition-colors"
+                         className="font-bold font-display text-sm hover:text-businessx-orange uppercase transition-colors"
                       >
                         Support
                       </LocalizedClientLink>
@@ -133,7 +133,7 @@ export default async function Footer() {
                     <li>
                       <LocalizedClientLink
                          href="/account" 
-                         className="font-bold font-display text-sm hover:text-bronco-orange uppercase transition-colors"
+                         className="font-bold font-display text-sm hover:text-businessx-orange uppercase transition-colors"
                       >
                         Account
                       </LocalizedClientLink>
@@ -160,7 +160,7 @@ export default async function Footer() {
             rel="noopener noreferrer"
             className="flex items-center gap-2 group mt-4 md:mt-0 opacity-60 hover:opacity-100 transition-all duration-300"
           >
-            <span className="group-hover:text-bronco-orange transition-colors">Engineered by</span>
+            <span className="group-hover:text-businessx-orange transition-colors">Engineered by</span>
             <Image 
                 src="/xclade/logo.svg" 
                 alt="Xclade Design Labs" 

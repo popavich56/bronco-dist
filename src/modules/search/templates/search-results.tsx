@@ -89,8 +89,8 @@ export default async function SearchResults({
                                     href={`/search?q=${encodeURIComponent(c.value)}`} 
                                     className="flex justify-between items-center group hover:bg-terminal-surface p-2 transition-all cursor-pointer"
                                 >
-                                    <span className="text-terminal-white font-bold text-xs uppercase tracking-wide group-hover:text-bronco-orange transition-colors flex items-center gap-2">
-                                       <ChevronRight className="w-3 h-3 opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-bronco-orange" />
+                                    <span className="text-terminal-white font-bold text-xs uppercase tracking-wide group-hover:text-businessx-orange transition-colors flex items-center gap-2">
+                                       <ChevronRight className="w-3 h-3 opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-businessx-orange" />
                                        {c.value}
                                     </span>
                                     <span className="text-[10px] font-mono font-bold text-terminal-dim">{c.count}</span>

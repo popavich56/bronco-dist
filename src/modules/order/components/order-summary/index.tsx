@@ -50,7 +50,7 @@ const OrderSummary = ({ order }: OrderSummaryProps) => {
           <span>{getAmount(order.tax_total)}</span>
         </div>
 
-        <div className="h-0.5 w-full bg-bronco-black my-4" />
+        <div className="h-0.5 w-full bg-businessx-black my-4" />
         
         <div className="flex items-center justify-between font-black text-xl font-display uppercase">
           <span>Total</span>

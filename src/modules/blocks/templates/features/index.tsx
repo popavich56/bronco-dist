@@ -11,7 +11,7 @@ export const FeaturesBlock = (props: FeaturesBlockProps) => {
   if (!features || features.length === 0) return null
 
   return (
-    <section className="py-24 bg-bronco-gray bg-opacity-10">
+    <section className="py-24 bg-businessx-gray bg-opacity-10">
       <div className="content-container px-6">
         <div className="text-center mb-16">
           {title && (
@@ -55,7 +55,7 @@ export const FeaturesBlock = (props: FeaturesBlockProps) => {
                      <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                    )}
                    {feature.link && (
-                     <Link href={feature.link} className="inline-block mt-4 text-terminal-white font-bold uppercase tracking-wider text-sm border-b-2 border-bronco-yellow hover:bg-bronco-yellow transition-all">
+                     <Link href={feature.link} className="inline-block mt-4 text-terminal-white font-bold uppercase tracking-wider text-sm border-b-2 border-businessx-yellow hover:bg-businessx-yellow transition-all">
                        Learn More
                      </Link>
                    )}

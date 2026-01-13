@@ -32,7 +32,7 @@ const SearchTemplate = ({
     >
       <div className="flex flex-col gap-4 mb-8">
         <h1 className="text-2xl font-display font-bold text-terminal-white uppercase tracking-wide">
-          Search Results for <span className="text-bronco-yellow bg-bronco-black px-2 py-0.5 rounded-sm">&quot;{query}&quot;</span>
+          Search Results for <span className="text-businessx-yellow bg-businessx-black px-2 py-0.5 rounded-sm">&quot;{query}&quot;</span>
         </h1>
       </div>
       <StoreToolbar sortBy={sort} limit={limitNumber} view={viewMode as "grid" | "list"} />

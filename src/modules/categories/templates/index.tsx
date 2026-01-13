@@ -50,14 +50,14 @@ export default function CategoryTemplate({
         <div className="mb-4 flex flex-wrap items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-widest text-terminal-dim ">
           <LocalizedClientLink
             href="/"
-            className="hover:text-bronco-orange transition-colors"
+            className="hover:text-businessx-orange transition-colors"
           >
             Home
           </LocalizedClientLink>
           <span>/</span>
           <LocalizedClientLink
             href="/store"
-            className="hover:text-bronco-orange transition-colors"
+            className="hover:text-businessx-orange transition-colors"
           >
             Inventory
           </LocalizedClientLink>
@@ -69,7 +69,7 @@ export default function CategoryTemplate({
               .map((parent, index) => (
                 <span key={parent.id} className="flex items-center gap-2">
                   <LocalizedClientLink
-                    className="hover:text-bronco-orange transition-colors"
+                    className="hover:text-businessx-orange transition-colors"
                     href={`/categories/${parent.handle}`}
                   >
                     {parent.name}
@@ -122,12 +122,12 @@ export default function CategoryTemplate({
                   <li key={c.id}>
                     <LocalizedClientLink
                       href={`/categories/${c.handle}`}
-                      className="group flex items-center gap-x-3 bg-terminal-surface border border-terminal-border px-4 py-2 hover:border-bronco-orange transition-all duration-200"
+                      className="group flex items-center gap-x-3 bg-terminal-surface border border-terminal-border px-4 py-2 hover:border-businessx-orange transition-all duration-200"
                     >
-                      <span className="font-bold font-mono uppercase tracking-wide text-xs text-terminal-white group-hover:text-bronco-orange">
+                      <span className="font-bold font-mono uppercase tracking-wide text-xs text-terminal-white group-hover:text-businessx-orange">
                         {c.name}
                       </span>
-                      <ArrowRight className="w-3 h-3 text-terminal-dim group-hover:text-bronco-orange group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="w-3 h-3 text-terminal-dim group-hover:text-businessx-orange group-hover:translate-x-1 transition-all" />
                     </LocalizedClientLink>
                   </li>
                 ))}

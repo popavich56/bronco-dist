@@ -17,7 +17,7 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
     <div className="flex flex-col w-full text-terminal-white">
       {!showStatus && (
           <Text className="text-base text-terminal-dim text-center mb-6 font-body">
-            We have sent the order confirmation details to <span className="font-bold text-terminal-white border-b-2 border-bronco-yellow">{order.email}</span>.
+            We have sent the order confirmation details to <span className="font-bold text-terminal-white border-b-2 border-businessx-yellow">{order.email}</span>.
           </Text>
       )}
 

@@ -30,7 +30,7 @@ export default function RequestQuoteButton({ cartId, disabled }: { cartId: strin
     return (
         <Button 
             variant="secondary" 
-            className="w-full h-10 border border-terminal-border bg-transparent text-terminal-dim hover:text-bronco-orange hover:border-bronco-orange transition-colors uppercase font-bold tracking-wider rounded-none"
+            className="w-full h-10 border border-terminal-border bg-transparent text-terminal-dim hover:text-businessx-orange hover:border-businessx-orange transition-colors uppercase font-bold tracking-wider rounded-none"
             onClick={handleRequest}
             disabled={disabled || isLoading}
         >

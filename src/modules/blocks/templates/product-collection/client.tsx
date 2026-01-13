@@ -82,7 +82,7 @@ export const ProductCollectionBlockClient = (props: ProductCollectionBlockProps)
           {typeof collection === 'object' && 'handle' in collection && (
                <Link 
                href={`/collections/${collection.handle || ''}`}
-               className="text-terminal-white font-bold uppercase tracking-wider border-b-2 border-bronco-yellow hover:bg-bronco-yellow transition-all pb-1"
+               className="text-terminal-white font-bold uppercase tracking-wider border-b-2 border-businessx-yellow hover:bg-businessx-yellow transition-all pb-1"
              >
                View All Products
              </Link>

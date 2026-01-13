@@ -1,13 +1,20 @@
 import { retrieveCart, retrieveCheckoutCart } from "@lib/data/cart"
 import { retrieveCustomer } from "@lib/data/customer"
+import { getPayloadGlobal } from "@lib/payload"
 import PaymentWrapper from "@modules/checkout/components/payment-wrapper"
 import CheckoutForm from "@modules/checkout/templates/checkout-form"
 import CheckoutSummary from "@modules/checkout/templates/checkout-summary"
 import { Metadata } from "next"
 import { notFound, redirect } from "next/navigation"
 
-export const metadata: Metadata = {
-  title: "Secure Checkout | Bronco Distribution",
+export async function generateMetadata(): Promise<Metadata> {
+  // Get store configuration for dynamic branding
+  const siteSettings = await getPayloadGlobal("site-settings")
+  const storeName = siteSettings?.general?.siteName || "BusinessX"
+
+  return {
+    title: `Secure Checkout | ${storeName}`,
+  }
 }
 
 export default async function Checkout(props: { params: Promise<{ countryCode: string }> }) {

@@ -36,9 +36,9 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
               className={clx(
                 "border-2 border-terminal-border h-12 p-2 flex-1 font-display font-medium text-sm tracking-wide uppercase transition-all duration-200",
                 {
-                  "bg-bronco-black text-bronco-white dark:bg-terminal-black dark:text-terminal-white":
+                  "bg-businessx-black text-businessx-white dark:bg-terminal-black dark:text-terminal-white":
                     v === current,
-                  "bg-terminal-black text-terminal-white hover:bg-bronco-yellow dark:hover:bg-bronco-yellow":
+                  "bg-terminal-black text-terminal-white hover:bg-businessx-yellow dark:hover:bg-businessx-yellow":
                     v !== current,
                 }
               )}

@@ -1,4 +1,4 @@
-# Bronco Distribution Design System - "Terminal Prime" (Light Ops Variant)
+# BusinessX Design System - "Terminal Prime" (Light Ops Variant)
 
 ## Philosophy
 - **Precision:** Every pixel serves a purpose. High data density where appropriate.
@@ -25,8 +25,8 @@
 - **Text Technical (`text-terminal-tech`):** `#9CA3AF` - Cool Gray 400. Metadata, labels.
 
 ### Accents
-- **Accent Primary (`text-bronco-orange`):** `#FF5500` - Critical actions, alerts, "hazard" aesthetics.
-- **Accent Secondary (`text-bronco-blue`):** `#00F0FF` - Optional indicators (use sparingly).
+- **Accent Primary (`text-businessx-orange`):** `#FF5500` - Critical actions, alerts, "hazard" aesthetics.
+- **Accent Secondary (`text-businessx-blue`):** `#00F0FF` - Optional indicators (use sparingly).
 
 ## Typography
 - **Display Font:** `Inter` (or variable sans).

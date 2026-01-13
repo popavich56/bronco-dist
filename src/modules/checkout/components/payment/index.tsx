@@ -77,13 +77,13 @@ const Payment = ({
           )}
         >
           Payment Method
-          {selectedPaymentMethod && !isOpen && <CheckCircleSolid className="text-bronco-orange" />}
+          {selectedPaymentMethod && !isOpen && <CheckCircleSolid className="text-businessx-orange" />}
         </Heading>
         {selectedPaymentMethod && !isOpen && onEdit && (
            <Button
              onClick={onEdit}
              variant="transparent"
-             className="text-bronco-orange hover:text-white font-bold uppercase tracking-wide decoration-2 hover:underline font-mono text-xs"
+             className="text-businessx-orange hover:text-white font-bold uppercase tracking-wide decoration-2 hover:underline font-mono text-xs"
              data-testid="edit-payment-button"
            >
              Edit
@@ -109,7 +109,7 @@ const Payment = ({
                       <div key={paymentMethod.id} className={clx(
                         "mb-4 border border-terminal-border p-4 transition-all hover:bg-terminal-highlight/20",
                         {
-                          "bg-terminal-highlight/30 border-bronco-orange": selectedPaymentMethod === paymentMethod.id,
+                          "bg-terminal-highlight/30 border-businessx-orange": selectedPaymentMethod === paymentMethod.id,
                           "bg-terminal-black": selectedPaymentMethod !== paymentMethod.id
                         }
                       )}>

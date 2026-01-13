@@ -10,7 +10,7 @@ export const TextBlock = (props: TextBlockProps) => {
   return (
     <section className="py-20 bg-terminal-black">
       <div className={`content-container px-6 max-w-4xl text-${alignment || 'left'}`}>
-        <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-bronco-yellow hover:prose-a:text-black">
+        <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-businessx-yellow hover:prose-a:text-black">
           <RichText content={content} />
         </div>
       </div>

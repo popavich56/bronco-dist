@@ -82,7 +82,7 @@ const ShippingInfoTab = () => {
   return (
     <div className="py-2 flex flex-col gap-6">
       <div className="flex items-start gap-x-3">
-        <Truck className="w-4 h-4 text-bronco-orange mt-0.5 shrink-0" />
+        <Truck className="w-4 h-4 text-businessx-orange mt-0.5 shrink-0" />
         <div className="flex flex-col gap-1">
           <span className="font-bold text-terminal-white text-xs uppercase">
             Deployment Speed
@@ -94,7 +94,7 @@ const ShippingInfoTab = () => {
         </div>
       </div>
       <div className="flex items-start gap-x-3">
-        <RefreshCw className="w-4 h-4 text-bronco-orange mt-0.5 shrink-0" />
+        <RefreshCw className="w-4 h-4 text-businessx-orange mt-0.5 shrink-0" />
         <div className="flex flex-col gap-1">
           <span className="font-bold text-terminal-white text-xs uppercase">
             Exchange Protocol
@@ -106,7 +106,7 @@ const ShippingInfoTab = () => {
         </div>
       </div>
       <div className="flex items-start gap-x-3">
-        <Undo2 className="w-4 h-4 text-bronco-orange mt-0.5 shrink-0" />
+        <Undo2 className="w-4 h-4 text-businessx-orange mt-0.5 shrink-0" />
         <div className="flex flex-col gap-1">
           <span className="font-bold text-terminal-white text-xs uppercase">
             Return Authorization

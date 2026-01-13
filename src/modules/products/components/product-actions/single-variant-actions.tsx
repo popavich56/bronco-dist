@@ -105,7 +105,7 @@ export default function SingleVariantActions({
           onClick={handleAddToCart}
           disabled={!canBuy || isAdding || disabled || !isValidCustomer}
           isLoading={isAdding}
-          className="flex-1 h-full bg-bronco-orange text-black hover:bg-orange-600 hover:text-white transition-all rounded-none font-bold uppercase tracking-widest text-sm shadow-[4px_4px_0_0_#333] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
+          className="flex-1 h-full bg-businessx-orange text-black hover:bg-orange-600 hover:text-white transition-all rounded-none font-bold uppercase tracking-widest text-sm shadow-[4px_4px_0_0_#333] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
         >
           {isAdded
             ? "Request Queued"

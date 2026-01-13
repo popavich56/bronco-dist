@@ -63,7 +63,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="txt-medium text-terminal-white hover:text-bronco-orange transition-colors font-bold uppercase underline"
+              className="txt-medium text-terminal-white hover:text-businessx-orange transition-colors font-bold uppercase underline"
               data-testid="add-discount-button"
             >
               Add Promotion Code(s)
@@ -74,7 +74,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
             <>
               <div className="flex w-full gap-x-2">
                 <Input
-                  className="size-full bg-terminal-black border border-terminal-border text-terminal-white rounded-none focus:border-bronco-orange transition-all placeholder:text-terminal-dim font-mono font-medium"
+                  className="size-full bg-terminal-black border border-terminal-border text-terminal-white rounded-none focus:border-businessx-orange transition-all placeholder:text-terminal-dim font-mono font-medium"
                   id="promotion-input"
                   name="code"
                   type="text"
@@ -85,7 +85,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                 <SubmitButton
                   variant="secondary"
                   data-testid="discount-apply-button"
-                  className="bg-terminal-black text-terminal-white hover:bg-bronco-orange hover:text-black font-bold uppercase tracking-wider rounded-none border border-terminal-border transition-all"
+                  className="bg-terminal-black text-terminal-white hover:bg-businessx-orange hover:text-black font-bold uppercase tracking-wider rounded-none border border-terminal-border transition-all"
                 >
                   Apply
                 </SubmitButton>

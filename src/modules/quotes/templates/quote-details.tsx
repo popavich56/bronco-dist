@@ -26,14 +26,14 @@ const QuoteStatusTimeline = ({ status, createdAt }: { status: string, createdAt:
         <div className="w-full bg-terminal-black p-6 border border-terminal-border mb-4">
              <div className="flex flex-col md:flex-row items-start md:items-center justify-between text-xs font-bold uppercase tracking-wider text-terminal-dim gap-y-4 md:gap-y-0">
                  {steps.map((step, index) => (
-                     <div key={index} className={clx("flex items-center gap-2 relative", step.active ? (step.isRejected ? "text-red-500" : "text-bronco-orange") : "")}>
+                     <div key={index} className={clx("flex items-center gap-2 relative", step.active ? (step.isRejected ? "text-red-500" : "text-businessx-orange") : "")}>
                         <div className={clx(
                             "w-3 h-3 border border-current rounded-none flex items-center justify-center",
                             step.active ? "bg-current" : "bg-transparent"
                         )} />
                         <span className="font-mono">{step.label}</span>
                         {index < steps.length - 1 && (
-                            <div className={`hidden md:block w-12 h-[1px] mx-2 ${step.active ? 'bg-bronco-orange' : 'bg-terminal-border'}`} />
+                            <div className={`hidden md:block w-12 h-[1px] mx-2 ${step.active ? 'bg-businessx-orange' : 'bg-terminal-border'}`} />
                         )}
                      </div>
                  ))}
@@ -137,7 +137,7 @@ const MessagesSection = ({ quote }: { quote: any }) => {
                              <div key={msg.id} className={`flex flex-col w-full ${isCustomer ? 'items-end' : 'items-start'}`}>
                                 <div className={clx(
                                     "py-3 px-4 text-sm font-medium max-w-[80%] rounded-none shadow-none whitespace-pre-wrap",
-                                    isCustomer ? "bg-bronco-black text-white border border-terminal-border" : "bg-terminal-black border border-terminal-border text-terminal-white"
+                                    isCustomer ? "bg-businessx-black text-white border border-terminal-border" : "bg-terminal-black border border-terminal-border text-terminal-white"
                                 )}>
                                     {msg.message}
                                 </div>
@@ -165,7 +165,7 @@ const MessagesSection = ({ quote }: { quote: any }) => {
                  />
                  <Button 
                     variant="secondary" 
-                    className="h-10 w-10 p-0 flex items-center justify-center bg-bronco-black text-white hover:bg-gray-800"
+                    className="h-10 w-10 p-0 flex items-center justify-center bg-businessx-black text-white hover:bg-gray-800"
                     onClick={sendMessageMutation}
                     isLoading={isPending}
                  >
@@ -241,7 +241,7 @@ const QuoteDetailsTemplate = ({ quote }: QuoteDetailsTemplateProps) => {
         {/* Quote Details Summary (Like OrderDetails component) */}
         <div className="flex flex-col w-full text-terminal-white">
              <Text className="text-base text-terminal-dim text-center mb-6 font-mono">
-                Quote <span className="font-bold text-terminal-white border-b border-bronco-orange">#{draftOrder?.display_id || quote.id.slice(0, 7)}</span> was created on {new Date(quote.created_at).toDateString()}.
+                Quote <span className="font-bold text-terminal-white border-b border-businessx-orange">#{draftOrder?.display_id || quote.id.slice(0, 7)}</span> was created on {new Date(quote.created_at).toDateString()}.
              </Text>
 
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full text-left border-t border-b border-terminal-border py-6">
@@ -337,7 +337,7 @@ const QuoteDetailsTemplate = ({ quote }: QuoteDetailsTemplateProps) => {
                  <button 
                     onClick={() => handleStatusUpdate('accept')}
                     disabled={isActionPending}
-                    className="px-6 py-3 text-xs font-bold uppercase bg-bronco-black text-white border border-terminal-border hover:bg-gray-800 transition-colors disabled:opacity-50"
+                    className="px-6 py-3 text-xs font-bold uppercase bg-businessx-black text-white border border-terminal-border hover:bg-gray-800 transition-colors disabled:opacity-50"
                  >
                     {isActionPending ? 'Processing...' : 'Accept & Pay'}
                  </button>

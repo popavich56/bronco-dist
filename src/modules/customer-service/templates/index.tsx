@@ -32,7 +32,7 @@ const AccordionItem = ({ item, isOpen, onClick }: { item: FAQItem; isOpen: boole
   return (
     <div className="border-2 border-terminal-border bg-terminal-black shadow-none mb-4 last:mb-0 transition-all">
       <button
-        className="w-full flex items-center justify-between p-6 text-left font-display uppercase tracking-wide bg-terminal-black hover:bg-bronco-gray transition-colors"
+        className="w-full flex items-center justify-between p-6 text-left font-display uppercase tracking-wide bg-terminal-black hover:bg-businessx-gray transition-colors"
         onClick={onClick}
       >
         <span>{item.question}</span>
@@ -62,7 +62,7 @@ export default function CustomerServiceTemplate() {
   }
 
   return (
-    <div className="py-20 bg-bronco-bg">
+    <div className="py-20 bg-businessx-bg">
       <div className="content-container">
         
         {/* Header Section */}
@@ -79,8 +79,8 @@ export default function CustomerServiceTemplate() {
             
             {/* Contact Info Cards */}
             <div className="lg:col-span-1 flex flex-col gap-6">
-                <div className="bg-bronco-black text-white p-8 shadow-none border-2 border-terminal-border">
-                    <h3 className="text-xl font-display uppercase tracking-wide mb-4 text-bronco-yellow">
+                <div className="bg-businessx-black text-white p-8 shadow-none border-2 border-terminal-border">
+                    <h3 className="text-xl font-display uppercase tracking-wide mb-4 text-businessx-yellow">
                         Contact Us
                     </h3>
                     <p className="mb-6 font-medium text-white/90">
@@ -89,20 +89,20 @@ export default function CustomerServiceTemplate() {
                     <div className="space-y-4">
                         <div className="flex flex-col">
                             <span className="text-xs uppercase opacity-70 mb-1">Email</span>
-                            <a href="mailto:support@broncodistribution.com" className="hover:text-bronco-yellow transition-colors font-bold text-lg">
-                                support@broncodistribution.com
+                            <a href="mailto:support@businessx.com" className="hover:text-businessx-yellow transition-colors font-bold text-lg">
+                                support@businessx.com
                             </a>
                         </div>
                         <div className="flex flex-col">
                             <span className="text-xs uppercase opacity-70 mb-1">Phone</span>
-                            <a href="tel:18005550199" className="hover:text-bronco-yellow transition-colors font-bold text-lg">
+                            <a href="tel:18005550199" className="hover:text-businessx-yellow transition-colors font-bold text-lg">
                                 1-800-555-0199
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div className="bg-bronco-yellow p-8 border-2 border-terminal-border shadow-none">
+                <div className="bg-businessx-yellow p-8 border-2 border-terminal-border shadow-none">
                     <h3 className="text-xl font-display uppercase tracking-wide mb-2 text-terminal-white">
                         Quick Links
                     </h3>

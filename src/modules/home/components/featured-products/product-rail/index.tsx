@@ -32,9 +32,9 @@ export default async function ProductRail({
   return (
     <div className="py-16 border-b border-terminal-border bg-terminal-black">
       <div className="content-container">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6 border-l-2 border-bronco-orange pl-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6 border-l-2 border-businessx-orange pl-6">
           <div>
-            <span className="text-[10px] font-mono font-bold text-bronco-orange uppercase tracking-widest mb-2 block">
+            <span className="text-[10px] font-mono font-bold text-businessx-orange uppercase tracking-widest mb-2 block">
                Section: {collection.handle}
             </span>
             <Text className="text-3xl md:text-4xl font-bold text-terminal-white font-display uppercase leading-none tracking-tight">
@@ -43,7 +43,7 @@ export default async function ProductRail({
           </div>
           <LocalizedClientLink 
             href={`/collections/${collection.handle}`} 
-            className="flex items-center gap-2 text-terminal-dim hover:text-bronco-orange font-mono text-xs font-bold uppercase tracking-widest transition-all group"
+            className="flex items-center gap-2 text-terminal-dim hover:text-businessx-orange font-mono text-xs font-bold uppercase tracking-widest transition-all group"
           >
             Access Full List
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

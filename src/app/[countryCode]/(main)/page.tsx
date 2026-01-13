@@ -5,7 +5,7 @@ import { FeaturedReviews } from "@modules/home/components/featured-reviews"
 import { Hero } from "@modules/home/components/hero"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
-import { getPayloadPage } from "@lib/payload"
+import { getPayloadPage, getPayloadGlobal } from "@lib/payload"
 import { BlockRenderer } from "@modules/blocks"
 import { listLatestReviews } from "@lib/data/reviews"
 import { Region } from "@xclade/types"
@@ -28,7 +28,7 @@ export async function generateMetadata(props: {
   }
 
   return {
-    title: "Bronco Distribution",
+    title: storeName,
     description: "Premium tactical gear and equipment distribution."
   }
 }

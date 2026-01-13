@@ -70,7 +70,7 @@ const ProductDescriptionTabs = ({
                   Customer Reviews
                 </h3>
                 <div className="flex items-center gap-2">
-                  <div className="flex text-bronco-yellow">
+                  <div className="flex text-businessx-yellow">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
@@ -95,7 +95,7 @@ const ProductDescriptionTabs = ({
 
               <Button
                 onClick={() => setShowReviewForm(!showReviewForm)}
-                className="bg-bronco-black text-white hover:bg-bronco-black/80 dark:bg-terminal-black dark:text-black dark:hover:bg-gray-200 font-display font-bold uppercase tracking-wide rounded-none"
+                className="bg-businessx-black text-white hover:bg-businessx-black/80 dark:bg-terminal-black dark:text-black dark:hover:bg-gray-200 font-display font-bold uppercase tracking-wide rounded-none"
               >
                 {showReviewForm ? "Cancel Review" : "Write a Review"}
               </Button>
@@ -120,7 +120,7 @@ const ProductDescriptionTabs = ({
                     <div className="flex justify-between items-start mb-4">
                       <div>
                         <div className="flex items-center gap-2 mb-2">
-                          <div className="flex text-bronco-yellow text-sm">
+                          <div className="flex text-businessx-yellow text-sm">
                             {[...Array(5)].map((_, i) => (
                               <Star
                                 key={i}

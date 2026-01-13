@@ -25,14 +25,14 @@ const OrderCard = ({ order }: OrderCardProps) => {
 
   return (
     <div
-      className="bg-terminal-black border border-terminal-border p-4 hover:border-bronco-orange transition-all group flex flex-col gap-4"
+      className="bg-terminal-black border border-terminal-border p-4 hover:border-businessx-orange transition-all group flex flex-col gap-4"
       data-testid="order-card"
     >
       <div className="flex justify-between items-start">
         <div>
           <div className="flex items-baseline gap-3 mb-1">
             <span
-              className="text-xl font-black font-display uppercase text-terminal-white group-hover:text-bronco-orange transition-colors"
+              className="text-xl font-black font-display uppercase text-terminal-white group-hover:text-businessx-orange transition-colors"
             >
               #{order.display_id}
             </span>
@@ -66,7 +66,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
       >
         <Button
           data-testid="order-details-link"
-          className="w-full bg-transparent border border-terminal-border hover:border-bronco-orange text-terminal-dim hover:text-bronco-orange font-bold uppercase tracking-widest text-xs h-10 rounded-none shadow-none transition-all"
+          className="w-full bg-transparent border border-terminal-border hover:border-businessx-orange text-terminal-dim hover:text-businessx-orange font-bold uppercase tracking-widest text-xs h-10 rounded-none shadow-none transition-all"
         >
           View Order
         </Button>
