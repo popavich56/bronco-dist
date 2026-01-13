@@ -27,13 +27,13 @@ export default async function Footer() {
               {logoUrl ? (
                 <Image 
                   src={logoUrl} 
-                  alt={logo?.alt || siteSettings?.general?.siteName || "Bronco"} 
+                  alt={logo?.alt || siteSettings?.general?.siteName || "BusinessX"} 
                   width={150} 
                   height={40} 
                   className="h-10 w-auto object-contain grayscale hover:grayscale-0 transition-all" 
                 />
               ) : (
-                <span className="uppercase">{siteSettings?.general?.siteName || "bronco"}</span>
+                <span className="uppercase">{siteSettings?.general?.siteName || "businessx"}</span>
               )}
             </LocalizedClientLink>
             <p className="max-w-xs font-mono text-xs text-terminal-dim leading-relaxed">
@@ -148,7 +148,7 @@ export default async function Footer() {
         <div className="flex flex-col md:flex-row w-full mt-12 pt-6 border-t border-terminal-border justify-between items-center text-terminal-dim font-mono text-[10px] uppercase tracking-widest">
           <div className="flex items-center gap-4">
             <p>
-              © {new Date().getFullYear()} Bronco Distribution. All Rights Reserved.
+              © {new Date().getFullYear()} BusinessX Distribution. All Rights Reserved.
             </p>
             <div className="opacity-50 hover:opacity-100 transition-opacity">
                <ThemeToggle />

@@ -1,27 +1,29 @@
-import { Page } from './types'
+import { Page } from "./types"
 
-const PAYLOAD_GRAPHQL_URL = process.env.NEXT_PUBLIC_CMS_URL 
-  ? `${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql` 
-  : 'http://localhost:3000/api/graphql'
+const PAYLOAD_GRAPHQL_URL = process.env.NEXT_PUBLIC_CMS_URL
+  ? `${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql`
+  : "http://localhost:3000/api/graphql"
 
 export async function payloadQuery<T>(
   query: string,
   variables?: Record<string, unknown>,
-  options?: { tags?: string[], revalidate?: number | false, draft?: boolean }
+  options?: { tags?: string[]; revalidate?: number | false; draft?: boolean }
 ): Promise<T> {
-  const url = options?.draft ? `${PAYLOAD_GRAPHQL_URL}?draft=true` : PAYLOAD_GRAPHQL_URL
-  
+  const url = options?.draft
+    ? `${PAYLOAD_GRAPHQL_URL}?draft=true`
+    : PAYLOAD_GRAPHQL_URL
+
   const response = await fetch(url, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({ query, variables }),
-    next: options?.tags 
-      ? { tags: options.tags } 
-      : options?.revalidate !== undefined 
-        ? { revalidate: options.revalidate }
-        : { revalidate: 60 }, // Default cache: 60s
+    next: options?.tags
+      ? { tags: options.tags }
+      : options?.revalidate !== undefined
+      ? { revalidate: options.revalidate }
+      : { revalidate: 60 }, // Default cache: 60s
   })
 
   if (!response.ok) {
@@ -31,8 +33,11 @@ export async function payloadQuery<T>(
   const result = await response.json()
 
   if (result.errors) {
-    console.error("Payload GraphQL errors:", JSON.stringify(result.errors, null, 2))
-    throw new Error(result.errors[0]?.message || 'Payload GraphQL query failed')
+    console.error(
+      "Payload GraphQL errors:",
+      JSON.stringify(result.errors, null, 2)
+    )
+    throw new Error(result.errors[0]?.message || "Payload GraphQL query failed")
   }
 
   return result.data
@@ -329,12 +334,27 @@ export const GET_PAGE = `
   }
 `
 
-export async function getPayloadPage(slug: string, draft: boolean = false): Promise<Page | null> {
+export async function getPayloadPage(
+  slug: string,
+  draft: boolean = false
+): Promise<Page | null> {
   try {
-    const data = await payloadQuery<{ Pages: { docs: Page[] } }>(GET_PAGE, { slug }, { tags: [`pages_${slug}`], draft })
+    const data = await payloadQuery<{ Pages: { docs: Page[] } }>(
+      GET_PAGE,
+      { slug },
+      { tags: [`pages_${slug}`], draft }
+    )
     return data.Pages.docs[0] || null
-  } catch (error) {
-    console.error(`Error fetching page ${slug}:`, error)
+  } catch (error: any) {
+    if (
+      error?.cause?.code === "ECONNREFUSED" ||
+      error?.message?.includes("fetch failed")
+    ) {
+      // Silent warning for page fetches in dev
+      // console.warn(`Payload CMS not available, skipping page '${slug}'`)
+    } else {
+      console.error(`Error fetching page ${slug}:`, error)
+    }
     return null
   }
 }
@@ -395,12 +415,27 @@ const GET_NAVIGATION = `
   }
 `
 
-export async function getPayloadNavigation(type: 'main' | 'footer' | 'mobile' | 'sidebar' | 'breadcrumb' | 'custom'): Promise<any | null> {
+export async function getPayloadNavigation(
+  type: "main" | "footer" | "mobile" | "sidebar" | "breadcrumb" | "custom"
+): Promise<any | null> {
   try {
-    const data = await payloadQuery<{ Navigations: { docs: any[] } }>(GET_NAVIGATION, { type }, { tags: [`navigation_${type}`] })
+    const data = await payloadQuery<{ Navigations: { docs: any[] } }>(
+      GET_NAVIGATION,
+      { type },
+      { tags: [`navigation_${type}`] }
+    )
     return data.Navigations.docs[0] || null
-  } catch (error) {
-    console.error(`Error fetching navigation ${type}:`, error)
+  } catch (error: any) {
+    if (
+      error?.cause?.code === "ECONNREFUSED" ||
+      error?.message?.includes("fetch failed")
+    ) {
+      console.warn(
+        `Payload CMS not available (ECONNREFUSED), skipping navigation '${type}'`
+      )
+    } else {
+      console.error(`Error fetching navigation ${type}:`, error)
+    }
     return null
   }
 }

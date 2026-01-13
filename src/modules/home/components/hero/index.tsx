@@ -3,6 +3,7 @@
 import { Button, Heading } from "@medusajs/ui"
 import { motion } from "framer-motion"
 import { ArrowRight, Terminal } from "lucide-react"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 export const Hero = () => {
   return (
@@ -22,17 +23,7 @@ export const Hero = () => {
 
       <div className="relative z-10 w-full max-w-[1440px] px-6 md:px-12 flex flex-col items-center text-center gap-8">
           
-          <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.4 }}
-             className="flex items-center gap-2 px-3 py-1 border border-terminal-border  bg-terminal-panel/50 /50 backdrop-blur-sm rounded-full"
-          >
-             <span className="w-2 h-2 rounded-full bg-bronco-orange animate-pulse" />
-             <span className="text-[10px] font-mono text-terminal-dim  uppercase tracking-widest">
-                System Operational
-             </span>
-          </motion.div>
+
 
           <motion.div
              initial={{ opacity: 0, y: 30 }}
@@ -62,19 +53,24 @@ export const Hero = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 pt-6"
           >
-             <Button 
-               className="h-12 px-8 rounded-none bg-bronco-orange hover:bg-orange-600 text-black font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 hover:gap-4"
-             >
-                View Catalog
-                <ArrowRight className="w-4 h-4" />
-             </Button>
+             <LocalizedClientLink href="/store">
+                 <Button 
+                   className="h-12 px-8 rounded-none bg-bronco-orange hover:bg-orange-600 text-black font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 hover:gap-4"
+                 >
+                    View Catalog
+                    <ArrowRight className="w-4 h-4" />
+                 </Button>
+             </LocalizedClientLink>
 
-             <Button 
-               variant="secondary"
-               className="h-12 px-8 rounded-none border border-terminal-border dark:border-white/20 bg-transparent text-terminal-white  hover:border-bronco-orange hover:text-bronco-orange font-mono uppercase text-xs transition-all tracking-wider"
-             >
-                Our Protocol
-             </Button>
+
+             <LocalizedClientLink href="/account">
+               <Button 
+                 variant="secondary"
+                 className="h-12 px-8 rounded-none border border-terminal-border dark:border-white/20 bg-transparent text-terminal-white  hover:border-bronco-orange hover:text-bronco-orange font-mono uppercase text-xs transition-all tracking-wider"
+               >
+                  Create An Account
+               </Button>
+             </LocalizedClientLink>
           </motion.div>
       </div>
     </section>

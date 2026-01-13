@@ -32,13 +32,13 @@ export default async function Nav() {
               {logoUrl ? (
                 <Image 
                   src={logoUrl} 
-                  alt={logo?.alt || siteSettings?.general?.siteName || "Bronco"} 
+                  alt={logo?.alt || siteSettings?.general?.siteName || "BusinessX"} 
                   width={150} 
                   height={40} 
                   className="h-6 small:h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all"
                 />
               ) : (
-                <span className="uppercase tracking-tight">{siteSettings?.general?.siteName || "bronco"}</span>
+                <span className="uppercase tracking-tight">{siteSettings?.general?.siteName || "businessx"}</span>
               )}
             </LocalizedClientLink>
             

@@ -56,10 +56,15 @@ export const searchProducts = async ({
 }): Promise<SearchResponse> => {
   try {
     const region = await getRegion("us") // Default to US region
-    const baseUrl = process.env.NEXT_PUBLIC_XCLADE_BACKEND_URL || process.env.XCLADE_BACKEND_URL || "https://a1594fc3.api.myxclade.com"
-    
-    let searchUrl = `${baseUrl}/store/search/direct?q=${encodeURIComponent(query)}&limit=${limit}&offset=${offset}`
-    
+    const baseUrl =
+      process.env.NEXT_PUBLIC_XCLADE_BACKEND_URL ||
+      process.env.XCLADE_BACKEND_URL ||
+      "https://a1594fc3.api.myxclade.com"
+
+    let searchUrl = `${baseUrl}/store/search/direct?q=${encodeURIComponent(
+      query
+    )}&limit=${limit}&offset=${offset}`
+
     // Add optional parameters
     if (region?.id) searchUrl += `&region_id=${region.id}`
     if (filter_by) searchUrl += `&filter_by=${encodeURIComponent(filter_by)}`
@@ -70,7 +75,7 @@ export const searchProducts = async ({
       method: "GET",
       headers: {
         "x-publishable-api-key": process.env.NEXT_PUBLIC_XCLADE_API_KEY || "",
-        "accept": "application/json",
+        accept: "application/json",
       },
       next: { revalidate: 0 }, // Don't cache search results
     })
@@ -80,7 +85,7 @@ export const searchProducts = async ({
     }
 
     const data = await response.json()
-    
+
     return {
       results: data.results || [],
       count: data.count || 0,
@@ -90,7 +95,7 @@ export const searchProducts = async ({
       facet_counts: data.facet_counts,
     }
   } catch (error) {
-    console.error("Search error:", error)
+    console.warn("Search failed or backend unavailable:", error)
     // Return empty results on error
     return {
       results: [],

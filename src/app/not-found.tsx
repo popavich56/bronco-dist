@@ -10,29 +10,24 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col gap-4 items-center justify-center min-h-[calc(100vh-64px)] bg-bronco-white text-bronco-black p-4">
-      <div className="relative">
-        <h1 className="font-display text-[150px] leading-none font-black text-bronco-black drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-          404
-        </h1>
-        <div className="absolute -top-6 -right-6 w-12 h-12 bg-bronco-yellow rounded-full border-2 border-bronco-black shadow-hard hidden md:block"></div>
-      </div>
+    <div className="flex flex-col gap-6 items-center justify-center min-h-[calc(100vh-64px)] bg-terminal-black text-terminal-white p-4">
+      <h1 className="font-display text-[120px] md:text-[150px] leading-none font-black text-terminal-white tracking-tighter mix-blend-difference">
+        404
+      </h1>
       
-      <h2 className="text-2xl font-bold font-display mt-4">
-        Oops! You've gone off-road.
+      <h2 className="text-2xl font-bold font-display mt-4 text-terminal-white uppercase tracking-tight">
+        Page Not Found
       </h2>
       
-      <p className="text-base-regular text-bronco-black/70 max-w-md text-center mb-8 font-sans">
-        The page you are looking for doesn't exist or has been moved. 
-        Let's get you back on track.
+      <p className="font-mono text-sm text-terminal-dim max-w-md text-center mb-8 leading-relaxed">
+        The page you are looking for does not exist.
       </p>
 
       <Link
         href="/"
-        className="group relative px-8 py-3 bg-bronco-yellow border-2 border-bronco-black font-bold text-bronco-black shadow-hard transition-all hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] rounded-base flex items-center gap-2"
+        className="px-8 py-3 bg-bronco-orange border border-bronco-orange font-bold text-black font-mono uppercase tracking-widest text-xs hover:bg-orange-600 transition-all"
       >
-        <span>Back to Homepage</span>
-        <ArrowUpRightMini className="group-hover:rotate-45 transition-transform duration-200" />
+        GO TO HOME
       </Link>
     </div>
   )
