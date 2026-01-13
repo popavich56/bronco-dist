@@ -8,10 +8,6 @@ export async function generateMetadata(): Promise<Metadata> {
   const siteSettings = await getPayloadGlobal("site-settings")
   const storeName = siteSettings?.general?.siteName || "BusinessX"
 
-  // Get store configuration for dynamic branding
-  const siteSettings = await getPayloadGlobal("site-settings")
-  const storeName = siteSettings?.general?.siteName || "BusinessX"
-
   return {
     title: "Sign in",
     description: `Sign in to your ${storeName} account.`,
