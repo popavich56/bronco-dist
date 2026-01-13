@@ -17,17 +17,20 @@ export const ProductCollectionBlockClient = (props: ProductCollectionBlockProps)
   const [loading, setLoading] = useState(false)
 
   // Resolve collection ID safely
-  const medusaCollectionId = collection && typeof collection === 'object' && 'collectionId' in collection 
+  const collectionId = collection && typeof collection === 'object' && 'collectionId' in collection 
       ? collection.collectionId 
+      : null
+  const collectionHandle = collection && typeof collection === 'object' && 'handle' in collection 
+      ? collection.handle 
       : null
 
   useEffect(() => {
-    if (!medusaCollectionId) return
+    if (!collectionId) return
 
     let isMounted = true
     setLoading(true)
 
-    fetch(`/api/medusa/products?collection_id=${medusaCollectionId}&country_code=${countryCode}&limit=${limit}`)
+    fetch(`/api/medusa/products?collection_id=${collectionId}&country_code=${countryCode}&limit=${limit}`)
       .then(res => res.json())
       .then(data => {
         if (isMounted && data.products) {
@@ -40,9 +43,9 @@ export const ProductCollectionBlockClient = (props: ProductCollectionBlockProps)
       })
 
       return () => { isMounted = false }
-  }, [medusaCollectionId, countryCode, limit])
+  }, [collectionId, countryCode, limit])
 
-  if (!medusaCollectionId) return null
+  if (!collectionId) return null
   if (loading && products.length === 0) {
       return (
           <section className="py-20 animate-pulse">

@@ -9,10 +9,17 @@ import ProfilePassword from "@modules/account/components/profile-password"
 import { notFound } from "next/navigation"
 import { listRegions } from "@lib/data/regions"
 import { retrieveCustomer } from "@lib/data/customer"
+import { getPayloadGlobal } from "@lib/payload"
 
-export const metadata: Metadata = {
-  title: "Profile",
-  description: "View and edit your Medusa Store profile.",
+export async function generateMetadata(): Promise<Metadata> {
+  // Get store configuration for dynamic branding
+  const siteSettings = await getPayloadGlobal("site-settings")
+  const storeName = siteSettings?.general?.siteName || "BusinessX"
+
+  return {
+    title: "Profile",
+    description: `View and edit your ${storeName} profile.`,
+  }
 }
 
 export default async function Profile() {

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 
 import { getCollectionByHandle, listCollections } from "@lib/data/collections"
 import { listRegions } from "@lib/data/regions"
+import { getPayloadGlobal } from "@lib/payload"
 import { ProductCollection } from "@xclade/types"
 import { StoreCollection, StoreRegion } from "@medusajs/types"
 import CollectionTemplate from "@modules/collections/templates"
@@ -61,8 +62,12 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     notFound()
   }
 
+  // Get store configuration for dynamic branding
+  const siteSettings = await getPayloadGlobal("site-settings")
+  const storeName = siteSettings?.general?.siteName || "BusinessX"
+
   const metadata = {
-    title: `${collection.title} | Medusa Store`,
+    title: `${collection.title} | ${storeName}`,
     description: `${collection.title} collection`,
   } as Metadata
 

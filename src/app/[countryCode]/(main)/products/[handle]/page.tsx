@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { listProducts, getProductByHandle, getProductSeoData, getProductShell } from "@lib/data/products"
 import { getRegion, listRegions } from "@lib/data/regions"
+import { getPayloadGlobal } from "@lib/payload"
 import ProductTemplate from "@modules/products/templates"
 import { Product, Region, Customer } from "@xclade/types"
 
@@ -85,7 +86,7 @@ function getImagesForVariant(
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params
   const { handle } = params
-  
+
   // Use lightweight query for SEO to avoid 1.2s pricing overhead
   const product = await getProductSeoData({
     handle,
@@ -95,11 +96,15 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     notFound()
   }
 
+  // Get store configuration for dynamic branding
+  const siteSettings = await getPayloadGlobal("site-settings")
+  const storeName = siteSettings?.general?.siteName || "BusinessX"
+
   return {
-    title: `${product.title} | Medusa Store`,
+    title: `${product.title} | ${storeName}`,
     description: `${product.title}`,
     openGraph: {
-      title: `${product.title} | Medusa Store`,
+      title: `${product.title} | ${storeName}`,
       description: `${product.title}`,
       images: product.thumbnail ? [product.thumbnail] : [],
     },

@@ -106,7 +106,7 @@ const CartDropdown = ({
             data-testid="nav-cart-dropdown"
           >
             <div className="p-4 flex items-center justify-between border-b border-terminal-border bg-terminal-black">
-              <h3 className="text-sm font-display font-black uppercase tracking-wider text-terminal-white">Cart Inventory</h3>
+              <h3 className="text-sm font-display font-black uppercase tracking-wider text-terminal-white">Shopping Cart</h3>
               <span className="text-[10px] font-mono text-terminal-dim uppercase">{totalItems} Items</span>
             </div>
             {cartState && cartState.items?.length ? (
@@ -216,7 +216,7 @@ const CartDropdown = ({
                   <div className="bg-terminal-surface text-terminal-dim font-bold flex items-center justify-center w-8 h-8 border border-terminal-border rounded-none">
                     <span>0</span>
                   </div>
-                  <span className="font-bold text-sm text-terminal-dim font-mono uppercase tracking-wide">Zero Inventory Detected.</span>
+                  <span className="font-bold text-sm text-terminal-dim font-mono uppercase tracking-wide">Your cart is empty.</span>
                   <div>
                     <LocalizedClientLink href="/store">
                       <>
@@ -225,7 +225,7 @@ const CartDropdown = ({
                             onClick={close}
                             className="h-8 bg-transparent text-bronco-orange hover:bg-bronco-orange hover:text-black font-display font-bold uppercase tracking-wider rounded-none border border-bronco-orange transition-all"
                         >
-                            Initialize Search
+                            Browse Products
                         </Button>
                       </>
                     </LocalizedClientLink>
