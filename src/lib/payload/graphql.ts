@@ -4,6 +4,20 @@ const PAYLOAD_GRAPHQL_URL = process.env.NEXT_PUBLIC_CMS_URL
   ? `${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql`
   : "http://localhost:3000/api/graphql"
 
+/**
+ * BEST PRACTICE: SINGLE SOURCE OF TRUTH (PRODUCTION)
+ *
+ * In production environments, avoid "hybrid" states where a CMS URL is configured
+ * but the instance is not actually provisioned or reachable.
+ *
+ * - If you are using the CMS, ensure it is fully deployed and the URL is correct.
+ * - If you are NOT using the CMS, unset `NEXT_PUBLIC_CMS_URL` entirely.
+ *
+ * While we handle 404s/connection errors gracefully to support "Skeleton Store" fallback,
+ * relied-upon ambiguity can lead to performance degradation (pointless fetch retries)
+ * or confusing debugging sessions. Pick one source of truth!
+ */
+
 export async function payloadQuery<T>(
   query: string,
   variables?: Record<string, unknown>,
