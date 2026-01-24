@@ -348,7 +348,8 @@ export async function getPayloadPage(
   } catch (error: any) {
     if (
       error?.cause?.code === "ECONNREFUSED" ||
-      error?.message?.includes("fetch failed")
+      error?.message?.includes("fetch failed") ||
+      error?.message?.includes("Not Found")
     ) {
       // Silent warning for page fetches in dev
       // console.warn(`Payload CMS not available, skipping page '${slug}'`)
@@ -428,11 +429,11 @@ export async function getPayloadNavigation(
   } catch (error: any) {
     if (
       error?.cause?.code === "ECONNREFUSED" ||
-      error?.message?.includes("fetch failed")
+      error?.message?.includes("fetch failed") ||
+      error?.message?.includes("Not Found")
     ) {
-      console.warn(
-        `Payload CMS not available (ECONNREFUSED), skipping navigation '${type}'`
-      )
+      // Silent warning for navigation fetches if CMS is missing/404
+      // console.warn(`Payload CMS not available, skipping navigation '${type}'`)
     } else {
       console.error(`Error fetching navigation ${type}:`, error)
     }
