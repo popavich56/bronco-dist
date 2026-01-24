@@ -209,9 +209,7 @@ export const getProductByHandle = async ({
         currency_code: region.currency_code,
       },
     },
-    {
-      ...(await getAuthHeaders()),
-    }
+    {}
   )
 
   return result.products.products[0] || null
@@ -269,9 +267,7 @@ export const getProductSeoData = async ({
     {
       handle: [handle],
     },
-    {
-      ...(await getAuthHeaders()),
-    },
+    {},
     {
       tags: ["products"],
     }
@@ -301,9 +297,7 @@ export const getProductShell = async ({
     {
       handle: [handle],
     },
-    {
-      ...(await getAuthHeaders()),
-    },
+    {},
     {
       tags: ["products"],
     }

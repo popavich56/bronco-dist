@@ -221,37 +221,10 @@ const CHECKOUT_CART_FRAGMENT = `
 const MINI_CART_FRAGMENT = `
   fragment MiniCartFields on Cart {
     id
-    currency_code
-    total
-    subtotal
+    customer_id
     items {
       id
-      title
-      thumbnail
       quantity
-      unit_price
-      total
-      original_total
-      discount_total
-      tax_total
-      product_handle
-      product_title
-      variant {
-        id
-        title
-        product {
-          id
-          title
-          handle
-          thumbnail
-        }
-        options {
-          value
-          option {
-            title
-          }
-        }
-      }
     }
   }
 `

@@ -8,12 +8,13 @@ import { getProductByHandle } from "@lib/data/products"
 export default async function ProductActionsWrapper({
   product,
   region,
-  customer,
+  customerPromise,
 }: {
   product: Product
   region: Region
-  customer: Customer | null
+  customerPromise: Promise<Customer | null>
 }) {
+  const customer = await customerPromise
   // No internal fetch - synchronous render
   if (!product) {
     return null

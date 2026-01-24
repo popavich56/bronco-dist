@@ -126,14 +126,13 @@ export default async function ProductPage(props: Props) {
     notFound()
   }
 
-  const [customer, product] = await Promise.all([
-    retrieveCustomer().catch(() => null),
-    getProductByHandle({
-      handle,
-      regionId: region.id,
-      countryCode
-    })
-  ])
+  const customerPromise = retrieveCustomer().catch(() => null)
+  
+  const product = await getProductByHandle({
+    handle,
+    regionId: region.id,
+    countryCode
+  })
 
   if (!product) {
     notFound()
@@ -152,7 +151,7 @@ export default async function ProductPage(props: Props) {
       region={region as unknown as Region}
       countryCode={countryCode}
       images={images}
-      customer={customer as unknown as Customer}
+      customerPromise={customerPromise}
       reviews={reviews}
     />
   )

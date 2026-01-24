@@ -21,7 +21,7 @@ type ProductTemplateProps = {
   region: Region
   countryCode: string
   images: ProductImage[]
-  customer: Customer | null
+  customerPromise: Promise<Customer | null>
   reviews?: any[]
 }
 
@@ -30,7 +30,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
   region,
   countryCode,
   images,
-  customer,
+  customerPromise,
   reviews = [],
 }) => {
   if (!product || !product.id) {
@@ -63,11 +63,13 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
             <ProductInfo product={product} />
 
             <div className="py-6 border-b border-dashed border-terminal-border ">
-                <ProductActionsWrapper
-                  product={product}
-                  region={region}
-                  customer={customer}
-                />
+                <Suspense fallback={<div className="h-10 w-full animate-pulse bg-terminal-panel/50 rounded-sm" />}>
+                  <ProductActionsWrapper
+                    product={product}
+                    region={region}
+                    customerPromise={customerPromise}
+                  />
+                </Suspense>
             </div>
 
             <div className="pt-6">

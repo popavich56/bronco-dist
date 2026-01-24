@@ -71,7 +71,21 @@ export async function getPayloadGlobal(slug: string) {
       return null
     }
 
-    return res.json()
+    const data = await res.json()
+
+    if (slug === "site-settings") {
+      // Fallback if Payload returns successful response but empty/missing logo
+      // This handles cases where Payload is running but not configured
+      if (!data?.branding?.logo?.url) {
+        // Double check backend before returning Payload data
+        const backendData = await fetchBackendSiteSettings()
+        if (backendData?.branding?.logo) {
+          return backendData
+        }
+      }
+    }
+
+    return data
   } catch (error: any) {
     if (slug === "site-settings") {
       return fetchBackendSiteSettings()
