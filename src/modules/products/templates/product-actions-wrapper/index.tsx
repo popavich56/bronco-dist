@@ -1,6 +1,7 @@
 import { Product, Region, Customer } from "@xclade/types"
 import ProductActions from "@modules/products/components/product-actions"
 import { getProductByHandle } from "@lib/data/products"
+import { isApprovedCustomer, isPendingCustomer } from "@lib/util/customer-status"
 
 /**
  * Fetches real time pricing for a product and renders the product actions component.
@@ -24,7 +25,8 @@ export default async function ProductActionsWrapper({
     <ProductActions
       product={product}
       region={region}
-      isValidCustomer={!!customer}
+      isValidCustomer={isApprovedCustomer(customer)}
+      isPending={isPendingCustomer(customer)}
     />
   )
 }

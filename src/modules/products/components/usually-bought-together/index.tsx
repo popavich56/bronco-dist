@@ -1,18 +1,21 @@
 import { listProducts } from "@lib/data/products"
 import { searchProducts } from "@lib/data/search"
-import { Product, Region } from "@xclade/types"
+import { Product, Region, Customer } from "@xclade/types"
 import UsuallyBoughtTogetherBar from "./client-bar"
+import { isApprovedCustomer } from "@lib/util/customer-status"
 
 type UsuallyBoughtTogetherProps = {
   product: Product
   region: Region
   countryCode: string
+  customerPromise?: Promise<Customer | null>
 }
 
 export default async function UsuallyBoughtTogether({
   product,
   region,
   countryCode,
+  customerPromise,
 }: UsuallyBoughtTogetherProps) {
   // Smarter Logic: Prioritize Deep Context
   const filterParts: string[] = [`id:!=${product.id}`]
@@ -98,12 +101,15 @@ export default async function UsuallyBoughtTogether({
      } as unknown as Product
   })
 
+  const customer = customerPromise ? await customerPromise : null
+
   return (
     <UsuallyBoughtTogetherBar
       mainProduct={product}
       relatedProducts={relatedProducts}
       region={region}
       countryCode={countryCode}
+      isValidCustomer={isApprovedCustomer(customer)}
     />
   )
 }

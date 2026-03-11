@@ -2,6 +2,7 @@ import { getProductPrice } from "@lib/util/get-product-price"
 import { Product, Region } from "@xclade/types"
 import { ProductPreviewCard } from "./card"
 import { retrieveCustomer } from "@lib/data/customer"
+import { isApprovedCustomer } from "@lib/util/customer-status"
 
 export default async function ProductPreview({
   product,
@@ -30,7 +31,7 @@ export default async function ProductPreview({
     // So we pass null as price.
   }
 
-  const shouldShowPrice = !!cheapestPrice && !!customer
+  const shouldShowPrice = !!cheapestPrice && isApprovedCustomer(customer)
 
   return (
     <ProductPreviewCard

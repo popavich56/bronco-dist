@@ -104,6 +104,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           product={product}
           region={region}
           countryCode={countryCode}
+          customerPromise={customerPromise}
         />
       </Suspense>
     </div>

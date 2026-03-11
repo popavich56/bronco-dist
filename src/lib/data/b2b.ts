@@ -2,6 +2,8 @@
 "use server"
 
 import { getAuthHeaders } from "./cookies"
+import { retrieveCustomer } from "./customer"
+import { isApprovedCustomer } from "@lib/util/customer-status"
 import { createQuoteMessageQL, getMyCompanyQL, getQuoteQL, listQuotesQL, requestQuoteQL, inviteEmployeeQL, removeEmployeeQL, updateEmployeeQL, updateCompanyQL } from "../graphql-b2b"
 
 export async function getMyCompany() {
@@ -20,6 +22,10 @@ export async function getQuote(id: string) {
 }
 
 export async function requestQuote(cart_id: string) {
+    const customer = await retrieveCustomer()
+    if (!isApprovedCustomer(customer)) {
+        throw new Error("Account not approved for purchasing")
+    }
     const headers = await getAuthHeaders()
     return await requestQuoteQL(cart_id, headers)
 }

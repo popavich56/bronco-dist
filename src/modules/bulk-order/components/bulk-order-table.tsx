@@ -11,9 +11,10 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 
 type BulkOrderTableProps = {
   products: Product[]
+  isValidCustomer?: boolean
 }
 
-export default function BulkOrderTable({ products }: BulkOrderTableProps) {
+export default function BulkOrderTable({ products, isValidCustomer = false }: BulkOrderTableProps) {
   const { countryCode } = useParams()
   const [addingState, setAddingState] = useState<Record<string, boolean>>({})
   const [quantities, setQuantities] = useState<Record<string, number>>({})
@@ -111,7 +112,9 @@ export default function BulkOrderTable({ products }: BulkOrderTableProps) {
                     {variant.title}
                   </td>
                   <td className="p-4 border-r-2 border-terminal-border tabular-nums">
-                     {variantPrice?.calculated_price}
+                     {isValidCustomer ? variantPrice?.calculated_price : (
+                       <span className="text-terminal-dim text-[10px] uppercase">Auth_Req</span>
+                     )}
                   </td>
                   <td className="p-4 border-r-2 border-terminal-border text-sm">
                      {canBuy ? (
@@ -129,17 +132,17 @@ export default function BulkOrderTable({ products }: BulkOrderTableProps) {
                       className="w-full p-2 border border-terminal-border font-mono text-center focus:ring-2 focus:ring-businessx-yellow outline-none"
                       value={quantities[variant.id] || 1}
                       onChange={(e) => handleQuantityChange(variant.id, parseInt(e.target.value))}
-                      disabled={!canBuy}
+                      disabled={!canBuy || !isValidCustomer}
                     />
                   </td>
                   <td className="p-4">
                     <Button
-                      onClick={() => handleAddToCart(variant.id)}
-                      disabled={!canBuy || addingState[variant.id]}
+                      onClick={() => isValidCustomer ? handleAddToCart(variant.id) : null}
+                      disabled={!canBuy || addingState[variant.id] || !isValidCustomer}
                       isLoading={addingState[variant.id]}
                       className="w-full bg-businessx-black text-white hover:bg-businessx-yellow hover:text-terminal-white border border-transparent hover:border-terminal-border transition-all rounded-none font-bold uppercase shadow-none text-xs h-10"
                     >
-                      Add
+                      {!isValidCustomer ? "Lock" : "Add"}
                     </Button>
                   </td>
                 </tr>

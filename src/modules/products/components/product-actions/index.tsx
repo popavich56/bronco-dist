@@ -7,18 +7,21 @@ import ProductPrice from "../product-price"
 import VariantTable from "./variant-table"
 import MobileActions from "./mobile-actions"
 import SingleVariantActions from "./single-variant-actions"
+import { PENDING_MESSAGE } from "@lib/util/customer-status"
 
 type ProductActionsProps = {
   product: Product
   region: Region
   disabled?: boolean
   isValidCustomer?: boolean
+  isPending?: boolean
 }
 
 export default function ProductActions({
   product,
   disabled,
   isValidCustomer = false,
+  isPending = false,
 }: ProductActionsProps) {
   const actionsRef = useRef<HTMLDivElement>(null)
   const inView = useIntersection(actionsRef, "0px")
@@ -28,6 +31,12 @@ export default function ProductActions({
   return (
     <>
       <div className="flex flex-col gap-y-2" ref={actionsRef}>
+        {isPending && (
+          <div className="border border-[#6DB3D9]/30 bg-[#001F2E] p-4 text-sm text-[#ADE0EE] font-mono">
+            {PENDING_MESSAGE}
+          </div>
+        )}
+
         {isValidCustomer && (
           <ProductPrice
             product={product}

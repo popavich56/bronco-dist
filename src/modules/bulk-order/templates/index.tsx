@@ -7,7 +7,7 @@ import { Product } from "@xclade/types"
 import BulkOrderTable from "../components/bulk-order-table"
 import { Input } from "@medusajs/ui"
 
-export default function BulkOrderTemplate() {
+export default function BulkOrderTemplate({ isValidCustomer = false }: { isValidCustomer?: boolean }) {
   const { countryCode } = useParams()
   const [query, setQuery] = useState("")
   const [products, setProducts] = useState<Product[]>([])
@@ -74,7 +74,7 @@ export default function BulkOrderTemplate() {
               Searching...
             </div>
           ) : (
-            <BulkOrderTable products={products} />
+            <BulkOrderTable products={products} isValidCustomer={isValidCustomer} />
           )}
         </div>
       </div>

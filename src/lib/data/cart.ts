@@ -26,11 +26,23 @@ import {
   setCartId,
 } from "./cookies"
 import { getRegion } from "./regions"
+import { retrieveCustomer } from "./customer"
+import { isApprovedCustomer } from "@lib/util/customer-status"
 import {
   Cart,
   UpdateCartInput,
   InitializePaymentSessionInput,
 } from "@xclade/types"
+
+const APPROVAL_ERROR = "Account not approved for purchasing"
+
+async function requireApprovedCustomer() {
+  const customer = await retrieveCustomer()
+  if (!isApprovedCustomer(customer)) {
+    return { error: APPROVAL_ERROR }
+  }
+  return null
+}
 
 /**
  * Retrieves a cart by its ID. If no ID is provided, it will use the cart ID from the cookies.
@@ -173,6 +185,9 @@ export async function addToCart({
   quantity: number
   countryCode: string
 }) {
+  const guard = await requireApprovedCustomer()
+  if (guard) return guard
+
   if (!variantId) {
     throw new Error("Missing variant ID when adding to cart")
   }
@@ -215,6 +230,9 @@ export async function updateLineItem({
   lineId: string
   quantity: number
 }) {
+  const guard = await requireApprovedCustomer()
+  if (guard) return guard
+
   if (!lineId) {
     throw new Error("Missing lineItem ID when updating line item")
   }
@@ -244,6 +262,9 @@ export async function updateLineItem({
 }
 
 export async function deleteLineItem(lineId: string) {
+  const guard = await requireApprovedCustomer()
+  if (guard) return guard
+
   if (!lineId) {
     throw new Error("Missing lineItem ID when deleting line item")
   }
@@ -279,6 +300,9 @@ export async function setShippingMethod({
   cartId: string
   shippingMethodId: string
 }) {
+  const guard = await requireApprovedCustomer()
+  if (guard) return guard
+
   const headers = {
     ...(await getAuthHeaders()),
   }
@@ -302,6 +326,9 @@ export async function initiatePaymentSession(
   cart: Cart,
   data: InitializePaymentSessionInput
 ) {
+  const guard = await requireApprovedCustomer()
+  if (guard) return guard
+
   const headers = {
     ...(await getAuthHeaders()),
   }
@@ -334,6 +361,9 @@ export async function initiatePaymentSession(
 }
 
 export async function applyPromotions(codes: string[]) {
+  const guard = await requireApprovedCustomer()
+  if (guard) return guard
+
   const cartId = await getCartId()
 
   if (!cartId) {
@@ -383,6 +413,9 @@ export async function submitPromotionForm(
 }
 
 export async function setAddresses(currentState: unknown, formData: FormData) {
+  const guard = await requireApprovedCustomer()
+  if (guard) return APPROVAL_ERROR
+
   try {
     if (!formData) {
       throw new Error("No form data found when setting addresses")
@@ -443,6 +476,9 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
  * @returns The cart object if the order was successful, or null if not.
  */
 export async function placeOrder(cartId?: string) {
+  const guard = await requireApprovedCustomer()
+  if (guard) return guard
+
   const id = cartId || (await getCartId())
 
   if (!id) {

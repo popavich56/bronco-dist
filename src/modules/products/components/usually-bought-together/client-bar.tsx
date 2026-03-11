@@ -14,6 +14,7 @@ type UsuallyBoughtTogetherBarProps = {
   relatedProducts: Product[]
   region: Region
   countryCode: string
+  isValidCustomer?: boolean
 }
 
 export default function UsuallyBoughtTogetherBar({
@@ -21,6 +22,7 @@ export default function UsuallyBoughtTogetherBar({
   relatedProducts,
   region,
   countryCode,
+  isValidCustomer = false,
 }: UsuallyBoughtTogetherBarProps) {
   const [isVisible, setIsVisible] = useState(false)
   const [isDismissed, setIsDismissed] = useState(false)
@@ -127,10 +129,16 @@ export default function UsuallyBoughtTogetherBar({
                 Usually Bought Together
               </Text>
               <Text className="text-businessx-gray font-medium text-sm mt-1">
-                Buy {bundle.length} items for{" "}
-                <span className="text-businessx-yellow font-bold text-base ml-1">
-                  {formatPrice(bundleTotal)}
-                </span>
+                {isValidCustomer ? (
+                  <>
+                    Buy {bundle.length} items for{" "}
+                    <span className="text-businessx-yellow font-bold text-base ml-1">
+                      {formatPrice(bundleTotal)}
+                    </span>
+                  </>
+                ) : (
+                  <span className="text-terminal-dim text-[10px] uppercase">Sign in for pricing</span>
+                )}
               </Text>
             </div>
           </div>
@@ -140,11 +148,12 @@ export default function UsuallyBoughtTogetherBar({
             <Button
               variant="primary"
               className="w-full md:w-auto bg-businessx-yellow text-terminal-white hover:bg-terminal-black hover:text-terminal-white border-2 border-transparent hover:border-businessx-yellow font-extrabold uppercase tracking-wider h-12 px-8 text-sm md:text-base shadow-none hover:shadow-businessx-yellow/20 transition-all"
-              onClick={handleAddAll}
+              onClick={isValidCustomer ? handleAddAll : undefined}
+              disabled={!isValidCustomer}
               isLoading={adding}
             >
               <ShoppingBag className="mr-2 h-5 w-5" />
-              Add All To Cart
+              {isValidCustomer ? "Add All To Cart" : "Lock"}
             </Button>
             <button
               onClick={() => setIsDismissed(true)}
