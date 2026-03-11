@@ -1,148 +1,53 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
 @layer base {
   :root {
-    --terminal-black: #F9FAFB;
+    --terminal-black: #F0F7FA;
     --terminal-panel: #FFFFFF;
-    --terminal-surface: #F3F4F6;
-    --terminal-highlight: #E5E7EB;
-    --terminal-border: #E5E7EB;
-    --terminal-active: #D1D5DB;
-    --terminal-white: #111111;
-    --terminal-dim: #6B7280;
-    --terminal-tech: #9CA3AF;
-    --grid-color: #000000;
+    --terminal-surface: #E8F4F8;
+    --terminal-highlight: #D0E8F2;
+    --terminal-border: rgba(0, 31, 46, 0.1);
+    --terminal-active: #B8D8E8;
+    --terminal-white: #001F2E;
+    --terminal-dim: #3A6070;
+    --terminal-tech: #5A8090;
+    --bronco-blue: #6DB3D9;
+    --bronco-sky: #ADE0EE;
   }
-
   .dark {
-    --terminal-black: #0a0a0a;
-    --terminal-panel: #18181b;
-    --terminal-surface: #27272a;
-    --terminal-highlight: #3f3f46;
-    --terminal-border: rgba(255, 255, 255, 0.1);
-    --terminal-active: #52525b;
-    --terminal-white: #ffffff;
-    --terminal-dim: #a1a1aa;
-    --terminal-tech: #71717a;
-    --grid-color: #ffffff;
+    --terminal-black: #001F2E;
+    --terminal-panel: #002D42;
+    --terminal-surface: #003A58;
+    --terminal-highlight: #004A6E;
+    --terminal-border: rgba(109, 179, 217, 0.15);
+    --terminal-active: #005580;
+    --terminal-white: #FFFFFF;
+    --terminal-dim: #6A92A6;
+    --terminal-tech: #8AB4C4;
+    --bronco-blue: #6DB3D9;
+    --bronco-sky: #ADE0EE;
   }
 }
 
 @layer utilities {
-  /* Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-
-  .no-scrollbar::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-  .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-
-  input:focus ~ label,
-  input:not(:placeholder-shown) ~ label {
-    @apply -translate-y-2 text-xsmall-regular;
-  }
-
-  input:focus ~ label {
-    @apply left-0;
-  }
-
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  textarea:-webkit-autofill,
-  textarea:-webkit-autofill:hover,
-  textarea:-webkit-autofill:focus,
-  select:-webkit-autofill,
-  select:-webkit-autofill:hover,
-  select:-webkit-autofill:focus {
-    border: 1px solid #212121;
-    -webkit-text-fill-color: #212121;
-    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
-    transition: background-color 5000s ease-in-out 0s;
-  }
-
-  input[type="search"]::-webkit-search-decoration,
-  input[type="search"]::-webkit-search-cancel-button,
-  input[type="search"]::-webkit-search-results-button,
-  input[type="search"]::-webkit-search-results-decoration {
-    -webkit-appearance: none;
-  }
-
-  .text-stroke-3 {
-    -webkit-text-stroke: 3px #121212;
-  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  input:focus ~ label, input:not(:placeholder-shown) ~ label { @apply -translate-y-2 text-xsmall-regular; }
+  input:focus ~ label { @apply left-0; }
 }
 
 @layer components {
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-  .content-container {
-    @apply max-w-[1440px] w-full mx-auto px-6;
-  }
-
-  .contrast-btn {
-    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
-  }
-
-  .text-xsmall-regular {
-    @apply text-[10px] leading-4 font-normal;
-  }
-
-  .text-small-regular {
-    @apply text-xs leading-5 font-normal;
-  }
-
-  .text-small-semi {
-    @apply text-xs leading-5 font-semibold;
-  }
-
-  .text-base-regular {
-    @apply text-sm leading-6 font-normal;
-  }
-
-  .text-base-semi {
-    @apply text-sm leading-6 font-semibold;
-  }
-
-  .text-large-regular {
-    @apply text-base leading-6 font-normal;
-  }
-
-  .text-large-semi {
-    @apply text-base leading-6 font-semibold;
-  }
-
-  .text-xl-regular {
-    @apply text-2xl leading-[36px] font-normal;
-  }
-
-  .text-xl-semi {
-    @apply text-2xl leading-[36px] font-semibold;
-  }
-
-  .text-2xl-regular {
-    @apply text-[30px] leading-[48px] font-normal;
-  }
-
-  .text-2xl-semi {
-    @apply text-[30px] leading-[48px] font-semibold;
-  }
-
-  .text-3xl-regular {
-    @apply text-[32px] leading-[44px] font-normal;
-  }
-
-  .text-3xl-semi {
-    @apply text-[32px] leading-[44px] font-semibold;
-  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+  .content-container { @apply max-w-[1440px] w-full mx-auto px-6; }
+  .text-xsmall-regular { @apply text-[10px] leading-4 font-normal; }
+  .text-small-regular { @apply text-xs leading-5 font-normal; }
+  .text-small-semi { @apply text-xs leading-5 font-semibold; }
+  .text-base-regular { @apply text-sm leading-6 font-normal; }
+  .text-base-semi { @apply text-sm leading-6 font-semibold; }
+  .text-large-regular { @apply text-base leading-6 font-normal; }
+  .text-large-semi { @apply text-base leading-6 font-semibold; }
+  .text-xl-semi { @apply text-2xl leading-[36px] font-semibold; }
+  .text-3xl-semi { @apply text-[32px] leading-[44px] font-semibold; }
 }
