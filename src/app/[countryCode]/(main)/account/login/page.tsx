@@ -6,7 +6,7 @@ import LoginTemplate from "@modules/account/templates/login-template"
 export async function generateMetadata(): Promise<Metadata> {
   // Get store configuration for dynamic branding
   const siteSettings = await getPayloadGlobal("site-settings")
-  const storeName = siteSettings?.general?.siteName || "BusinessX"
+  const storeName = siteSettings?.general?.siteName || "Bronco Distribution"
 
   return {
     title: "Sign in",

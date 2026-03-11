@@ -41,7 +41,7 @@ const Review = ({
               <Text className="text-base-regular text-terminal-dim mb-1 font-mono text-sm leading-relaxed">
                 By clicking the Place Order button, you confirm that you have
                 read, understand and accept our Terms of Use, Terms of Sale and
-                Returns Policy and acknowledge that you have read BusinessX&apos;s Privacy Policy.
+                Returns Policy and acknowledge that you have read Bronco Distribution&apos;s Privacy Policy.
               </Text>
             </div>
           </div>

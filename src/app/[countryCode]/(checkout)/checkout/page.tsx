@@ -10,7 +10,7 @@ import { notFound, redirect } from "next/navigation"
 export async function generateMetadata(): Promise<Metadata> {
   // Get store configuration for dynamic branding
   const siteSettings = await getPayloadGlobal("site-settings")
-  const storeName = siteSettings?.general?.siteName || "BusinessX"
+  const storeName = siteSettings?.general?.siteName || "Bronco Distribution"
 
   return {
     title: `Secure Checkout | ${storeName}`,

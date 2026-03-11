@@ -43,7 +43,7 @@ export default async function CheckoutLayout({
                   className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all"
                 />
               ) : (
-                <span className="uppercase tracking-tight">{siteSettings?.general?.siteName || "businessx"}</span>
+                <span className="uppercase tracking-tight">{siteSettings?.general?.siteName || "Bronco Distribution"}</span>
               )}
           </LocalizedClientLink>
           <div className="flex-1 basis-0 flex justify-end">

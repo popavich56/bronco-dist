@@ -64,7 +64,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
   // Get store configuration for dynamic branding
   const siteSettings = await getPayloadGlobal("site-settings")
-  const storeName = siteSettings?.general?.siteName || "BusinessX"
+  const storeName = siteSettings?.general?.siteName || "Bronco Distribution"
 
   const metadata = {
     title: `${collection.title} | ${storeName}`,
