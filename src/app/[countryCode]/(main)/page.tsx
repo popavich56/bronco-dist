@@ -3,6 +3,7 @@ import { Metadata } from "next"
 import FeaturedProducts from "@modules/home/components/featured-products"
 import { FeaturedReviews } from "@modules/home/components/featured-reviews"
 import { Hero } from "@modules/home/components/hero"
+import WholesaleTrust from "@modules/home/components/wholesale-trust"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import { getPayloadPage, getPayloadGlobal } from "@lib/payload"
@@ -63,6 +64,7 @@ export default async function Home(props: {
   return (
     <>
       <Hero />
+      <WholesaleTrust />
       <div className="bg-terminal-black border-t border-terminal-border pb-20">
         <ul className="flex flex-col">
           <FeaturedProducts collections={collections} region={region as unknown as import("@xclade/types").Region} />
