@@ -14,10 +14,8 @@ export async function generateMetadata(props: {
   params: Promise<{ countryCode: string }>
 }): Promise<Metadata> {
   const page = await getPayloadPage('home')
-
-  // Get store configuration for dynamic branding
   const siteSettings = await getPayloadGlobal("site-settings")
-  const storeName = siteSettings?.general?.siteName || "BusinessX"
+  const storeName = siteSettings?.general?.siteName || "Bronco Distribution"
 
   if (page && page.seo) {
     return {
@@ -33,7 +31,7 @@ export async function generateMetadata(props: {
 
   return {
     title: storeName,
-    description: "Premium tactical gear and equipment distribution."
+    description: "Colorado's wholesale smoke shop and vape distributor."
   }
 }
 
@@ -43,23 +41,19 @@ export default async function Home(props: {
   const params = await props.params
   const { countryCode } = params
 
-  // 1. Try to fetch 'home' page from Payload CMS
   const page = await getPayloadPage('home')
 
   if (page) {
     if (page.contentBlocks && page.contentBlocks.length > 0) {
-       return <BlockRenderer blocks={page.contentBlocks} countryCode={countryCode} />
+      return <BlockRenderer blocks={page.contentBlocks} countryCode={countryCode} />
     }
-
-
   }
 
-  // 2. Fallback to hardcoded homepage if CMS page is missing
   const region = await getRegion(countryCode)
   const { collections } = await listCollections({
     fields: "id, handle, title",
   })
-  
+
   const reviews = await listLatestReviews(3)
 
   if (!collections || !region) {
