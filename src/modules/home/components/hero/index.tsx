@@ -65,7 +65,7 @@ export const Hero = () => {
               variant="secondary"
               className="h-12 px-8 rounded-none border border-[#6DB3D9]/50 bg-transparent text-white hover:border-[#6DB3D9] hover:text-[#6DB3D9] font-mono uppercase text-xs transition-all tracking-wider"
             >
-              Apply for Account
+              Sign In / Apply
             </Button>
           </LocalizedClientLink>
         </motion.div>
