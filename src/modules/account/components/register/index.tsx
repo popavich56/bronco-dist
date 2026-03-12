@@ -50,7 +50,7 @@ const STORE_TYPES = [
 ]
 
 const INPUT_CLASS =
-  "pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+  "pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none rounded-xl border border-terminal-border bg-terminal-black focus:ring-2 focus:ring-sky-400/50 focus:outline-none focus:border-transparent transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
 
 const BroncoRegisterPage = ({ countryCode }: { countryCode: string }) => {
   const [step, setStep] = useState(1)
@@ -196,7 +196,7 @@ const BroncoRegisterPage = ({ countryCode }: { countryCode: string }) => {
       {[1, 2, 3].map((s) => (
         <div key={s} className="flex items-center gap-2">
           <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
+            className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-colors duration-200 ${
               s === step
                 ? "bg-businessx-orange text-black"
                 : s < step
@@ -414,7 +414,7 @@ const BroncoRegisterPage = ({ countryCode }: { countryCode: string }) => {
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className={`w-full h-11 px-4 border text-sm font-medium text-left transition-all ${
+              className={`w-full h-11 px-4 rounded-xl border text-sm font-medium text-left transition-all ${
                 permitFile
                   ? "border-green-600 bg-green-600/10 text-green-400"
                   : "border-terminal-border bg-terminal-black text-terminal-dim hover:border-businessx-orange"
@@ -454,7 +454,7 @@ const BroncoRegisterPage = ({ countryCode }: { countryCode: string }) => {
           <button
             type="button"
             onClick={prevStep}
-            className="flex-1 h-12 border border-terminal-border text-terminal-white font-display font-bold uppercase tracking-wider text-sm hover:bg-terminal-panel transition-all"
+            className="flex-1 h-12 rounded-xl border border-terminal-border text-terminal-white font-display font-bold uppercase tracking-wider text-sm hover:bg-terminal-panel transition-all duration-150"
           >
             Back
           </button>
@@ -463,7 +463,7 @@ const BroncoRegisterPage = ({ countryCode }: { countryCode: string }) => {
           <button
             type="button"
             onClick={nextStep}
-            className="flex-1 h-12 bg-businessx-orange text-black font-display font-bold uppercase tracking-wider text-sm hover:bg-terminal-panel hover:text-black border border-transparent hover:border-terminal-border transition-all"
+            className="flex-1 h-12 rounded-xl bg-businessx-orange text-black font-display font-bold uppercase tracking-wider text-sm hover:brightness-110 border border-transparent transition-all duration-150"
           >
             Continue
           </button>
@@ -472,7 +472,7 @@ const BroncoRegisterPage = ({ countryCode }: { countryCode: string }) => {
             type="button"
             onClick={handleSubmit}
             disabled={submitting}
-            className="flex-1 h-12 bg-businessx-orange text-black font-display font-bold uppercase tracking-wider text-sm hover:bg-terminal-panel hover:text-black border border-transparent hover:border-terminal-border transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex-1 h-12 rounded-xl bg-businessx-orange text-black font-display font-bold uppercase tracking-wider text-sm hover:brightness-110 border border-transparent transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {submitting ? "Submitting..." : "Submit Application"}
           </button>

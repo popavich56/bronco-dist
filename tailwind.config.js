@@ -64,6 +64,8 @@ module.exports = {
         hard: "4px 4px 0px 0px #121212",
         "hard-sm": "2px 2px 0px 0px #121212",
         "hard-lg": "8px 8px 0px 0px #121212",
+        card: "0 2px 12px rgba(0,0,0,0.2)",
+        "card-hover": "0 4px 20px rgba(0,0,0,0.3)",
       },
       textShadow: {
         hard: "2px 2px 0 #121212",
@@ -83,7 +85,14 @@ module.exports = {
         base: "4px",
         rounded: "8px",
         large: "16px",
+        xl: "12px",
+        "2xl": "16px",
+        "3xl": "20px",
         circle: "9999px",
+      },
+      transitionDuration: {
+        150: "150ms",
+        200: "200ms",
       },
       maxWidth: {
         "8xl": "100rem",

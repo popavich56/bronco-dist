@@ -52,13 +52,13 @@ export default async function Nav() {
                 if (link.type === "external") href = link.externalUrl || "/"
                 if (link.type === "custom") href = link.customUrl || "/"
                 return (
-                  <LocalizedClientLink key={i} className="text-terminal-dim hover:text-[#ADE0EE] transition-colors uppercase tracking-wider text-xs font-bold" href={href} target={link.newTab ? "_blank" : undefined}>
+                  <LocalizedClientLink key={i} className="text-terminal-dim hover:text-[#ADE0EE] hover:opacity-80 transition-all duration-150 uppercase tracking-wider text-xs font-bold" href={href} target={link.newTab ? "_blank" : undefined}>
                     {link.label}
                   </LocalizedClientLink>
                 )
               })}
               {!mainNavigation && (
-                <LocalizedClientLink className="text-terminal-dim hover:text-[#ADE0EE] transition-colors uppercase tracking-wider text-xs font-bold" href="/account">Account</LocalizedClientLink>
+                <LocalizedClientLink className="text-terminal-dim hover:text-[#ADE0EE] hover:opacity-80 transition-all duration-150 uppercase tracking-wider text-xs font-bold" href="/account">Account</LocalizedClientLink>
               )}
             </div>
             <div className="hidden small:block">

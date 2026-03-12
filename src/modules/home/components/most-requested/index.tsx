@@ -44,17 +44,17 @@ export default function MostRequested() {
 
         {/* Tabs — scrollable on mobile */}
         <div className="overflow-x-auto -mx-4 px-4 mb-8">
-          <div className="flex gap-1 min-w-max border-b border-terminal-border">
+          <div className="flex gap-2 min-w-max">
             {BRONCO_BRANDS.map((b, i) => {
               const c = accentMap[b.accent]
               return (
                 <button
                   key={b.handle}
                   onClick={() => setActiveIdx(i)}
-                  className={`px-4 py-3 text-xs font-mono font-bold uppercase tracking-wider border-b-2 transition-all whitespace-nowrap ${
+                  className={`px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider rounded-xl transition-colors duration-200 whitespace-nowrap ${
                     i === activeIdx
-                      ? c.tabActive
-                      : `text-terminal-dim border-transparent ${c.tab}`
+                      ? `${c.bg} ${c.text}`
+                      : `text-terminal-dim hover:bg-terminal-surface ${c.tab}`
                   }`}
                 >
                   {b.title}
@@ -65,7 +65,7 @@ export default function MostRequested() {
         </div>
 
         {/* Brand detail panel */}
-        <div className={`border ${colors.border} bg-terminal-panel`}>
+        <div className={`border ${colors.border} bg-terminal-panel rounded-2xl overflow-hidden`}>
           <div className="grid md:grid-cols-2">
             {/* Left — brand info */}
             <div className="p-8 md:p-10 flex flex-col gap-6">

@@ -23,6 +23,9 @@ export const Hero = () => {
       {/* Navy overlay for text contrast */}
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#001F2E]/60 via-[#001F2E]/40 to-[#001F2E]/80" />
 
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 z-10 bg-gradient-to-b from-transparent to-[#001F2E]" />
+
       <div className="relative z-20 w-full max-w-[1440px] px-6 md:px-12 flex flex-col items-center text-center gap-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

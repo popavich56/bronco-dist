@@ -16,8 +16,8 @@ export default async function Footer() {
   const logoUrl = logo?.url ? (logo.url.startsWith('http') ? logo.url : `${process.env.NEXT_PUBLIC_CMS_URL || 'http://localhost:8000'}${logo.url}`) : null
 
   return (
-    <footer className="border-t border-terminal-border bg-terminal-black text-terminal-white dark:bg-[#0a0a0a]   w-full transition-colors duration-200">
-      <div className="content-container flex flex-col w-full py-12">
+    <footer className="border-t border-white/10 bg-terminal-black text-terminal-white dark:bg-[#0a0a0a] w-full transition-colors duration-200">
+      <div className="content-container flex flex-col w-full py-16">
         <div className="flex flex-col gap-y-12 lg:flex-row items-start justify-between">
           <div className="space-y-6">
             <LocalizedClientLink
@@ -161,7 +161,7 @@ export default async function Footer() {
           </div>
         </div>
         
-        <div className="flex flex-col md:flex-row w-full mt-12 pt-6 border-t border-terminal-border justify-between items-center text-terminal-dim font-mono text-[10px] uppercase tracking-widest">
+        <div className="flex flex-col md:flex-row w-full mt-12 pt-6 border-t border-white/10 justify-between items-center text-terminal-dim font-mono text-[10px] uppercase tracking-widest">
           <div className="flex items-center gap-4">
             <p>
               © {new Date().getFullYear()} Bronco Distribution. All Rights Reserved.

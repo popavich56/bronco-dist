@@ -41,7 +41,7 @@ export default function TopBrands() {
             return (
               <div
                 key={brand.handle}
-                className={`border ${colors.border} bg-terminal-panel p-6 flex flex-col gap-4 hover:bg-terminal-surface transition-colors group`}
+                className={`border ${colors.border} bg-terminal-panel p-6 flex flex-col gap-4 rounded-2xl hover:bg-terminal-surface hover:-translate-y-1 hover:shadow-card-hover transition-all duration-200 group`}
               >
                 <div className={`w-10 h-10 rounded-md ${colors.bg} flex items-center justify-center flex-shrink-0`}>
                   <span className={`font-display font-black text-sm ${colors.text}`}>

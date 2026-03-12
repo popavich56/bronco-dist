@@ -9,9 +9,9 @@ const stats = [
 
 export default function StatsBar() {
   return (
-    <section className="bg-[#001F2E] border-y border-[#6DB3D9]/20">
-      <div className="content-container">
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#6DB3D9]/20">
+    <section className="bg-[#001F2E]/80">
+      <div className="content-container py-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 rounded-2xl bg-[#001F2E] overflow-hidden">
           {stats.map(({ icon: Icon, value, label }) => (
             <div
               key={label}

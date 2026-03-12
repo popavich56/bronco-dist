@@ -8,7 +8,7 @@ import Divider from "@modules/common/components/divider"
 const CheckoutSummary = ({ cart }: { cart: any }) => {
   return (
     <div className="sticky top-24 flex flex-col-reverse small:flex-col gap-y-8 py-8 small:py-0 ">
-      <div className="w-full bg-terminal-panel border border-terminal-border p-6 flex flex-col">
+      <div className="w-full bg-terminal-panel border border-white/10 rounded-2xl shadow-card p-6 flex flex-col">
         <Divider className="my-6 small:hidden border-terminal-border" />
         <Heading
           level="h2"

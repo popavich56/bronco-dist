@@ -18,7 +18,7 @@ const Review = ({
     cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0
 
   return (
-    <div className="bg-terminal-panel border border-terminal-border p-6 mb-4 relative transition-all">
+    <div className="bg-terminal-panel border border-white/10 rounded-2xl p-6 mb-4 relative transition-all">
       <div className="flex flex-row items-center justify-between mb-6">
         <Heading
           level="h2"

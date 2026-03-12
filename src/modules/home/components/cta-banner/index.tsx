@@ -24,8 +24,8 @@ const steps = [
 
 export default function CtaBanner() {
   return (
-    <section className="py-20 bg-[#001F2E] border-y border-[#6DB3D9]/20">
-      <div className="content-container">
+    <section className="py-20 bg-terminal-black">
+      <div className="content-container bg-[#001F2E] rounded-2xl py-16 px-6 md:px-12 border border-[#6DB3D9]/10">
         <div className="flex flex-col items-center text-center mb-14">
           <span className="text-[10px] font-mono font-bold text-[#6DB3D9] uppercase tracking-widest mb-4 block">
             Ready to Stock Up?
@@ -42,7 +42,7 @@ export default function CtaBanner() {
           {steps.map(({ icon: Icon, step, title, description }) => (
             <div
               key={step}
-              className="border border-[#6DB3D9]/20 bg-[#001F2E] p-8 flex flex-col items-center text-center gap-4"
+              className="border border-[#6DB3D9]/20 bg-[#001F2E] p-8 flex flex-col items-center text-center gap-4 rounded-xl"
             >
               <div className="w-12 h-12 rounded-full bg-[#6DB3D9]/10 border border-[#6DB3D9]/20 flex items-center justify-center">
                 <Icon className="w-5 h-5 text-[#6DB3D9]" />

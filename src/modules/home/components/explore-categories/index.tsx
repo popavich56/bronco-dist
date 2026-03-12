@@ -25,12 +25,12 @@ export default async function ExploreCategories() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-terminal-border border border-terminal-border">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {display.map((cat) => (
             <LocalizedClientLink
               key={cat.id}
               href={`/categories/${cat.handle}`}
-              className="bg-terminal-panel p-6 md:p-8 flex flex-col justify-between gap-4 hover:bg-terminal-surface transition-colors group min-h-[120px]"
+              className="bg-terminal-panel p-6 md:p-8 flex flex-col justify-between gap-4 rounded-xl hover:bg-terminal-surface transition-colors duration-150 group min-h-[120px] border border-terminal-border"
             >
               <h3 className="font-display font-bold text-sm md:text-base uppercase tracking-wide text-terminal-white leading-tight">
                 {cat.name}
