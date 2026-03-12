@@ -252,6 +252,7 @@ export type CreateCustomerInput = {
   state?: string
   zip?: string
   country_code?: string
+  metadata?: Record<string, any>
 }
 
 export type UpdateCustomerInput = {

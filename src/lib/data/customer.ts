@@ -72,7 +72,6 @@ export const updateCustomer = async (body: any) => {
 
 export async function signup(_currentState: unknown, formData: FormData) {
   const password = formData.get("password") as string
-  const countryCode = formData.get("country_code") as string
   const customerForm = {
     email: formData.get("email") as string,
     first_name: formData.get("first_name") as string,
@@ -81,11 +80,17 @@ export async function signup(_currentState: unknown, formData: FormData) {
     password: password,
     company_name: formData.get("company_name") as string,
     address_1: formData.get("address_1") as string,
-    address_2: formData.get("address_2") as string,
     city: formData.get("city") as string,
     state: formData.get("state") as string,
     zip: formData.get("postal_code") as string,
-    country_code: countryCode,
+    country_code: formData.get("country_code") as string,
+    metadata: {
+      account_status: "pending",
+      store_type: formData.get("store_type") as string,
+      permit_number: formData.get("permit_number") as string,
+      permit_expiry: formData.get("permit_expiry") as string,
+      permit_file_url: formData.get("permit_file_url") as string,
+    },
   }
 
   try {
@@ -95,25 +100,12 @@ export async function signup(_currentState: unknown, formData: FormData) {
       throw new Error("Failed to create customer")
     }
 
-    const loginRes = await loginQL(customerForm.email, password)
-    
-    if (!loginRes?.token) {
-      throw new Error("Failed to retrieve access token")
-    }
-
-    await setAuthToken(loginRes.token)
-
-    const customerCacheTag = await getCacheTag("customers")
-    revalidateTag(customerCacheTag)
-
-    await transferCart()
-
+    // No auto-login — account is pending approval
+    return null
   } catch (error: any) {
     console.error(error)
     return error.toString()
   }
-
-  redirect(`/${countryCode || 'us'}/account`)
 }
 
 export async function login(_currentState: unknown, formData: FormData) {

@@ -10,7 +10,7 @@ import { Product } from "@xclade/types"
 import RefreshButton from "./refresh-button"
 
 export const metadata: Metadata = {
-  title: "For You | BusinessX",
+  title: "For You | Bronco Distribution",
   description: "Personalized product recommendations.",
 }
 
@@ -35,9 +35,9 @@ export default async function FYPPage({ params }: Props) {
         <Text className="text-lg text-businessx-gray max-w-md font-bold">
           To see your personalized "For You" selection, we need to know who you are!
         </Text>
-        <LocalizedClientLink href="/account">
+        <LocalizedClientLink href="/account/register">
            <Button variant="primary" className="bg-businessx-yellow text-businessx-black hover:bg-businessx-black hover:text-businessx-yellow border-2 border-businessx-black font-bold uppercase tracking-wider px-8 py-3 h-auto text-lg transition-all shadow-[4px_4px_0px_0px_rgba(30,30,30,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none">
-             Login / Register
+             Apply for Account
            </Button>
         </LocalizedClientLink>
       </div>

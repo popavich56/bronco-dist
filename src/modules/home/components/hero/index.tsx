@@ -60,12 +60,12 @@ export const Hero = () => {
               <ArrowRight className="w-4 h-4" />
             </Button>
           </LocalizedClientLink>
-          <LocalizedClientLink href="/account/login">
+          <LocalizedClientLink href="/account/register">
             <Button
               variant="secondary"
               className="h-12 px-8 rounded-none border border-[#6DB3D9]/50 bg-transparent text-white hover:border-[#6DB3D9] hover:text-[#6DB3D9] font-mono uppercase text-xs transition-all tracking-wider"
             >
-              Sign In / Apply
+              Apply for Account
             </Button>
           </LocalizedClientLink>
         </motion.div>
