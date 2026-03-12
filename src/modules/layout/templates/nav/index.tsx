@@ -19,7 +19,7 @@ export default async function Nav() {
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
       <div className="bg-terminal-surface border-b border-terminal-border text-center py-1.5 text-[11px] font-mono text-terminal-dim tracking-wide hidden small:block">
-        Free local delivery within 80 miles of Denver &nbsp;·&nbsp; Mon–Fri 8:30am–5pm · Sat 9am–5pm &nbsp;·&nbsp;
+        New Arrivals added weekly — apply for an account to unlock pricing &nbsp;·&nbsp;
         <a href="tel:7204855940" className="text-[#6DB3D9] hover:text-[#ADE0EE] transition-colors">720-485-5940</a>
       </div>
       <header className="relative h-16 mx-auto border-b border-terminal-border bg-terminal-panel transition-colors duration-200">
@@ -58,10 +58,7 @@ export default async function Nav() {
                 )
               })}
               {!mainNavigation && (
-                <>
-                  <LocalizedClientLink className="text-terminal-dim hover:text-[#ADE0EE] transition-colors uppercase tracking-wider text-xs font-bold" href="/bulk-order">Bulk Order</LocalizedClientLink>
-                  <LocalizedClientLink className="text-terminal-dim hover:text-[#ADE0EE] transition-colors uppercase tracking-wider text-xs font-bold" href="/account">Account</LocalizedClientLink>
-                </>
+                <LocalizedClientLink className="text-terminal-dim hover:text-[#ADE0EE] transition-colors uppercase tracking-wider text-xs font-bold" href="/account">Account</LocalizedClientLink>
               )}
             </div>
             <div className="hidden small:block">

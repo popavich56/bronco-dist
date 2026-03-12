@@ -124,7 +124,7 @@ export default async function Footer() {
                   <>
                     <li>
                       <LocalizedClientLink
-                         href="/customer-service" 
+                         href="/customer-service"
                          className="font-bold font-display text-sm hover:text-businessx-orange uppercase transition-colors"
                       >
                         Support
@@ -132,11 +132,27 @@ export default async function Footer() {
                     </li>
                     <li>
                       <LocalizedClientLink
-                         href="/account" 
+                         href="/account"
                          className="font-bold font-display text-sm hover:text-businessx-orange uppercase transition-colors"
                       >
                         Account
                       </LocalizedClientLink>
+                    </li>
+                    <li>
+                      <LocalizedClientLink
+                         href="/account/register"
+                         className="font-bold font-display text-sm hover:text-businessx-orange uppercase transition-colors"
+                      >
+                        Apply for Wholesale
+                      </LocalizedClientLink>
+                    </li>
+                    <li>
+                      <a
+                         href="mailto:sales@broncodist.com"
+                         className="font-bold font-display text-sm hover:text-businessx-orange uppercase transition-colors"
+                      >
+                        Contact Us
+                      </a>
                     </li>
                   </>
                 )}
