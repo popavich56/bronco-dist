@@ -36,6 +36,9 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# uploaded permits (local dev storage)
+/public/uploads/
+
 # vercel
 .vercel
 
