@@ -3,7 +3,7 @@
 import { clx } from "@medusajs/ui"
 import { ProductImage } from "@xclade/types"
 import Image from "next/image"
-import { useState } from "react"
+import { useRef, useState } from "react"
 
 type ImageGalleryProps = {
   images: ProductImage[]
@@ -11,23 +11,35 @@ type ImageGalleryProps = {
 
 const ImageGallery = ({ images }: ImageGalleryProps) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+  const thumbsRef = useRef<HTMLDivElement>(null)
 
   if (!images || images.length === 0) {
     return null
   }
 
+  const hasMultiple = images.length > 1
+
+  const scrollThumbs = (direction: "left" | "right") => {
+    if (!thumbsRef.current) return
+    const scrollAmount = 200
+    thumbsRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    })
+  }
+
   return (
-    <div className="flex flex-col gap-y-4">
-      {/* Main Image View */}
+    <div className="flex flex-col gap-y-3">
+      {/* Main Image */}
       <div
-        className="relative aspect-square w-full overflow-hidden bg-terminal-panel border border-terminal-border"
+        className="relative aspect-square w-full overflow-hidden bg-terminal-panel border border-terminal-border rounded-2xl group"
         id={images[selectedImageIndex].id}
       >
         {!!images[selectedImageIndex].url && (
           <Image
             src={images[selectedImageIndex].url}
             priority={true}
-            className="absolute inset-0 object-cover p-2"
+            className="absolute inset-0 object-cover p-2 transition-transform duration-300 group-hover:scale-105"
             alt={`Product image ${selectedImageIndex + 1}`}
             fill
             sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
@@ -35,19 +47,35 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
         )}
       </div>
 
-      {/* Thumbnails Grid */}
-      {images.length > 1 && (
-        <div className="grid grid-cols-6 gap-2">
-          {images.map((image, index) => {
-            return (
+      {/* Horizontal Thumbnails with Arrows */}
+      {hasMultiple && (
+        <div className="relative flex items-center gap-x-2">
+          {/* Left Arrow */}
+          <button
+            onClick={() => scrollThumbs("left")}
+            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/50 hover:text-white/80 transition-all"
+            aria-label="Scroll thumbnails left"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+
+          {/* Thumbnails Strip */}
+          <div
+            ref={thumbsRef}
+            className="flex gap-x-2 overflow-x-auto scrollbar-hide scroll-smooth flex-1"
+          >
+            {images.map((image, index) => (
               <button
                 key={image.id}
                 onClick={() => setSelectedImageIndex(index)}
                 className={clx(
-                  "relative aspect-square w-full overflow-hidden border transition-all duration-200 bg-terminal-panel",
+                  "relative aspect-square w-16 small:w-20 shrink-0 overflow-hidden rounded-xl transition-all duration-200 bg-terminal-panel",
                   {
-                    "border-businessx-orange": index === selectedImageIndex,
-                    "border-terminal-border hover:border-businessx-orange/50":
+                    "ring-2 ring-[#6DB3D9] ring-offset-2 ring-offset-terminal-black":
+                      index === selectedImageIndex,
+                    "border border-terminal-border hover:border-white/30":
                       index !== selectedImageIndex,
                   }
                 )}
@@ -55,17 +83,26 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                 {!!image.url && (
                   <Image
                     src={image.url}
-                    className={clx(
-                      "absolute inset-0 object-cover p-1 transition-all duration-300"
-                    )}
+                    className="absolute inset-0 object-cover p-1 transition-all duration-300"
                     alt={`Product thumbnail ${index + 1}`}
                     fill
-                    sizes="100px"
+                    sizes="80px"
                   />
                 )}
               </button>
-            )
-          })}
+            ))}
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={() => scrollThumbs("right")}
+            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/50 hover:text-white/80 transition-all"
+            aria-label="Scroll thumbnails right"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
         </div>
       )}
     </div>

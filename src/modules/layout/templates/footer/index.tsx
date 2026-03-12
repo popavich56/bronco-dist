@@ -161,7 +161,25 @@ export default async function Footer() {
           </div>
         </div>
         
-        <div className="flex flex-col md:flex-row w-full mt-12 pt-6 border-t border-white/10 justify-between items-center text-terminal-dim font-mono text-[10px] uppercase tracking-widest">
+        {/* Fulfillment Options Row */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 pt-6 border-t border-white/10">
+          {[
+            { icon: "\u{1F3ED}", label: "Local Pickup", detail: "Denver Warehouse" },
+            { icon: "\u{1F69A}", label: "Local Delivery", detail: "Free to your store" },
+            { icon: "\u{1F4E6}", label: "UPS Ground", detail: "2\u20133 business days" },
+            { icon: "\u{1F3EA}", label: "In-Store Browse", detail: "Visit us in Denver" },
+          ].map((opt) => (
+            <div key={opt.label} className="flex items-start gap-2">
+              <span className="text-sm leading-none mt-0.5">{opt.icon}</span>
+              <div className="flex flex-col">
+                <span className="text-xs font-mono text-white/70 font-bold leading-tight">{opt.label}</span>
+                <span className="text-[10px] font-mono text-white/40 leading-tight">{opt.detail}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col md:flex-row w-full mt-8 pt-6 border-t border-white/10 justify-between items-center text-terminal-dim font-mono text-[10px] uppercase tracking-widest">
           <div className="flex items-center gap-4">
             <p>
               © {new Date().getFullYear()} Bronco Distribution. All Rights Reserved.

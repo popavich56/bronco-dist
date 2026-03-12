@@ -53,11 +53,7 @@ export default function SingleVariantActions({
 
   return (
     <div className="flex flex-col gap-y-6 mt-6 border-t border-terminal-border pt-6">
-      <div className="flex items-center justify-between text-xs font-mono">
-        {variant.sku && (
-          <span className="text-terminal-dim hidden md:inline">REF_ID: {variant.sku}</span>
-        )}
-
+      <div className="flex items-center justify-end text-xs font-mono">
         {canBuy ? (
           <span className="text-green-600 font-bold flex items-center gap-2 uppercase tracking-wide">
             <CheckCircle2 className="w-4 h-4" />

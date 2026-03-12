@@ -8,6 +8,7 @@ import RelatedProducts from "@modules/products/components/related-products"
 import ProductInfo from "@modules/products/templates/product-info"
 import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-related-products"
 import ProductDescriptionTabs from "@modules/products/components/product-description-tabs"
+import ProductAccordion from "@modules/products/components/product-accordion"
 import RecentlyViewedProducts from "../components/recently-viewed-products"
 import RecentlyViewedTracker from "../components/recently-viewed-products/tracker"
 import UsuallyBoughtTogether from "@modules/products/components/usually-bought-together"
@@ -25,6 +26,46 @@ type ProductTemplateProps = {
   reviews?: any[]
 }
 
+function buildAccordionItems(product: Product) {
+  const items: { title: string; content?: React.ReactNode; html?: string }[] = []
+
+  if (product.description) {
+    items.push({
+      title: "Description",
+      html: product.description,
+    })
+  }
+
+  if (product.material || product.weight || (product as any).metadata?.hs_code) {
+    items.push({
+      title: "Product Details",
+      content: (
+        <div className="flex flex-col gap-y-1">
+          {product.material && <span>Material: {product.material}</span>}
+          {product.weight && <span>Weight: {product.weight}g</span>}
+          {(product as any).metadata?.hs_code && (
+            <span>HS Code: {(product as any).metadata.hs_code}</span>
+          )}
+        </div>
+      ),
+    })
+  }
+
+  items.push({
+    title: "Shipping & Returns",
+    content: (
+      <div className="flex flex-col gap-y-1">
+        <span>Local pickup available at our Denver warehouse.</span>
+        <span>Local delivery free to your store in the Denver metro area.</span>
+        <span>UPS Ground shipping: 2–3 business days.</span>
+        <span>Contact sales@broncodist.com for return inquiries.</span>
+      </div>
+    ),
+  })
+
+  return items
+}
+
 const ProductTemplate: React.FC<ProductTemplateProps> = ({
   product,
   region,
@@ -37,10 +78,12 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
     return notFound()
   }
 
+  const accordionItems = buildAccordionItems(product)
+
   return (
     <div className="bg-terminal-black dark:bg-[#0a0a0a] min-h-screen text-terminal-white pb-20">
       {/* Breadcrumb Top Bar */}
-      <div className="border-b border-terminal-border bg-terminal-panel/50 /50 backdrop-blur-sm sticky top-0 z-40">
+      <div className="border-b border-terminal-border bg-terminal-panel/50 backdrop-blur-sm sticky top-0 z-40">
         <div className="content-container py-3 flex items-center gap-2 text-[10px] font-mono uppercase text-terminal-dim tracking-widest">
           <span className="text-businessx-orange">Inventory</span>
           <span>/</span>
@@ -59,10 +102,10 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         </div>
 
         <div className="flex flex-col gap-y-8 sticky top-32 h-fit">
-          <div className="p-6 border border-terminal-border bg-terminal-panel/30 /30 backdrop-blur-sm">
+          <div className="p-6 border border-terminal-border bg-terminal-panel/30 backdrop-blur-sm">
             <ProductInfo product={product} />
 
-            <div className="py-6 border-b border-dashed border-terminal-border ">
+            <div className="py-6 border-b border-dashed border-terminal-border">
                 <Suspense fallback={<div className="h-10 w-full animate-pulse bg-terminal-panel/50 rounded-sm" />}>
                   <ProductActionsWrapper
                     product={product}
@@ -81,10 +124,17 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         </div>
       </div>
 
-      <div className="content-container py-12 border-t border-terminal-border ">
-        <ProductDescriptionTabs product={product} reviews={reviews} />
+      {/* Accordion section */}
+      <div className="content-container py-12 border-t border-terminal-border">
+        <ProductAccordion items={accordionItems} />
       </div>
 
+      {/* TODO: Simplify ProductDescriptionTabs to a standalone ReviewsSection in a future pass */}
+      <div className="content-container py-12 border-t border-terminal-border">
+        <ProductDescriptionTabs product={product} reviews={reviews} reviewsOnly />
+      </div>
+
+      {/* Related products below accordion */}
       <div
         className="content-container my-16 small:my-32"
         data-testid="related-products-container"

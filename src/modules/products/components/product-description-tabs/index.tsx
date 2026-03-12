@@ -9,14 +9,16 @@ import { Star } from "lucide-react"
 type ProductDescriptionTabsProps = {
   product: Product
   reviews?: any[]
+  reviewsOnly?: boolean
 }
 
 const ProductDescriptionTabs = ({
   product,
   reviews = [],
+  reviewsOnly = false,
 }: ProductDescriptionTabsProps) => {
   const [activeTab, setActiveTab] = useState<"description" | "reviews">(
-    "description"
+    reviewsOnly ? "reviews" : "description"
   )
   const [showReviewForm, setShowReviewForm] = useState(false)
 
@@ -27,28 +29,30 @@ const ProductDescriptionTabs = ({
   return (
     <div className="w-full">
       <div className="flex border-b border-terminal-border mb-8">
-        <button
-          onClick={() => setActiveTab("description")}
-          className={clx(
-            "pb-4 px-8 text-lg font-display font-bold uppercase tracking-wide border-b-2 transition-colors",
-            activeTab === "description"
-              ? "border-terminal-border text-terminal-white dark:border-white "
-              : "border-transparent text-terminal-dim hover:text-gray-600 dark:hover:text-gray-300"
-          )}
-        >
-          Description
-        </button>
+        {!reviewsOnly && (
+          <button
+            onClick={() => setActiveTab("description")}
+            className={clx(
+              "pb-4 px-8 text-lg font-display font-bold uppercase tracking-wide border-b-2 transition-colors",
+              activeTab === "description"
+                ? "border-terminal-border text-terminal-white dark:border-white"
+                : "border-transparent text-terminal-dim hover:text-gray-600 dark:hover:text-gray-300"
+            )}
+          >
+            Description
+          </button>
+        )}
         <button
           onClick={() => setActiveTab("reviews")}
           className={clx(
             "pb-4 px-8 text-lg font-display font-bold uppercase tracking-wide border-b-2 transition-colors flex items-center gap-2",
             activeTab === "reviews"
-              ? "border-terminal-border text-terminal-white dark:border-white "
+              ? "border-terminal-border text-terminal-white dark:border-white"
               : "border-transparent text-terminal-dim hover:text-gray-600 dark:hover:text-gray-300"
           )}
         >
           Reviews
-          <span className="bg-terminal-highlight text-terminal-white text-xs px-2 py-0.5 rounded-full ">
+          <span className="bg-terminal-highlight text-terminal-white text-xs px-2 py-0.5 rounded-full">
             {displayReviews.length}
           </span>
         </button>

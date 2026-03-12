@@ -63,11 +63,11 @@ export default function VariantTable({
           {product.variants.map((variant) => {
             const variantPrice = getPricesForVariant(variant)
 
-            const inStock = variant.manage_inventory
-              ? (variant.inventory_quantity || 0) > 0
-              : true
+            // Only show OOS if manage_inventory is true AND quantity is confirmed 0
+            // Never show OOS if inventory_quantity is null
+            const isOOS = variant.manage_inventory === true && variant.inventory_quantity === 0
 
-            const canBuy = inStock || variant.allow_backorder
+            const canBuy = !isOOS || variant.allow_backorder
 
             return (
               <tr
@@ -80,7 +80,7 @@ export default function VariantTable({
                       <span className="font-bold text-businessx-orange">
                         {variant.title}
                       </span>
-                      {!canBuy && (
+                      {isOOS && !variant.allow_backorder && (
                         <span className="text-[10px] text-red-500 font-mono uppercase border border-red-500 px-1">
                           OOS
                         </span>
@@ -97,7 +97,7 @@ export default function VariantTable({
                     )}
                   </div>
                 </td>
-                <td className="p-4 border-r border-terminal-border text-terminal-dim hidden md:table-cell">
+                <td className="p-4 border-r border-terminal-border font-mono text-xs text-white/70 hidden md:table-cell">
                   {variant.sku || "N/A"}
                 </td>
                 <td className="p-2">
