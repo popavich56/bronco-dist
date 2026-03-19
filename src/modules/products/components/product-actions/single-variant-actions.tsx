@@ -108,7 +108,7 @@ export default function SingleVariantActions({
             : isAdding
             ? "Processing..."
             : !isValidCustomer
-            ? "Auth Required"
+            ? "Login"
             : "Add to Manifest"}
         </Button>
       </div>

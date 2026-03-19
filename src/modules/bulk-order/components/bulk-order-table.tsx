@@ -113,7 +113,7 @@ export default function BulkOrderTable({ products, isValidCustomer = false }: Bu
                   </td>
                   <td className="p-4 border-r-2 border-terminal-border tabular-nums">
                      {isValidCustomer ? variantPrice?.calculated_price : (
-                       <span className="text-terminal-dim text-[10px] uppercase">Auth_Req</span>
+                       <span className="text-terminal-dim text-[10px] uppercase">Login</span>
                      )}
                   </td>
                   <td className="p-4 border-r-2 border-terminal-border text-sm">

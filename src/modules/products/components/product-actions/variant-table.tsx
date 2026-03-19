@@ -82,7 +82,7 @@ export default function VariantTable({
                       </span>
                       {isOOS && !variant.allow_backorder && (
                         <span className="text-[10px] text-red-500 font-mono uppercase border border-red-500 px-1">
-                          OOS
+                          Out of Stock
                         </span>
                       )}
                     </div>
@@ -92,7 +92,7 @@ export default function VariantTable({
                       </span>
                     ) : (
                       <span className="text-terminal-dim text-[10px] uppercase mt-1">
-                        Auth_Req
+                        Login
                       </span>
                     )}
                   </div>
