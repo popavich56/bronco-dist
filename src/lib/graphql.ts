@@ -53,6 +53,10 @@ export const PRODUCT_LIST_FRAGMENT = `
     subtitle
     thumbnail
     created_at
+    images {
+      id
+      url
+    }
     variants {
       id
     }
