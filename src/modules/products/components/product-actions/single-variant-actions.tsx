@@ -4,7 +4,8 @@ import { addToCart } from "@lib/data/cart"
 import { Product, ProductVariant } from "@xclade/types"
 import { Button } from "@medusajs/ui"
 import { Minus, Plus, ShieldAlert, CheckCircle2 } from "lucide-react"
-import { useParams } from "next/navigation"
+import { useParams, usePathname } from "next/navigation"
+import Link from "next/link"
 import { useState } from "react"
 
 type SingleVariantActionsProps = {
@@ -21,6 +22,7 @@ export default function SingleVariantActions({
   isValidCustomer = false,
 }: SingleVariantActionsProps) {
   const { countryCode } = useParams()
+  const pathname = usePathname()
   const [isAdding, setIsAdding] = useState(false)
   const [isAdded, setIsAdded] = useState(false)
   const [quantity, setQuantity] = useState(1)
@@ -97,20 +99,27 @@ export default function SingleVariantActions({
           </button>
         </div>
 
-        <Button
-          onClick={handleAddToCart}
-          disabled={!canBuy || isAdding || disabled || !isValidCustomer}
-          isLoading={isAdding}
-          className="flex-1 h-full bg-businessx-orange text-black hover:bg-orange-600 hover:text-white transition-all rounded-none font-bold uppercase tracking-widest text-sm shadow-[4px_4px_0_0_#333] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
-        >
-          {isAdded
-            ? "Request Queued"
-            : isAdding
-            ? "Processing..."
-            : !isValidCustomer
-            ? "Login"
-            : "Add to Manifest"}
-        </Button>
+        {!isValidCustomer ? (
+          <Link
+            href={`/${countryCode}/account/login?redirect=${encodeURIComponent(pathname)}`}
+            className="flex-1 h-full flex items-center justify-center border border-neutral-300 dark:border-terminal-border text-neutral-700 dark:text-terminal-white hover:text-businessx-orange hover:border-businessx-orange hover:shadow-[0_0_12px_rgba(255,85,0,0.15)] transition-all duration-200 rounded-none font-bold uppercase tracking-widest text-sm"
+          >
+            Login
+          </Link>
+        ) : (
+          <Button
+            onClick={handleAddToCart}
+            disabled={!canBuy || isAdding || disabled}
+            isLoading={isAdding}
+            className="flex-1 h-full bg-businessx-orange text-black hover:bg-orange-600 hover:text-white transition-all rounded-none font-bold uppercase tracking-widest text-sm shadow-[4px_4px_0_0_#333] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
+          >
+            {isAdded
+              ? "Request Queued"
+              : isAdding
+              ? "Processing..."
+              : "Add to Manifest"}
+          </Button>
+        )}
       </div>
     </div>
   )

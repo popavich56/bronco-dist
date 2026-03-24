@@ -4,7 +4,8 @@ import { addToCart } from "@lib/data/cart"
 import { getPricesForVariant } from "@lib/util/get-product-price"
 import { Product } from "@xclade/types"
 import { Button } from "@medusajs/ui"
-import { useParams } from "next/navigation"
+import { useParams, usePathname } from "next/navigation"
+import Link from "next/link"
 import { useState } from "react"
 import { Check, X, AlertTriangle } from "lucide-react"
 
@@ -20,6 +21,7 @@ export default function VariantTable({
   isValidCustomer = false,
 }: VariantTableProps) {
   const { countryCode } = useParams()
+  const pathname = usePathname()
   const [addingVariantId, setAddingVariantId] = useState<string | null>(null)
   const [quantities, setQuantities] = useState<Record<string, number>>({})
 
@@ -91,9 +93,12 @@ export default function VariantTable({
                         {variantPrice?.calculated_price}
                       </span>
                     ) : (
-                      <span className="text-terminal-dim text-[10px] uppercase mt-1">
+                      <Link
+                        href={`/${countryCode}/account/login?redirect=${encodeURIComponent(pathname)}`}
+                        className="text-terminal-dim text-[10px] uppercase mt-1 hover:text-businessx-orange transition-colors"
+                      >
                         Login
-                      </span>
+                      </Link>
                     )}
                   </div>
                 </td>
@@ -110,28 +115,28 @@ export default function VariantTable({
                         className="w-16 h-9 bg-terminal-black border border-terminal-border text-center text-terminal-white font-mono font-bold focus:outline-none focus:border-businessx-orange transition-colors"
                         disabled={!canBuy || disabled || !isValidCustomer}
                     />
-                    <Button
-                        onClick={() =>
-                        isValidCustomer ? handleAddToCart(variant.id) : null
-                        }
-                        disabled={
-                        !canBuy ||
-                        addingVariantId === variant.id ||
-                        disabled ||
-                        !isValidCustomer
-                        }
+                    {!isValidCustomer ? (
+                      <Link
+                        href={`/${countryCode}/account/login?redirect=${encodeURIComponent(pathname)}`}
+                        className="flex-1 flex items-center justify-center border border-neutral-300 dark:border-terminal-border text-neutral-700 dark:text-terminal-white hover:text-businessx-orange hover:border-businessx-orange hover:shadow-[0_0_12px_rgba(255,85,0,0.15)] transition-all duration-200 rounded-none font-bold uppercase text-[10px] tracking-widest h-9"
+                      >
+                        Login
+                      </Link>
+                    ) : (
+                      <Button
+                        onClick={() => handleAddToCart(variant.id)}
+                        disabled={!canBuy || addingVariantId === variant.id || disabled}
                         isLoading={addingVariantId === variant.id}
                         className="flex-1 bg-transparent text-businessx-orange hover:bg-businessx-orange hover:text-black border border-businessx-orange transition-all rounded-none font-bold uppercase text-[10px] tracking-widest disabled:border-terminal-border disabled:text-terminal-dim disabled:hover:bg-transparent h-9"
                         size="base"
-                    >
+                      >
                         {addingVariantId === variant.id
-                        ? "..."
-                        : !isValidCustomer
-                        ? "Lock"
-                        : !canBuy
-                        ? "Sold"
-                        : "Add"}
-                    </Button>
+                          ? "..."
+                          : !canBuy
+                          ? "Sold"
+                          : "Add"}
+                      </Button>
+                    )}
                   </div>
                 </td>
               </tr>
