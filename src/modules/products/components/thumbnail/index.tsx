@@ -24,7 +24,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   return (
     <div
       className={clx(
-        "relative w-full overflow-hidden bg-terminal-surface border border-terminal-border rounded-none",
+        "group relative w-full overflow-hidden bg-terminal-surface border border-terminal-border rounded-none",
         className,
         {
           "aspect-[11/14]": isFeatured,
@@ -51,7 +51,7 @@ const ImageOrPlaceholder = ({
     <Image
       src={image}
       alt="Thumbnail"
-      className="absolute inset-0 object-cover object-center"
+      className="absolute inset-0 object-cover object-center transition-transform duration-300 ease-out group-hover:scale-105"
       draggable={false}
       quality={50}
       sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
