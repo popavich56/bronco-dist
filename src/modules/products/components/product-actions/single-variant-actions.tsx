@@ -102,7 +102,7 @@ export default function SingleVariantActions({
         {!isValidCustomer ? (
           <Link
             href={`/${countryCode}/account/login?redirect=${encodeURIComponent(pathname)}`}
-            className="flex-1 h-full flex items-center justify-center border border-neutral-300 dark:border-terminal-border text-neutral-700 dark:text-terminal-white hover:text-businessx-orange hover:border-businessx-orange hover:shadow-[0_0_12px_rgba(255,85,0,0.15)] transition-all duration-200 rounded-none font-bold uppercase tracking-widest text-sm"
+            className="flex-1 h-full flex items-center justify-center border border-neutral-300 text-neutral-700 hover:text-businessx-orange hover:border-businessx-orange dark:bg-businessx-orange dark:text-black dark:border-businessx-orange dark:hover:bg-businessx-orange/90 dark:hover:text-black hover:shadow-[0_0_12px_rgba(255,85,0,0.15)] transition-all duration-200 rounded-none font-bold uppercase tracking-widest text-sm"
           >
             Login
           </Link>
