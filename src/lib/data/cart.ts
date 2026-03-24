@@ -482,7 +482,10 @@ export async function placeOrder(cartId?: string) {
   const id = cartId || (await getCartId())
 
   if (!id) {
-    throw new Error("No existing cart found when placing an order")
+    return {
+      success: false,
+      error: "No existing cart found when placing an order",
+    }
   }
 
   const headers = {
