@@ -75,7 +75,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                   {
                     "ring-2 ring-[#6DB3D9] ring-offset-2 ring-offset-terminal-black":
                       index === selectedImageIndex,
-                    "border border-terminal-border hover:border-white/30":
+                    "border border-terminal-border hover:border-neutral-400 dark:hover:border-white/30":
                       index !== selectedImageIndex,
                   }
                 )}
