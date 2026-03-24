@@ -43,6 +43,14 @@ const Login = ({ countryCode }: Props) => {
             className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
         </div>
+        <div className="flex justify-end mt-2">
+          <LocalizedClientLink
+            href="/account/forgot-password"
+            className="text-xs font-body text-terminal-dim hover:text-businessx-orange transition-colors"
+          >
+            Forgot password?
+          </LocalizedClientLink>
+        </div>
         <ErrorMessage error={message} data-testid="login-error-message" />
         <SubmitButton
           data-testid="sign-in-button"

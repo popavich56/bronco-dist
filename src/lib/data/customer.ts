@@ -155,6 +155,86 @@ export async function login(_currentState: unknown, formData: FormData) {
   redirect(`/${countryCode || 'us'}/account`)
 }
 
+export async function requestPasswordReset(
+  _currentState: unknown,
+  formData: FormData
+) {
+  const email = formData.get("email") as string
+
+  try {
+    const backendUrl =
+      process.env.NEXT_PUBLIC_XCLADE_BACKEND_URL || "http://localhost:9000"
+    const apiKey =
+      process.env.NEXT_PUBLIC_XCLADE_API_KEY || ""
+
+    await fetch(`${backendUrl}/auth/customer/emailpass/reset-password`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-publishable-api-key": apiKey,
+      },
+      body: JSON.stringify({ identifier: email }),
+    })
+  } catch (error) {
+    // Silently catch — never reveal whether the email exists
+    console.error("[PASSWORD_RESET] Request error:", error)
+  }
+
+  // Always return success to prevent email enumeration
+  return { success: true }
+}
+
+export async function resetPassword(
+  _currentState: unknown,
+  formData: FormData
+) {
+  const token = formData.get("token") as string
+  const password = formData.get("password") as string
+  const confirmPassword = formData.get("confirm_password") as string
+
+  if (!token) {
+    return "Invalid or missing reset token."
+  }
+
+  if (password.length < 8) {
+    return "Password must be at least 8 characters."
+  }
+
+  if (password !== confirmPassword) {
+    return "Passwords do not match."
+  }
+
+  try {
+    const backendUrl =
+      process.env.NEXT_PUBLIC_XCLADE_BACKEND_URL || "http://localhost:9000"
+    const apiKey =
+      process.env.NEXT_PUBLIC_XCLADE_API_KEY || ""
+
+    const res = await fetch(
+      `${backendUrl}/auth/customer/emailpass/update`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-publishable-api-key": apiKey,
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ password }),
+      }
+    )
+
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}))
+      throw new Error(body.message || "Password reset failed.")
+    }
+
+    return { success: true }
+  } catch (error: any) {
+    console.error("[PASSWORD_RESET] Reset error:", error)
+    return error.message || "Something went wrong. Please try again."
+  }
+}
+
 export async function signout(countryCode: string) {
   // Clearing cookies is sufficient for JWT stateless auth
   await removeAuthToken()
