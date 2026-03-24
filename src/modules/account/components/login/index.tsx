@@ -31,7 +31,7 @@ const Login = ({ countryCode }: Props) => {
             autoComplete="email"
             required
             data-testid="email-input"
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border dark:border-[#6DB3D9]/15 bg-terminal-black dark:bg-[#001a28] focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
           <Input
             label="Password"
@@ -40,10 +40,10 @@ const Login = ({ countryCode }: Props) => {
             autoComplete="current-password"
             required
             data-testid="password-input"
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border bg-terminal-black focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 appearance-none focus:outline-none rounded-none border border-terminal-border dark:border-[#6DB3D9]/15 bg-terminal-black dark:bg-[#001a28] focus:border-businessx-orange transition-all placeholder:text-terminal-dim text-terminal-white font-medium"
           />
         </div>
-        <div className="flex justify-end mt-2">
+        <div className="flex justify-end mt-3">
           <LocalizedClientLink
             href="/account/forgot-password"
             className="text-xs font-body text-terminal-dim hover:text-businessx-orange transition-colors"
@@ -59,13 +59,13 @@ const Login = ({ countryCode }: Props) => {
           Sign in
         </SubmitButton>
       </form>
-      <span className="text-center text-terminal-dim text-sm font-body mt-8 font-medium leading-relaxed">
-        Want to sell with Bronco?{" "}
+      <span className="text-center text-terminal-dim text-sm font-body mt-10 font-medium leading-relaxed">
+        Ready to shop?{" "}
         <LocalizedClientLink
           href="/account/register"
           className="underline font-bold text-businessx-orange hover:text-businessx-yellow transition-colors"
         >
-          Apply for a wholesale account
+          Apply for wholesale access
         </LocalizedClientLink>
         .
       </span>
