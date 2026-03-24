@@ -97,7 +97,7 @@ export default function VariantTable({
                     )}
                   </div>
                 </td>
-                <td className="p-4 border-r border-terminal-border font-mono text-xs text-white/70 hidden md:table-cell">
+                <td className="p-4 border-r border-terminal-border font-mono text-xs text-neutral-500 dark:text-neutral-400 hidden md:table-cell">
                   {variant.sku || "N/A"}
                 </td>
                 <td className="p-2">

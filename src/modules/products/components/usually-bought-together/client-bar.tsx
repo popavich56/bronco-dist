@@ -157,7 +157,7 @@ export default function UsuallyBoughtTogetherBar({
             </Button>
             <button
               onClick={() => setIsDismissed(true)}
-              className="p-3 rounded-full bg-terminal-black/5 hover:bg-terminal-black/10 text-white/50 hover:text-white transition-colors"
+              className="p-3 rounded-full bg-terminal-black/5 hover:bg-terminal-black/10 text-neutral-500 hover:text-neutral-700 dark:text-white/50 dark:hover:text-white transition-colors"
             >
               <X className="h-6 w-6" />
             </button>

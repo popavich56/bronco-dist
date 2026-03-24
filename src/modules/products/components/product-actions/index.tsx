@@ -59,15 +59,15 @@ export default function ProductActions({
 
         {/* SKU display */}
         {firstSku && (
-          <div className="text-xs text-white/50 font-mono">
+          <div className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">
             SKU: {firstSku}
           </div>
         )}
 
         {/* Warehouse location — conditional only */}
         {(product as any).metadata?.location && (
-          <div className="text-xs text-white/50 font-mono">
-            <span className="text-white/30 uppercase tracking-wider text-[10px]">Warehouse Location</span>
+          <div className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">
+            <span className="text-neutral-400 dark:text-neutral-500 uppercase tracking-wider text-[10px]">Warehouse Location</span>
             <span className="ml-2">{(product as any).metadata.location}</span>
           </div>
         )}
@@ -94,14 +94,14 @@ export default function ProductActions({
         )}
 
         {/* Fulfillment options — below variant table */}
-        <div className="bg-white/5 rounded-2xl p-4 mt-3">
+        <div className="bg-neutral-100 dark:bg-white/5 rounded-2xl p-4 mt-3">
           <div className="grid grid-cols-2 gap-3">
             {FULFILLMENT_OPTIONS.map((opt) => (
               <div key={opt.label} className="flex items-start gap-2">
                 <span className="text-sm leading-none mt-0.5">{opt.icon}</span>
                 <div className="flex flex-col">
-                  <span className="text-xs font-mono text-white/70 font-bold leading-tight">{opt.label}</span>
-                  <span className="text-[10px] font-mono text-white/40 leading-tight">{opt.detail}</span>
+                  <span className="text-xs font-mono text-neutral-900 dark:text-white font-bold leading-tight">{opt.label}</span>
+                  <span className="text-[10px] font-mono text-neutral-500 dark:text-neutral-400 leading-tight">{opt.detail}</span>
                 </div>
               </div>
             ))}

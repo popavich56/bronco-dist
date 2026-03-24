@@ -53,7 +53,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           {/* Left Arrow */}
           <button
             onClick={() => scrollThumbs("left")}
-            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/50 hover:text-white/80 transition-all"
+            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-neutral-200/50 hover:bg-neutral-200 dark:bg-white/5 dark:hover:bg-white/10 text-neutral-500 hover:text-neutral-700 dark:text-white/50 dark:hover:text-white/80 transition-all"
             aria-label="Scroll thumbnails left"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -96,7 +96,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           {/* Right Arrow */}
           <button
             onClick={() => scrollThumbs("right")}
-            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/50 hover:text-white/80 transition-all"
+            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-neutral-200/50 hover:bg-neutral-200 dark:bg-white/5 dark:hover:bg-white/10 text-neutral-500 hover:text-neutral-700 dark:text-white/50 dark:hover:text-white/80 transition-all"
             aria-label="Scroll thumbnails right"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
