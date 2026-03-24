@@ -13,11 +13,8 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
   const thumbsRef = useRef<HTMLDivElement>(null)
 
-  if (!images || images.length === 0) {
-    return null
-  }
-
-  const hasMultiple = images.length > 1
+  const hasImages = images && images.length > 0
+  const hasMultiple = hasImages && images.length > 1
 
   const scrollThumbs = (direction: "left" | "right") => {
     if (!thumbsRef.current) return
@@ -33,9 +30,9 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
       {/* Main Image */}
       <div
         className="relative aspect-square w-full overflow-hidden bg-terminal-panel border border-terminal-border rounded-2xl group"
-        id={images[selectedImageIndex].id}
+        id={hasImages ? images[selectedImageIndex].id : "no-image"}
       >
-        {!!images[selectedImageIndex].url && (
+        {hasImages && !!images[selectedImageIndex].url ? (
           <Image
             src={images[selectedImageIndex].url}
             priority={true}
@@ -44,6 +41,27 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
             fill
             sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
           />
+        ) : (
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-terminal-dim gap-3">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="opacity-25"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
+            <span className="text-xs font-mono uppercase tracking-widest opacity-40 select-none">
+              No image available
+            </span>
+          </div>
         )}
       </div>
 
