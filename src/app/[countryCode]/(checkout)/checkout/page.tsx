@@ -25,13 +25,14 @@ export default async function Checkout(props: { params: Promise<{ countryCode: s
     retrieveCustomer(),
   ])
 
+  const isBypass = process.env.NEXT_PUBLIC_BYPASS_WHOLESALE_GATE === "true"
   const status = getAccountStatus(customer)
 
-  if (status === "guest") {
+  if (!isBypass && status === "guest") {
     redirect(`/${params.countryCode}/account`)
   }
 
-  if (status === "pending") {
+  if (!isBypass && status === "pending") {
     return (
       <div className="min-h-[calc(100vh-64px)] flex items-center justify-center bg-terminal-black px-4">
         <div className="max-w-md w-full border border-[#6DB3D9]/30 bg-[#001F2E] p-8 text-center">
