@@ -24,6 +24,8 @@ export default function VariantTable({
   const pathname = usePathname()
   const [addingVariantId, setAddingVariantId] = useState<string | null>(null)
   const [quantities, setQuantities] = useState<Record<string, number>>({})
+  const [bulkAdding, setBulkAdding] = useState(false)
+  const [bulkErrors, setBulkErrors] = useState<string[]>([])
 
   const handleAddToCart = async (variantId: string) => {
     setAddingVariantId(variantId)
@@ -47,6 +49,51 @@ export default function VariantTable({
       }
   }
 
+
+  const getBulkCandidates = () => {
+    if (!isValidCustomer || !product.variants) return []
+    return product.variants.filter((v) => {
+      const qty = quantities[v.id] || 1
+      if (qty < 1) return false
+      const isOOS = v.manage_inventory === true && v.inventory_quantity === 0
+      const canBuy = !isOOS || v.allow_backorder
+      return canBuy
+    })
+  }
+
+  const bulkCandidates = getBulkCandidates()
+
+  const handleBulkAddToCart = async () => {
+    if (bulkCandidates.length === 0 || bulkAdding) return
+    setBulkAdding(true)
+    setBulkErrors([])
+
+    const failed: string[] = []
+
+    for (const variant of bulkCandidates) {
+      try {
+        setAddingVariantId(variant.id)
+        await addToCart({
+          variantId: variant.id,
+          quantity: quantities[variant.id] || 1,
+          countryCode: countryCode as string,
+        })
+      } catch {
+        failed.push(variant.title || variant.id)
+      } finally {
+        setAddingVariantId(null)
+      }
+    }
+
+    if (failed.length > 0) {
+      setBulkErrors(failed)
+    } else {
+      // Clear quantities for successfully added variants
+      setQuantities({})
+    }
+
+    setBulkAdding(false)
+  }
 
   if (!product.variants || product.variants.length === 0) return null
 
@@ -124,7 +171,7 @@ export default function VariantTable({
                     ) : (
                       <Button
                         onClick={() => handleAddToCart(variant.id)}
-                        disabled={!canBuy || addingVariantId === variant.id || disabled}
+                        disabled={!canBuy || addingVariantId === variant.id || disabled || bulkAdding}
                         isLoading={addingVariantId === variant.id}
                         className="flex-1 bg-transparent text-businessx-orange hover:bg-businessx-orange hover:text-black border border-businessx-orange transition-all rounded-none font-bold uppercase text-[10px] tracking-widest disabled:border-terminal-border disabled:text-terminal-dim disabled:hover:bg-transparent h-9"
                         size="base"
@@ -143,6 +190,26 @@ export default function VariantTable({
           })}
         </tbody>
       </table>
+
+      {isValidCustomer && product.variants.length > 1 && (
+        <div className="p-4 border-t border-terminal-border">
+          {bulkErrors.length > 0 && (
+            <p className="text-red-500 text-xs font-mono mb-3">
+              Failed to add: {bulkErrors.join(", ")}
+            </p>
+          )}
+          <Button
+            onClick={handleBulkAddToCart}
+            disabled={bulkCandidates.length === 0 || bulkAdding || disabled}
+            isLoading={bulkAdding}
+            className="w-full bg-businessx-orange text-black hover:bg-businessx-orange/90 transition-all rounded-none font-bold uppercase text-xs tracking-widest h-10 disabled:bg-terminal-panel disabled:text-terminal-dim disabled:border-terminal-border border border-businessx-orange disabled:border-terminal-border"
+          >
+            {bulkAdding
+              ? "Adding..."
+              : `Add ${bulkCandidates.length} Variant${bulkCandidates.length !== 1 ? "s" : ""} to Cart`}
+          </Button>
+        </div>
+      )}
     </div>
   )
 }
