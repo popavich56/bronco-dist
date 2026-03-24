@@ -83,10 +83,10 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                 {!!image.url && (
                   <Image
                     src={image.url}
-                    className="absolute inset-0 object-cover p-1 transition-all duration-300"
+                    width={80}
+                    height={80}
+                    className="object-cover w-full h-full transition-all duration-300"
                     alt={`Product thumbnail ${index + 1}`}
-                    fill
-                    sizes="80px"
                     loading="eager"
                   />
                 )}
