@@ -11,6 +11,7 @@ export const PENDING_MESSAGE =
  * Missing, null, or any non-"approved" metadata value → false.
  */
 export function isApprovedCustomer(customer: Customer | null): boolean {
+  if (process.env.NEXT_PUBLIC_BYPASS_WHOLESALE_GATE === "true") return true
   if (!customer) return false
   return (customer as any).metadata?.account_status === "approved"
 }

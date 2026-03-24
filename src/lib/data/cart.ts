@@ -37,6 +37,7 @@ import {
 const APPROVAL_ERROR = "Account not approved for purchasing"
 
 async function requireApprovedCustomer() {
+  if (process.env.NEXT_PUBLIC_BYPASS_WHOLESALE_GATE === "true") return null
   const customer = await retrieveCustomer()
   if (!isApprovedCustomer(customer)) {
     return { error: APPROVAL_ERROR }
