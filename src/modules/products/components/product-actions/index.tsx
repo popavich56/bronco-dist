@@ -2,7 +2,7 @@
 
 import { useIntersection } from "@lib/hooks/use-in-view"
 import { Product, Region } from "@xclade/types"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import ProductPrice from "../product-price"
 import ProductInventory from "../product-inventory"
 import VariantTable from "./variant-table"
@@ -41,6 +41,30 @@ export default function ProductActions({
     .filter((sku): sku is string => !!sku && sku.trim() !== "")
     .filter((sku, index, arr) => arr.indexOf(sku) === index) ?? []
 
+  const [inventoryMap, setInventoryMap] = useState<Record<
+    string,
+    { totalQuantity: number; locations: { code: string; quantity: number }[] }
+  > | null>(null)
+
+  useEffect(() => {
+    if (!allSkus.length) return
+
+    const validSkus = allSkus
+      .map((s) => s.toUpperCase())
+      .filter((s) => /^[A-Z0-9\-]{3,30}$/.test(s))
+    if (!validSkus.length) return
+
+    fetch("/api/skuvault/inventory", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ skus: validSkus }),
+    })
+      .then((res) => res.json())
+      .then((data) => setInventoryMap(data))
+      .catch(() => setInventoryMap(null))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allSkus.join(",")])
+
   return (
     <>
       <div className="flex flex-col gap-y-2" ref={actionsRef}>
@@ -72,24 +96,25 @@ export default function ProductActions({
           </div>
         )}
 
-        {/* Live inventory from SkuVault — visible to all users */}
-        {allSkus.length > 0 && (
-          (console.log("ProductInventory skus prop:", allSkus), true) &&
-          <ProductInventory skus={allSkus} />
-        )}
-
         {isSingleVariant ? (
-          <SingleVariantActions
-            product={product}
-            variant={product.variants![0]}
-            isValidCustomer={isValidCustomer}
-            disabled={disabled}
-          />
+          <>
+            {/* Live inventory from SkuVault — single-variant only */}
+            {allSkus.length > 0 && (
+              <ProductInventory skus={allSkus} />
+            )}
+            <SingleVariantActions
+              product={product}
+              variant={product.variants![0]}
+              isValidCustomer={isValidCustomer}
+              disabled={disabled}
+            />
+          </>
         ) : (
           <VariantTable
             product={product}
             disabled={disabled}
             isValidCustomer={isValidCustomer}
+            inventoryMap={inventoryMap}
           />
         )}
 

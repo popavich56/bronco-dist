@@ -9,16 +9,23 @@ import Link from "next/link"
 import { useState } from "react"
 import { Check, X, AlertTriangle } from "lucide-react"
 
+type InventoryEntry = {
+  totalQuantity: number
+  locations: { code: string; quantity: number }[]
+}
+
 type VariantTableProps = {
   product: Product
   disabled?: boolean
   isValidCustomer?: boolean
+  inventoryMap?: Record<string, InventoryEntry> | null
 }
 
 export default function VariantTable({
   product,
   disabled,
   isValidCustomer = false,
+  inventoryMap,
 }: VariantTableProps) {
   const { countryCode } = useParams()
   const pathname = usePathname()
@@ -146,6 +153,27 @@ export default function VariantTable({
                         Login
                       </Link>
                     )}
+                    {(() => {
+                      const skuKey = variant.sku?.toUpperCase()
+                      const inv = skuKey && inventoryMap?.[skuKey]
+                      if (!inv) return null
+                      const primary = inv.locations[0]
+                      const extraCount = inv.locations.length - 1
+                      return (
+                        <span className="text-[10px] font-mono text-neutral-500 dark:text-neutral-400 mt-0.5">
+                          {inv.totalQuantity > 0
+                            ? `${inv.totalQuantity} in stock`
+                            : "Out of stock"}
+                          {primary && (
+                            <>
+                              {" \u2022 "}
+                              {primary.code}
+                              {extraCount > 0 && ` +${extraCount}`}
+                            </>
+                          )}
+                        </span>
+                      )
+                    })()}
                   </div>
                 </td>
                 <td className="p-4 border-r border-terminal-border font-mono text-xs text-neutral-500 dark:text-neutral-400 hidden md:table-cell select-all">
