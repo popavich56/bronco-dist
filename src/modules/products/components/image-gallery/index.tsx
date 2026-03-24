@@ -3,7 +3,7 @@
 import { clx } from "@medusajs/ui"
 import { ProductImage } from "@xclade/types"
 import Image from "next/image"
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 
 type ImageGalleryProps = {
   images: ProductImage[]
@@ -11,9 +11,17 @@ type ImageGalleryProps = {
 
 const ImageGallery = ({ images }: ImageGalleryProps) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+  const [mainLoaded, setMainLoaded] = useState(false)
   const thumbsRef = useRef<HTMLDivElement>(null)
 
   const hasImages = images && images.length > 0
+  const currentSrc = hasImages ? images[selectedImageIndex]?.url : null
+
+  // Reset loaded state when the active image source changes
+  useEffect(() => {
+    setMainLoaded(false)
+  }, [currentSrc])
+
   const hasMultiple = hasImages && images.length > 1
 
   const scrollThumbs = (direction: "left" | "right") => {
@@ -33,14 +41,23 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
         id={hasImages ? images[selectedImageIndex].id : "no-image"}
       >
         {hasImages && !!images[selectedImageIndex].url ? (
-          <Image
-            src={images[selectedImageIndex].url}
-            priority={true}
-            className="absolute inset-0 object-cover p-2 transition-transform duration-300 group-hover:scale-105"
-            alt={`Product image ${selectedImageIndex + 1}`}
-            fill
-            sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
-          />
+          <>
+            {!mainLoaded && (
+              <div className="absolute inset-0 bg-terminal-panel animate-pulse" />
+            )}
+            <Image
+              src={images[selectedImageIndex].url}
+              priority={true}
+              className={clx(
+                "absolute inset-0 object-cover p-2 transition-all duration-500 ease-out group-hover:scale-105",
+                mainLoaded ? "opacity-100" : "opacity-0"
+              )}
+              alt={`Product image ${selectedImageIndex + 1}`}
+              fill
+              sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
+              onLoad={() => setMainLoaded(true)}
+            />
+          </>
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center text-terminal-dim gap-3">
             <svg
