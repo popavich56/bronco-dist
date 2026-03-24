@@ -54,11 +54,10 @@ export default function VariantTable({
     <div className="w-full overflow-x-auto border border-terminal-border bg-terminal-black mt-8">
       <table className="w-full text-left border-collapse min-w-[600px] text-sm font-mono">
         <thead>
-          <tr className="bg-terminal-panel text-terminal-dim font-bold uppercase text-[10px] tracking-widest border-b border-terminal-border ">
-            <th className="p-4 border-r border-terminal-border ">Variant / Cost</th>
-            <th className="p-4 border-r border-terminal-border hidden md:table-cell">SKU_Code</th>
-            {/* <th className="p-4 border-r border-terminal-border">UPC</th> - Optional, reducing width */}
-            <th className="p-4 text-center">Protocol</th>
+          <tr className="bg-terminal-panel text-terminal-dim font-bold uppercase text-[11px] tracking-widest border-b border-terminal-border">
+            <th className="p-4 border-r border-terminal-border">Product</th>
+            <th className="p-4 border-r border-terminal-border hidden md:table-cell">SKU</th>
+            <th className="p-4 text-center">Order</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-terminal-border  text-terminal-white ">
@@ -74,7 +73,7 @@ export default function VariantTable({
             return (
               <tr
                 key={variant.id}
-                className="hover:bg-terminal-highlight  transition-colors group border-b border-terminal-border last:border-b-0"
+                className="even:bg-terminal-panel/30 hover:bg-terminal-highlight transition-colors group border-b border-terminal-border last:border-b-0"
               >
                 <td className="p-4 border-r border-terminal-border">
                   <div className="flex flex-col">
@@ -89,30 +88,30 @@ export default function VariantTable({
                       )}
                     </div>
                     {isValidCustomer ? (
-                      <span className="text-terminal-white font-mono text-xs mt-1">
+                      <span className="text-terminal-white font-mono text-xs mt-0.5">
                         {variantPrice?.calculated_price}
                       </span>
                     ) : (
                       <Link
                         href={`/${countryCode}/account/login?redirect=${encodeURIComponent(pathname)}`}
-                        className="text-terminal-dim text-[10px] uppercase mt-1 hover:text-businessx-orange transition-colors"
+                        className="text-terminal-dim text-[10px] uppercase mt-0.5 hover:text-businessx-orange transition-colors"
                       >
                         Login
                       </Link>
                     )}
                   </div>
                 </td>
-                <td className="p-4 border-r border-terminal-border font-mono text-xs text-neutral-500 dark:text-neutral-400 hidden md:table-cell">
+                <td className="p-4 border-r border-terminal-border font-mono text-xs text-neutral-500 dark:text-neutral-400 hidden md:table-cell select-all">
                   {variant.sku || "N/A"}
                 </td>
-                <td className="p-2">
+                <td className="p-3">
                   <div className="flex items-center gap-2">
-                    <input 
-                        type="number" 
+                    <input
+                        type="number"
                         min={1}
                         value={quantities[variant.id] || 1}
                         onChange={(e) => handleQuantityChange(variant.id, e.target.value)}
-                        className="w-16 h-9 bg-terminal-black border border-terminal-border text-center text-terminal-white font-mono font-bold focus:outline-none focus:border-businessx-orange transition-colors"
+                        className="w-16 h-9 bg-terminal-black border border-terminal-border rounded-sm text-center text-terminal-white font-mono font-bold focus:outline-none focus:border-businessx-orange transition-colors"
                         disabled={!canBuy || disabled || !isValidCustomer}
                     />
                     {!isValidCustomer ? (
