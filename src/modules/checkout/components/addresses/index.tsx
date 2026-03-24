@@ -61,7 +61,7 @@ const Addresses = ({
           <Button
             onClick={onEdit}
             variant="transparent"
-            className="text-businessx-orange hover:text-white font-bold uppercase tracking-wide decoration-2 hover:underline font-mono text-xs"
+            className="text-businessx-orange hover:text-terminal-white font-bold uppercase tracking-wide decoration-2 hover:underline font-mono text-xs"
             data-testid="edit-address-button"
           >
             Edit

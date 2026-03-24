@@ -34,7 +34,7 @@ const ReviewForm = ({
         <h3 className="font-display font-bold text-lg text-terminal-white mb-2">
           Sign in to Write a Review
         </h3>
-        <p className="text-sm text-gray-600 mb-4">
+        <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
           You must be logged in to leave a review for this product.
         </p>
         <Button
@@ -146,7 +146,7 @@ const ReviewForm = ({
               className={`text-2xl transition-colors ${
                 star <= rating
                   ? "text-businessx-yellow"
-                  : "text-gray-300 dark:text-zinc-700"
+                  : "text-neutral-400 dark:text-zinc-700"
               }`}
             >
               ★

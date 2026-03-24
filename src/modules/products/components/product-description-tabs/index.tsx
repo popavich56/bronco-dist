@@ -61,7 +61,7 @@ const ProductDescriptionTabs = ({
       <div className="min-h-[300px]">
         {activeTab === "description" && (
           <div
-            className="text-base font-body text-terminal-white/80 dark:text-neutral-300 leading-relaxed max-w-4xl prose prose-zinc prose-sm small:prose-base prose-headings:font-display prose-headings:uppercase prose-headings:font-bold prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-headings: prose-p:dark:text-neutral-300 prose-li:dark:text-neutral-300 prose-strong:"
+            className="text-base font-body text-neutral-800 dark:text-neutral-300 leading-relaxed max-w-4xl prose prose-neutral dark:prose-invert prose-sm small:prose-base prose-headings:font-display prose-headings:uppercase prose-headings:font-bold prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4"
             dangerouslySetInnerHTML={{ __html: product.description || "" }}
           />
         )}
@@ -86,7 +86,7 @@ const ProductDescriptionTabs = ({
                                 0
                             )
                             ? "fill-current"
-                            : "text-gray-200 fill-gray-200 dark:text-zinc-700 dark:fill-zinc-700"
+                            : "text-neutral-400 fill-neutral-400 dark:text-zinc-700 dark:fill-zinc-700"
                         )}
                       />
                     ))}
@@ -132,7 +132,7 @@ const ProductDescriptionTabs = ({
                                   "w-4 h-4",
                                   i < review.rating
                                     ? "fill-current"
-                                    : "text-gray-200 fill-gray-200"
+                                    : "text-neutral-400 fill-neutral-400 dark:text-zinc-700 dark:fill-zinc-700"
                                 )}
                               />
                             ))}
@@ -155,7 +155,7 @@ const ProductDescriptionTabs = ({
                       </div>
                     </div>
                     {review.content && (
-                      <p className="text-gray-600 leading-relaxed text-sm">
+                      <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
                         {review.content}
                       </p>
                     )}

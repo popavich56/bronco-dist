@@ -172,8 +172,8 @@ export default async function Footer() {
             <div key={opt.label} className="flex items-start gap-2">
               <span className="text-sm leading-none mt-0.5">{opt.icon}</span>
               <div className="flex flex-col">
-                <span className="text-xs font-mono text-white/70 font-bold leading-tight">{opt.label}</span>
-                <span className="text-[10px] font-mono text-white/40 leading-tight">{opt.detail}</span>
+                <span className="text-xs font-mono text-terminal-white/70 font-bold leading-tight">{opt.label}</span>
+                <span className="text-[10px] font-mono text-terminal-dim leading-tight">{opt.detail}</span>
               </div>
             </div>
           ))}
