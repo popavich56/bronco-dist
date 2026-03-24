@@ -64,14 +64,14 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           {/* Thumbnails Strip */}
           <div
             ref={thumbsRef}
-            className="flex gap-x-2 overflow-x-auto scrollbar-hide scroll-smooth flex-1"
+            className="flex gap-x-2 overflow-x-auto no-scrollbar scroll-smooth flex-1"
           >
             {images.map((image, index) => (
               <button
                 key={image.id}
                 onClick={() => setSelectedImageIndex(index)}
                 className={clx(
-                  "relative aspect-square w-16 small:w-20 shrink-0 overflow-hidden rounded-xl transition-all duration-200 bg-terminal-panel",
+                  "relative w-16 h-16 small:w-20 small:h-20 shrink-0 overflow-hidden rounded-xl transition-all duration-200 bg-terminal-panel",
                   {
                     "ring-2 ring-[#6DB3D9] ring-offset-2 ring-offset-terminal-black":
                       index === selectedImageIndex,
@@ -87,6 +87,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                     alt={`Product thumbnail ${index + 1}`}
                     fill
                     sizes="80px"
+                    loading="eager"
                   />
                 )}
               </button>
