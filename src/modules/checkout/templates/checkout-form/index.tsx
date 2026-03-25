@@ -1,3 +1,4 @@
+import { filterShippingMethods } from "@lib/config/delivery-zones"
 import { listCartShippingMethods } from "@lib/data/fulfillment"
 import { listCartPaymentMethods } from "@lib/data/payment"
 import { Cart, Customer } from "@xclade/types"
@@ -14,12 +15,12 @@ export default async function CheckoutForm({
     return null
   }
 
-  const [shippingMethods, paymentMethods] = await Promise.all([
+  const [rawShippingMethods, paymentMethods] = await Promise.all([
     listCartShippingMethods(cart.id),
     listCartPaymentMethods(cart.region?.id ?? ""),
   ])
 
-  if (!shippingMethods || !paymentMethods) {
+  if (!rawShippingMethods || !paymentMethods) {
     return (
       <div className="flex flex-col items-center justify-center py-16 px-6 text-center">
         <div className="w-12 h-12 rounded-full bg-red-600/20 flex items-center justify-center mb-4">
@@ -54,8 +55,14 @@ export default async function CheckoutForm({
     )
   }
 
+  // Apply address-based eligibility rules (CO-only pickup, ZIP-gated delivery)
+  const shippingMethods = filterShippingMethods(
+    rawShippingMethods,
+    cart.shipping_address
+  )
+
   return (
-    <CheckoutFlow 
+    <CheckoutFlow
       cart={cart}
       customer={customer}
       shippingMethods={shippingMethods}
