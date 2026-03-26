@@ -1,25 +1,35 @@
 "use client"
 
 import React from "react"
-import { Text, clx } from "@medusajs/ui"
+import { Text } from "@medusajs/ui"
 import { Product } from "@xclade/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "../thumbnail"
-import { ArrowUpRight } from "lucide-react"
 import { VariantPrice } from "types/global"
+import QuickAddButton from "./quick-add-button"
 
 type ProductPreviewCardProps = {
   product: Product
   isFeatured?: boolean
   view?: "grid" | "list"
+  price?: VariantPrice | null
+  isApproved?: boolean
+  isLoggedIn?: boolean
+  countryCode?: string
 }
 
 export const ProductPreviewCard = ({
   product,
   isFeatured,
   view = "grid",
+  price,
+  isApproved = false,
+  isLoggedIn = false,
 }: ProductPreviewCardProps) => {
-  // List View specific styles
+  const isSingleVariant = product.variants?.length === 1
+  const variantId = isSingleVariant ? product.variants![0].id : null
+
+  // List View
   if (view === "list") {
     return (
       <LocalizedClientLink
@@ -48,7 +58,6 @@ export const ProductPreviewCard = ({
                     {product.subtitle}
                   </Text>
                 )}
-
                 <Text
                   className="font-display font-bold text-lg leading-tight text-terminal-white group-hover:text-businessx-orange transition-colors"
                   data-testid="product-title"
@@ -56,10 +65,21 @@ export const ProductPreviewCard = ({
                   {product.title}
                 </Text>
               </div>
-              <div className="flex items-center gap-x-2 font-mono font-bold text-lg text-terminal-white">
-                {/* Price removed */}
-              </div>
+              {price && (
+                <div className="flex items-center gap-x-2 font-mono font-bold text-lg text-terminal-white">
+                  {price.calculated_price}
+                </div>
+              )}
             </div>
+          </div>
+
+          <div className="shrink-0 w-36">
+            <QuickAddButton
+              productHandle={product.handle!}
+              variantId={variantId}
+              isApproved={isApproved}
+              isLoggedIn={isLoggedIn}
+            />
           </div>
         </div>
       </LocalizedClientLink>
@@ -74,37 +94,55 @@ export const ProductPreviewCard = ({
     >
       <div
         data-testid="product-wrapper"
-        // 'Terminal Prime' Grid Cell Style - Minimalist
-        className="h-full flex flex-col justify-between bg-terminal-black hover:bg-terminal-panel border-b-4 border-transparent p-6 transition-all duration-200 group-hover:border-businessx-orange relative overflow-hidden"
+        className="h-full flex flex-col justify-between bg-terminal-black hover:bg-terminal-panel p-4 md:p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20 relative overflow-hidden"
       >
-        <div className="mb-4 relative overflow-hidden aspect-square bg-terminal-surface border border-terminal-border group-hover:border-terminal-active transition-colors">
+        {/* Image */}
+        <div className="mb-3 relative overflow-hidden aspect-square bg-terminal-surface border border-terminal-border group-hover:border-businessx-orange/40 transition-colors duration-200 rounded-sm">
           <Thumbnail
             thumbnail={product.thumbnail}
             images={product.images}
             size="square"
             isFeatured={isFeatured}
-            // Image styling: clear, slight zoom on hover
-            className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-105"
+            className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-[1.06]"
           />
         </div>
 
-        <div className="space-y-3">
-          <div className="flex flex-col gap-1">
+        {/* Info */}
+        <div className="flex flex-col flex-1 justify-between gap-3">
+          <div>
             <Text
-              className="font-display font-bold text-base leading-tight text-terminal-white line-clamp-2 md:h-10 group-hover:text-businessx-orange transition-colors"
+              className="font-display font-bold text-sm md:text-base leading-tight text-terminal-white line-clamp-2 min-h-[2.5rem] group-hover:text-businessx-orange transition-colors duration-200"
               data-testid="product-title"
             >
               {product.title}
             </Text>
+
+            {/* Price — approved customers only */}
+            <div className="h-6 mt-1 font-mono text-sm">
+              {price ? (
+                <span className="text-terminal-white font-bold">
+                  {price.calculated_price}
+                  {price.price_type === "sale" && (
+                    <span className="ml-2 text-terminal-dim line-through text-xs">
+                      {price.original_price}
+                    </span>
+                  )}
+                </span>
+              ) : (
+                <span className="text-terminal-dim text-xs">&nbsp;</span>
+              )}
+            </div>
           </div>
 
-
-            <div className="flex items-end justify-between pt-3 border-t border-terminal-border border-dashed font-mono">
-                <div className="flex flex-col">
-                {/* Price removed as per request */}
-                </div>
-                <ArrowUpRight className="w-4 h-4 text-terminal-dim group-hover:text-businessx-orange transition-colors" />
-            </div>
+          {/* Quick Add CTA — always takes space */}
+          <div className="mt-auto pt-2">
+            <QuickAddButton
+              productHandle={product.handle!}
+              variantId={variantId}
+              isApproved={isApproved}
+              isLoggedIn={isLoggedIn}
+            />
+          </div>
         </div>
       </div>
     </LocalizedClientLink>

@@ -15,23 +15,10 @@ export default async function ProductPreview({
   region: Region
   view?: "grid" | "list"
 }) {
-  const { cheapestPrice } = getProductPrice({
-    product,
-  })
-
+  const { cheapestPrice } = getProductPrice({ product })
   const customer = await retrieveCustomer()
-
-  // If we require customer logic for pricing visibility, handle it here
-  if (!cheapestPrice || !customer) {
-    // Return card without price or null if strict
-    // Matching original logic: if (!price || !customer) return null
-    // But original logic was inside PreviewPrice.
-    // Here we replicate: "if we have a price but no customer/logic prevents it, pass it"
-    // Actually, original PreviewPrice returned null if no customer.
-    // So we pass null as price.
-  }
-
-  const shouldShowPrice = !!cheapestPrice && isApprovedCustomer(customer)
+  const approved = isApprovedCustomer(customer)
+  const shouldShowPrice = !!cheapestPrice && approved
 
   return (
     <ProductPreviewCard
@@ -39,6 +26,9 @@ export default async function ProductPreview({
       isFeatured={isFeatured}
       view={view}
       price={shouldShowPrice ? cheapestPrice : null}
+      isApproved={approved}
+      isLoggedIn={!!customer}
+      countryCode={region.countries?.[0]?.iso_2 ?? "us"}
     />
   )
 }
