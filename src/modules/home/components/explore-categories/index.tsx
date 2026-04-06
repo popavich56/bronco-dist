@@ -1,6 +1,19 @@
 import { listNavCategories } from "@lib/data/categories"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { ArrowRight } from "lucide-react"
+import Image from "next/image"
+
+const CATEGORY_IMAGES: Record<string, string> = {
+  dabbing: "dabbing.jpg",
+  disposables: "disposables.jpg",
+  accessories: "accessories.jpg",
+  "papers-cones": "papers-cones.jpg",
+  "water-pipes-rigs": "water-pipes-rigs.jpg",
+  "e-liquids": "e-liquids.jpg",
+  pipes: "pipes.jpg",
+  torches: "torches.jpg",
+  "new-items": "new-items.jpg",
+}
 
 export default async function ExploreCategories() {
   const categories = await listNavCategories()
@@ -26,21 +39,42 @@ export default async function ExploreCategories() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {display.map((cat) => (
-            <LocalizedClientLink
-              key={cat.id}
-              href={`/categories/${cat.handle}`}
-              className="bg-terminal-panel p-6 md:p-8 flex flex-col justify-between gap-4 rounded-xl hover:bg-terminal-surface transition-colors duration-150 group min-h-[120px] border border-terminal-border"
-            >
-              <h3 className="font-display font-bold text-sm md:text-base uppercase tracking-wide text-terminal-white leading-tight">
-                {cat.name}
-              </h3>
-              <div className="flex items-center gap-2 text-[#6DB3D9] text-xs font-mono font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-                Browse
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </LocalizedClientLink>
-          ))}
+          {display.map((cat) => {
+            const imageFile = CATEGORY_IMAGES[cat.handle]
+
+            return (
+              <LocalizedClientLink
+                key={cat.id}
+                href={`/categories/${cat.handle}`}
+                className="relative overflow-hidden rounded-xl group min-h-[180px] md:min-h-[240px] flex items-stretch bg-terminal-surface hover:bg-terminal-highlight border border-terminal-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="relative z-10 flex-1 flex flex-col justify-between p-5 md:p-6">
+                  <h3 className="font-display font-bold text-sm md:text-base uppercase tracking-wide text-terminal-white leading-tight">
+                    {cat.name}
+                  </h3>
+                  <div className="flex items-center gap-2 text-[#6DB3D9] text-xs font-mono font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Browse
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+                <div className="relative z-10 w-[50%] rounded-r-xl bg-terminal-panel border-l border-terminal-border flex items-center justify-center p-3 md:p-4">
+                  {imageFile ? (
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={`/images/categories/${imageFile}`}
+                        alt={cat.name}
+                        fill
+                        sizes="(max-width: 768px) 25vw, 16vw"
+                        className="object-contain object-center transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-1"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-full h-full rounded-lg bg-terminal-highlight" />
+                  )}
+                </div>
+              </LocalizedClientLink>
+            )
+          })}
         </div>
 
         <div className="flex justify-center mt-10">
@@ -48,7 +82,7 @@ export default async function ExploreCategories() {
             href="/store"
             className="flex items-center gap-2 text-terminal-dim hover:text-[#6DB3D9] font-mono text-xs font-bold uppercase tracking-widest transition-all group"
           >
-            View All Categories
+            Browse Full Catalog
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </LocalizedClientLink>
         </div>
