@@ -24,6 +24,8 @@ export type Brand = {
   accent: BrandAccent
   productTag: string
   logo?: string
+  logoLight?: string
+  logoDark?: string
   productImage?: string
 }
 
@@ -45,7 +47,8 @@ export const BRONCO_BRANDS: Brand[] = [
     ],
     accent: "red",
     productTag: "riddles",
-    logo: "/images/brands/riddles-logo.png",
+    logoLight: "/images/brands/riddles-logo-light.png",
+    logoDark: "/images/brands/riddles-logo.png",
     productImage: "/images/brands/riddles-product.png",
   },
   {
@@ -77,7 +80,8 @@ export const BRONCO_BRANDS: Brand[] = [
     ],
     accent: "green",
     productTag: "camo-wraps",
-    logo: "/images/brands/camo-logo-white.png",
+    logoLight: "/images/brands/camo-logo-light.png",
+    logoDark: "/images/brands/camo-logo-dark.png",
   },
   {
     handle: "afghan-hemp",
@@ -109,7 +113,8 @@ export const BRONCO_BRANDS: Brand[] = [
     ],
     accent: "purple",
     productTag: "liso",
-    logo: "/images/brands/LISO-LOGO.png",
+    logoLight: "/images/brands/liso-logo-light.png",
+    logoDark: "/images/brands/liso-logo-dark.png",
   },
   {
     handle: "crooks",
@@ -125,7 +130,7 @@ export const BRONCO_BRANDS: Brand[] = [
     ],
     accent: "gold",
     productTag: "crooks",
-    logo: "/images/brands/CROOKS-LOGO.png",
+    logo: "/images/brands/crooks-logo.png",
   },
   {
     handle: "crystal-glass",

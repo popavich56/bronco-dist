@@ -5,6 +5,7 @@ import { BRONCO_BRANDS, type BrandAccent } from "@config/brands"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { ArrowRight, Check } from "lucide-react"
 import Image from "next/image"
+import { useTheme } from "next-themes"
 
 const accentMap: Record<BrandAccent, { border: string; text: string; bg: string; tab: string; tabActive: string }> = {
   red: { border: "border-red-500/30", text: "text-red-400", bg: "bg-red-500/10", tab: "hover:text-red-400", tabActive: "text-red-400 border-red-400" },
@@ -23,10 +24,18 @@ const accentMap: Record<BrandAccent, { border: string; text: string; bg: string;
   teal: { border: "border-teal-500/30", text: "text-teal-400", bg: "bg-teal-500/10", tab: "hover:text-teal-400", tabActive: "text-teal-400 border-teal-400" },
 }
 
+function useBrandLogo(brand: { logo?: string; logoLight?: string; logoDark?: string }) {
+  const { resolvedTheme } = useTheme()
+  if (resolvedTheme === "dark") return brand.logoDark || brand.logo || null
+  if (resolvedTheme === "light") return brand.logoLight || brand.logo || null
+  return brand.logo || brand.logoDark || brand.logoLight || null
+}
+
 export default function MostRequested() {
   const [activeIdx, setActiveIdx] = useState(0)
   const brand = BRONCO_BRANDS[activeIdx]
   const colors = accentMap[brand.accent]
+  const logoSrc = useBrandLogo(brand)
 
   return (
     <section className="py-20 bg-terminal-black border-y border-terminal-border">
@@ -74,11 +83,11 @@ export default function MostRequested() {
                 <span className={`text-[10px] font-mono font-bold ${colors.text} uppercase tracking-widest mb-2 block`}>
                   {brand.category}
                 </span>
-                {brand.logo ? (
+                {logoSrc ? (
                   <div className="w-[240px] md:w-[280px] h-16 md:h-[72px] bg-terminal-surface border border-terminal-border rounded-lg p-3 flex items-center mb-1">
                     <div className="relative w-full h-full">
                       <Image
-                        src={brand.logo}
+                        src={logoSrc}
                         alt={brand.title}
                         fill
                         sizes="280px"
