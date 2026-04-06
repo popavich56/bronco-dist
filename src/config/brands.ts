@@ -23,6 +23,8 @@ export type Brand = {
   highlights: string[]
   accent: BrandAccent
   productTag: string
+  logo?: string
+  productImage?: string
 }
 
 /**
@@ -43,6 +45,8 @@ export const BRONCO_BRANDS: Brand[] = [
     ],
     accent: "red",
     productTag: "riddles",
+    logo: "/images/brands/riddles-logo.png",
+    productImage: "/images/brands/riddles-product.png",
   },
   {
     handle: "iconic",

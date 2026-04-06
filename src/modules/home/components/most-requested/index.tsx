@@ -4,6 +4,7 @@ import { useState } from "react"
 import { BRONCO_BRANDS, type BrandAccent } from "@config/brands"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { ArrowRight, Check } from "lucide-react"
+import Image from "next/image"
 
 const accentMap: Record<BrandAccent, { border: string; text: string; bg: string; tab: string; tabActive: string }> = {
   red: { border: "border-red-500/30", text: "text-red-400", bg: "bg-red-500/10", tab: "hover:text-red-400", tabActive: "text-red-400 border-red-400" },
@@ -73,9 +74,21 @@ export default function MostRequested() {
                 <span className={`text-[10px] font-mono font-bold ${colors.text} uppercase tracking-widest mb-2 block`}>
                   {brand.category}
                 </span>
-                <h3 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight text-terminal-white mb-1">
-                  {brand.title}
-                </h3>
+                {brand.logo ? (
+                  <div className="relative h-12 md:h-14 w-48 md:w-56 mb-1">
+                    <Image
+                      src={brand.logo}
+                      alt={brand.title}
+                      fill
+                      sizes="224px"
+                      className="object-contain object-left"
+                    />
+                  </div>
+                ) : (
+                  <h3 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight text-terminal-white mb-1">
+                    {brand.title}
+                  </h3>
+                )}
                 <span className="text-sm font-mono text-terminal-dim">
                   {brand.label}
                 </span>
@@ -102,25 +115,37 @@ export default function MostRequested() {
               </LocalizedClientLink>
             </div>
 
-            {/* Right — honest MVP placeholder */}
+            {/* Right — product image or placeholder */}
             <div className={`${colors.bg} flex items-center justify-center p-8 md:p-10 border-t md:border-t-0 md:border-l ${colors.border}`}>
-              <div className="text-center max-w-xs">
-                <div className={`w-16 h-16 rounded-full ${colors.bg} border ${colors.border} flex items-center justify-center mx-auto mb-6`}>
-                  <span className={`font-display font-black text-2xl ${colors.text}`}>
-                    {brand.title[0]}
-                  </span>
+              {brand.productImage ? (
+                <div className="relative w-full h-full min-h-[240px]">
+                  <Image
+                    src={brand.productImage}
+                    alt={`${brand.title} products`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-contain object-center"
+                  />
                 </div>
-                <p className="text-sm font-mono text-terminal-dim leading-relaxed mb-4">
-                  {brand.title} products and wholesale pricing are available to approved accounts.
-                </p>
-                <LocalizedClientLink
-                  href="/account/register"
-                  className={`inline-flex items-center gap-2 text-xs font-mono font-bold ${colors.text} uppercase tracking-wider group`}
-                >
-                  Apply for Access
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </LocalizedClientLink>
-              </div>
+              ) : (
+                <div className="text-center max-w-xs">
+                  <div className={`w-16 h-16 rounded-full ${colors.bg} border ${colors.border} flex items-center justify-center mx-auto mb-6`}>
+                    <span className={`font-display font-black text-2xl ${colors.text}`}>
+                      {brand.title[0]}
+                    </span>
+                  </div>
+                  <p className="text-sm font-mono text-terminal-dim leading-relaxed mb-4">
+                    {brand.title} products and wholesale pricing are available to approved accounts.
+                  </p>
+                  <LocalizedClientLink
+                    href="/account/register"
+                    className={`inline-flex items-center gap-2 text-xs font-mono font-bold ${colors.text} uppercase tracking-wider group`}
+                  >
+                    Apply for Access
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  </LocalizedClientLink>
+                </div>
+              )}
             </div>
           </div>
         </div>
