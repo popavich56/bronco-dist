@@ -84,7 +84,7 @@ export default function MostRequested() {
                   {brand.category}
                 </span>
                 {logoSrc ? (
-                  <div className="w-[240px] md:w-[280px] h-16 md:h-[72px] bg-terminal-surface border border-terminal-border rounded-lg p-3 flex items-center mb-1">
+                  <div className="w-full max-w-[260px] md:max-w-[300px] h-16 md:h-[72px] bg-terminal-surface border border-terminal-border rounded-lg p-3 flex items-center mb-1">
                     <div className="relative w-full h-full">
                       <Image
                         src={logoSrc}
