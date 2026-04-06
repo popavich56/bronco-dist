@@ -26,8 +26,8 @@ const accentMap: Record<BrandAccent, { border: string; text: string; bg: string;
 
 function useBrandLogo(brand: { logo?: string; logoLight?: string; logoDark?: string }) {
   const { resolvedTheme } = useTheme()
-  if (resolvedTheme === "dark") return brand.logoDark || brand.logo || null
-  if (resolvedTheme === "light") return brand.logoLight || brand.logo || null
+  if (resolvedTheme === "dark") return brand.logoLight || brand.logo || brand.logoDark || null
+  if (resolvedTheme === "light") return brand.logoDark || brand.logo || brand.logoLight || null
   return brand.logo || brand.logoDark || brand.logoLight || null
 }
 
