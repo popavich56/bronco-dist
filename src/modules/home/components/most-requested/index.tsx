@@ -75,14 +75,16 @@ export default function MostRequested() {
                   {brand.category}
                 </span>
                 {brand.logo ? (
-                  <div className="relative h-12 md:h-14 w-48 md:w-56 mb-1">
-                    <Image
-                      src={brand.logo}
-                      alt={brand.title}
-                      fill
-                      sizes="224px"
-                      className="object-contain object-left"
-                    />
+                  <div className="w-[240px] md:w-[280px] h-16 md:h-[72px] bg-terminal-surface border border-terminal-border rounded-lg p-3 flex items-center mb-1">
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={brand.logo}
+                        alt={brand.title}
+                        fill
+                        sizes="280px"
+                        className="object-contain object-left"
+                      />
+                    </div>
                   </div>
                 ) : (
                   <h3 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight text-terminal-white mb-1">
