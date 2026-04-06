@@ -57,9 +57,9 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col sm:flex-row gap-4 pt-6"
         >
-          <LocalizedClientLink href="/store">
+          <LocalizedClientLink href="/categories">
             <Button className="h-12 px-8 rounded-none bg-[#6DB3D9] hover:bg-[#ADE0EE] text-[#001F2E] font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 hover:gap-4">
-              View Catalog
+              Browse Categories
               <ArrowRight className="w-4 h-4" />
             </Button>
           </LocalizedClientLink>
