@@ -77,6 +77,7 @@ export const BRONCO_BRANDS: Brand[] = [
     ],
     accent: "green",
     productTag: "camo-wraps",
+    logo: "/images/brands/camo-logo-white.png",
   },
   {
     handle: "afghan-hemp",
@@ -92,6 +93,7 @@ export const BRONCO_BRANDS: Brand[] = [
     ],
     accent: "tan",
     productTag: "afghan-hemp",
+    logo: "/images/brands/afghan-hemp-logo.png",
   },
   {
     handle: "liso",
@@ -107,6 +109,7 @@ export const BRONCO_BRANDS: Brand[] = [
     ],
     accent: "purple",
     productTag: "liso",
+    logo: "/images/brands/LISO-LOGO.png",
   },
   {
     handle: "crooks",
@@ -122,6 +125,7 @@ export const BRONCO_BRANDS: Brand[] = [
     ],
     accent: "gold",
     productTag: "crooks",
+    logo: "/images/brands/CROOKS-LOGO.png",
   },
   {
     handle: "crystal-glass",
@@ -137,6 +141,7 @@ export const BRONCO_BRANDS: Brand[] = [
     ],
     accent: "sky",
     productTag: "crystal-glass",
+    logo: "/images/brands/crystal-glass-logo.png",
   },
   {
     handle: "yocan-red",
@@ -152,6 +157,7 @@ export const BRONCO_BRANDS: Brand[] = [
     ],
     accent: "red",
     productTag: "yocan-red",
+    logo: "/images/brands/yocan-red-logo.png",
   },
   {
     handle: "yocan-black",
@@ -167,6 +173,7 @@ export const BRONCO_BRANDS: Brand[] = [
     ],
     accent: "slate",
     productTag: "yocan-black",
+    logo: "/images/brands/yocan-black-logo.jpeg",
   },
   {
     handle: "saturn",
@@ -182,6 +189,7 @@ export const BRONCO_BRANDS: Brand[] = [
     ],
     accent: "orange",
     productTag: "saturn",
+    logo: "/images/brands/saturn-logo.png",
   },
 ]
 
