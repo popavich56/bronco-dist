@@ -38,7 +38,7 @@ function BrandBackgroundLogo({ brand }: { brand: TopBrand }) {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-y-0 right-0 w-[110%] opacity-85 dark:opacity-60 group-hover:opacity-95 dark:group-hover:opacity-80 transition-opacity duration-300"
+      className="pointer-events-none absolute inset-0 w-full h-full opacity-60 dark:opacity-60 group-hover:opacity-95 dark:group-hover:opacity-80 transition-opacity duration-300"
       style={logoFadeStyle}
     >
       {lightSrc && (
@@ -48,7 +48,7 @@ function BrandBackgroundLogo({ brand }: { brand: TopBrand }) {
             alt=""
             fill
             sizes="(max-width: 640px) 60vw, (max-width: 1024px) 30vw, 200px"
-            className="object-contain object-right drop-shadow-[0_4px_8px_rgba(0,0,0,0.15)]"
+            className="object-contain object-center drop-shadow-[0_4px_8px_rgba(0,0,0,0.15)]"
           />
         </div>
       )}
@@ -59,7 +59,7 @@ function BrandBackgroundLogo({ brand }: { brand: TopBrand }) {
             alt=""
             fill
             sizes="(max-width: 640px) 60vw, (max-width: 1024px) 30vw, 200px"
-            className="object-contain object-right drop-shadow-[0_4px_8px_rgba(0,0,0,0.15)]"
+            className="object-contain object-center drop-shadow-[0_4px_8px_rgba(0,0,0,0.15)]"
           />
         </div>
       )}
