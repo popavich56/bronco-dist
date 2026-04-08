@@ -1,6 +1,7 @@
-import { TOP_BRANDS, type BrandAccent } from "@config/brands"
+import { TOP_BRANDS, TOP_BRANDS_SECTION, type BrandAccent, type TopBrand } from "@config/brands"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 const accentMap: Record<BrandAccent, { border: string; text: string; bg: string }> = {
   red: { border: "border-red-500/30", text: "text-red-400", bg: "bg-red-500/10" },
@@ -19,19 +20,67 @@ const accentMap: Record<BrandAccent, { border: string; text: string; bg: string 
   teal: { border: "border-teal-500/30", text: "text-teal-400", bg: "bg-teal-500/10" },
 }
 
+function BrandLogo({ brand }: { brand: TopBrand }) {
+  const { logo, logoLight, logoDark, title } = brand
+  const hasLogo = !!(logo || logoLight || logoDark)
+  const colors = accentMap[brand.accent]
+
+  if (!hasLogo) {
+    return (
+      <div className={`w-10 h-10 rounded-md ${colors.bg} flex items-center justify-center flex-shrink-0`}>
+        <span className={`font-display font-black text-sm ${colors.text}`}>
+          {title[0]}
+        </span>
+      </div>
+    )
+  }
+
+  // Logo box: small controlled panel with white background so brand artwork reads well
+  // against the dark card. Theme variants swap via Tailwind dark: classes.
+  const lightSrc = logoLight || logo
+  const darkSrc = logoDark || logo
+
+  return (
+    <div className="w-14 h-14 rounded-md bg-white/95 dark:bg-white/10 border border-white/10 flex-shrink-0 p-2 overflow-hidden">
+      {lightSrc && (
+        <div className="relative w-full h-full block dark:hidden">
+          <Image
+            src={lightSrc}
+            alt={`${title} logo`}
+            fill
+            sizes="56px"
+            className="object-contain"
+          />
+        </div>
+      )}
+      {darkSrc && (
+        <div className="relative w-full h-full hidden dark:block">
+          <Image
+            src={darkSrc}
+            alt={`${title} logo`}
+            fill
+            sizes="56px"
+            className="object-contain"
+          />
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function TopBrands() {
   return (
     <section className="py-20 bg-terminal-black border-y border-terminal-border">
       <div className="content-container">
         <div className="flex flex-col items-center text-center mb-14">
           <span className="text-[10px] font-mono font-bold text-[#6DB3D9] uppercase tracking-widest mb-4 block">
-            Featured Partners
+            {TOP_BRANDS_SECTION.eyebrow}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold font-display uppercase leading-none tracking-tight text-terminal-white mb-4">
-            Top Brands
+            {TOP_BRANDS_SECTION.heading}
           </h2>
           <p className="text-base font-mono text-terminal-dim max-w-xl leading-relaxed">
-            Industry-leading brands available at wholesale pricing.
+            {TOP_BRANDS_SECTION.subheading}
           </p>
         </div>
 
@@ -43,24 +92,20 @@ export default function TopBrands() {
                 key={brand.handle}
                 className={`border ${colors.border} bg-terminal-panel p-6 flex flex-col gap-4 rounded-2xl hover:bg-terminal-surface hover:-translate-y-1 hover:shadow-card-hover transition-all duration-200 group`}
               >
-                <div className={`w-10 h-10 rounded-md ${colors.bg} flex items-center justify-center flex-shrink-0`}>
-                  <span className={`font-display font-black text-sm ${colors.text}`}>
-                    {brand.title[0]}
-                  </span>
-                </div>
+                <BrandLogo brand={brand} />
                 <div className="flex-1">
                   <h3 className="font-display font-bold text-lg uppercase tracking-wide text-terminal-white mb-1">
                     {brand.title}
                   </h3>
                   <span className={`text-[10px] font-mono font-bold ${colors.text} uppercase tracking-widest`}>
-                    {brand.label}
+                    {brand.subtitle}
                   </span>
                 </div>
                 <LocalizedClientLink
-                  href="/account/register"
+                  href={brand.href}
                   className={`flex items-center gap-2 ${colors.text} text-xs font-mono font-bold uppercase tracking-wider opacity-70 group-hover:opacity-100 transition-opacity`}
                 >
-                  Shop Brand
+                  {brand.ctaText}
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </LocalizedClientLink>
               </div>
