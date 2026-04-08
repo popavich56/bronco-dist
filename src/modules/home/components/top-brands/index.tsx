@@ -38,7 +38,7 @@ function BrandBackgroundLogo({ brand }: { brand: TopBrand }) {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-y-0 left-0 w-3/5 opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+      className="pointer-events-none absolute inset-y-0 left-0 w-[72%] opacity-70 dark:opacity-55 group-hover:opacity-90 dark:group-hover:opacity-75 transition-opacity duration-300"
       style={logoFadeStyle}
     >
       {lightSrc && (

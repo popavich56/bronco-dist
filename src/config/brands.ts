@@ -244,8 +244,6 @@ export const TOP_BRANDS: TopBrand[] = [
     ctaText: "Shop Brand",
     href: "/account/register",
     accent: "slate",
-    logoLight: "/images/brands/puffco-logo-light.png",
-    logoDark: "/images/brands/puffco-logo-dark.png",
   },
   {
     handle: "vaporesso",
@@ -254,8 +252,6 @@ export const TOP_BRANDS: TopBrand[] = [
     ctaText: "Shop Brand",
     href: "/account/register",
     accent: "green",
-    logoLight: "/images/brands/vaporesso-logo-light.png",
-    logoDark: "/images/brands/vaporesso-logo-dark.png",
   },
   {
     handle: "blazy-susan",
@@ -264,6 +260,5 @@ export const TOP_BRANDS: TopBrand[] = [
     ctaText: "Shop Brand",
     href: "/account/register",
     accent: "pink",
-    logo: "/images/brands/blazy-susan-logo.png",
   },
 ]
