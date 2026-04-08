@@ -199,67 +199,71 @@ export const BRONCO_BRANDS: Brand[] = [
 ]
 
 /**
- * 4 Top Brands — used in the brand cards section
+ * Top Brands section — heading copy (editable)
  */
-export const TOP_BRANDS: Brand[] = [
+export const TOP_BRANDS_SECTION = {
+  eyebrow: "Featured Partners",
+  heading: "Top Brands",
+  subheading: "Industry-leading brands available at wholesale pricing.",
+}
+
+export type TopBrand = {
+  handle: string
+  title: string
+  subtitle: string
+  ctaText: string
+  href: string
+  accent: BrandAccent
+  /** Single logo (used when theme variants are not provided) */
+  logo?: string
+  /** Logo for light backgrounds (dark artwork) */
+  logoLight?: string
+  /** Logo for dark backgrounds (light artwork) */
+  logoDark?: string
+}
+
+/**
+ * Top Brands — used in the brand cards section on the homepage.
+ * Edit `title`, `subtitle`, `ctaText`, and `href` here to update card copy.
+ * Add `logo`, or `logoLight` + `logoDark`, to replace the letter badge.
+ */
+export const TOP_BRANDS: TopBrand[] = [
   {
     handle: "raw",
     title: "RAW",
-    label: "Rolling Papers & Accessories",
-    category: "Papers & Accessories",
-    description:
-      "The world's most recognized rolling paper brand. RAW is a must-stock for every smoke shop.",
-    highlights: [
-      "Unbleached natural papers",
-      "#1 brand in rolling papers",
-      "Full accessory ecosystem",
-    ],
+    subtitle: "Rolling Papers & Accessories",
+    ctaText: "Shop Brand",
+    href: "/account/register",
     accent: "tan",
-    productTag: "raw",
+    logo: "/images/brands/raw-logo.png",
   },
   {
     handle: "puffco",
     title: "Puffco",
-    label: "Premium Devices",
-    category: "Devices",
-    description:
-      "Puffco redefined the concentrate device market. The Peak and Proxy drive premium traffic and high-margin sales.",
-    highlights: [
-      "Industry-leading devices",
-      "Premium price point",
-      "Strong brand demand",
-    ],
+    subtitle: "Premium Devices",
+    ctaText: "Shop Brand",
+    href: "/account/register",
     accent: "slate",
-    productTag: "puffco",
+    logoLight: "/images/brands/puffco-logo-light.png",
+    logoDark: "/images/brands/puffco-logo-dark.png",
   },
   {
     handle: "vaporesso",
     title: "Vaporesso",
-    label: "Vape Systems",
-    category: "Vape",
-    description:
-      "Vaporesso brings reliable, well-engineered vape systems. From pod mods to full kits — a brand customers trust.",
-    highlights: [
-      "Trusted engineering",
-      "Wide product range",
-      "Strong repeat customers",
-    ],
+    subtitle: "Vape Systems",
+    ctaText: "Shop Brand",
+    href: "/account/register",
     accent: "green",
-    productTag: "vaporesso",
+    logoLight: "/images/brands/vaporesso-logo-light.png",
+    logoDark: "/images/brands/vaporesso-logo-dark.png",
   },
   {
     handle: "blazy-susan",
     title: "Blazy Susan",
-    label: "Papers & Accessories",
-    category: "Papers & Accessories",
-    description:
-      "Blazy Susan's signature pink papers turned heads and built a movement. A strong add-on brand with loyal fans.",
-    highlights: [
-      "Iconic pink branding",
-      "Growing product line",
-      "Strong social media presence",
-    ],
+    subtitle: "Papers & Accessories",
+    ctaText: "Shop Brand",
+    href: "/account/register",
     accent: "pink",
-    productTag: "blazy-susan",
+    logo: "/images/brands/blazy-susan-logo.png",
   },
 ]
