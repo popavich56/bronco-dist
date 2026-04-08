@@ -2,6 +2,7 @@ import { TOP_BRANDS, TOP_BRANDS_SECTION, type BrandAccent, type TopBrand } from 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
+import type { CSSProperties } from "react"
 
 const accentMap: Record<BrandAccent, { border: string; text: string; bg: string }> = {
   red: { border: "border-red-500/30", text: "text-red-400", bg: "bg-red-500/10" },
@@ -20,36 +21,34 @@ const accentMap: Record<BrandAccent, { border: string; text: string; bg: string 
   teal: { border: "border-teal-500/30", text: "text-teal-400", bg: "bg-teal-500/10" },
 }
 
-function BrandLogo({ brand }: { brand: TopBrand }) {
-  const { logo, logoLight, logoDark, title } = brand
-  const hasLogo = !!(logo || logoLight || logoDark)
-  const colors = accentMap[brand.accent]
+// Horizontal fade applied to the background logo layer so it softens toward
+// the right side of the card where the text content sits.
+const logoFadeStyle: CSSProperties = {
+  WebkitMaskImage:
+    "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.25) 65%, rgba(0,0,0,0) 90%)",
+  maskImage:
+    "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.25) 65%, rgba(0,0,0,0) 90%)",
+}
 
-  if (!hasLogo) {
-    return (
-      <div className={`w-10 h-10 rounded-md ${colors.bg} flex items-center justify-center flex-shrink-0`}>
-        <span className={`font-display font-black text-sm ${colors.text}`}>
-          {title[0]}
-        </span>
-      </div>
-    )
-  }
-
-  // Logo box: small controlled panel with white background so brand artwork reads well
-  // against the dark card. Theme variants swap via Tailwind dark: classes.
+function BrandBackgroundLogo({ brand }: { brand: TopBrand }) {
+  const { logo, logoLight, logoDark } = brand
   const lightSrc = logoLight || logo
   const darkSrc = logoDark || logo
 
   return (
-    <div className="w-14 h-14 rounded-md bg-white/95 dark:bg-white/10 border border-white/10 flex-shrink-0 p-2 overflow-hidden">
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-y-0 left-0 w-3/5 opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+      style={logoFadeStyle}
+    >
       {lightSrc && (
         <div className="relative w-full h-full block dark:hidden">
           <Image
             src={lightSrc}
-            alt={`${title} logo`}
+            alt=""
             fill
-            sizes="56px"
-            className="object-contain"
+            sizes="(max-width: 640px) 60vw, (max-width: 1024px) 30vw, 200px"
+            className="object-contain object-left"
           />
         </div>
       )}
@@ -57,13 +56,24 @@ function BrandLogo({ brand }: { brand: TopBrand }) {
         <div className="relative w-full h-full hidden dark:block">
           <Image
             src={darkSrc}
-            alt={`${title} logo`}
+            alt=""
             fill
-            sizes="56px"
-            className="object-contain"
+            sizes="(max-width: 640px) 60vw, (max-width: 1024px) 30vw, 200px"
+            className="object-contain object-left"
           />
         </div>
       )}
+    </div>
+  )
+}
+
+function LetterBadge({ brand }: { brand: TopBrand }) {
+  const colors = accentMap[brand.accent]
+  return (
+    <div className={`w-10 h-10 rounded-md ${colors.bg} flex items-center justify-center flex-shrink-0`}>
+      <span className={`font-display font-black text-sm ${colors.text}`}>
+        {brand.title[0]}
+      </span>
     </div>
   )
 }
@@ -87,27 +97,32 @@ export default function TopBrands() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {TOP_BRANDS.map((brand) => {
             const colors = accentMap[brand.accent]
+            const hasLogo = !!(brand.logo || brand.logoLight || brand.logoDark)
             return (
               <div
                 key={brand.handle}
-                className={`border ${colors.border} bg-terminal-panel p-6 flex flex-col gap-4 rounded-2xl hover:bg-terminal-surface hover:-translate-y-1 hover:shadow-card-hover transition-all duration-200 group`}
+                className={`relative overflow-hidden border ${colors.border} bg-terminal-panel p-6 flex flex-col gap-4 rounded-2xl hover:bg-terminal-surface hover:-translate-y-1 hover:shadow-card-hover transition-all duration-200 group min-h-[180px]`}
               >
-                <BrandLogo brand={brand} />
-                <div className="flex-1">
-                  <h3 className="font-display font-bold text-lg uppercase tracking-wide text-terminal-white mb-1">
-                    {brand.title}
-                  </h3>
-                  <span className={`text-[10px] font-mono font-bold ${colors.text} uppercase tracking-widest`}>
-                    {brand.subtitle}
-                  </span>
+                {hasLogo && <BrandBackgroundLogo brand={brand} />}
+
+                <div className="relative z-10 flex flex-col gap-4 h-full">
+                  {!hasLogo && <LetterBadge brand={brand} />}
+                  <div className="flex-1">
+                    <h3 className="font-display font-bold text-lg uppercase tracking-wide text-terminal-white mb-1">
+                      {brand.title}
+                    </h3>
+                    <span className={`text-[10px] font-mono font-bold ${colors.text} uppercase tracking-widest`}>
+                      {brand.subtitle}
+                    </span>
+                  </div>
+                  <LocalizedClientLink
+                    href={brand.href}
+                    className={`flex items-center gap-2 ${colors.text} text-xs font-mono font-bold uppercase tracking-wider opacity-70 group-hover:opacity-100 transition-opacity`}
+                  >
+                    {brand.ctaText}
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  </LocalizedClientLink>
                 </div>
-                <LocalizedClientLink
-                  href={brand.href}
-                  className={`flex items-center gap-2 ${colors.text} text-xs font-mono font-bold uppercase tracking-wider opacity-70 group-hover:opacity-100 transition-opacity`}
-                >
-                  {brand.ctaText}
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </LocalizedClientLink>
               </div>
             )
           })}
