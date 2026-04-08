@@ -1,6 +1,5 @@
 import { TOP_BRANDS, TOP_BRANDS_SECTION, type BrandAccent, type TopBrand } from "@config/brands"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import type { CSSProperties } from "react"
 
@@ -70,8 +69,8 @@ function BrandBackgroundLogo({ brand }: { brand: TopBrand }) {
 function LetterBadge({ brand }: { brand: TopBrand }) {
   const colors = accentMap[brand.accent]
   return (
-    <div className={`w-10 h-10 rounded-md ${colors.bg} flex items-center justify-center flex-shrink-0`}>
-      <span className={`font-display font-black text-sm ${colors.text}`}>
+    <div className={`w-16 h-16 rounded-xl ${colors.bg} flex items-center justify-center`}>
+      <span className={`font-display font-black text-2xl ${colors.text}`}>
         {brand.title[0]}
       </span>
     </div>
@@ -99,31 +98,19 @@ export default function TopBrands() {
             const colors = accentMap[brand.accent]
             const hasLogo = !!(brand.logo || brand.logoLight || brand.logoDark)
             return (
-              <div
-                key={brand.handle}
-                className={`relative overflow-hidden border ${colors.border} bg-terminal-panel p-6 flex flex-col gap-4 rounded-2xl hover:bg-terminal-surface hover:-translate-y-1 hover:shadow-card-hover transition-all duration-200 group min-h-[180px]`}
-              >
-                {hasLogo && <BrandBackgroundLogo brand={brand} />}
-
-                <div className="relative z-10 flex flex-col gap-4 h-full">
-                  {!hasLogo && <LetterBadge brand={brand} />}
-                  <div className="flex-1">
-                    <h3 className="font-display font-bold text-lg uppercase tracking-wide text-terminal-white mb-1">
-                      {brand.title}
-                    </h3>
-                    <span className={`text-[10px] font-mono font-bold ${colors.text} uppercase tracking-widest`}>
-                      {brand.subtitle}
-                    </span>
-                  </div>
-                  <LocalizedClientLink
-                    href={brand.href}
-                    className={`flex items-center gap-2 ${colors.text} text-xs font-mono font-bold uppercase tracking-wider opacity-70 group-hover:opacity-100 transition-opacity`}
-                  >
-                    {brand.ctaText}
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                  </LocalizedClientLink>
+              <LocalizedClientLink key={brand.handle} href={brand.href} className="block">
+                <div
+                  className={`relative overflow-hidden border ${colors.border} bg-terminal-panel p-6 rounded-2xl hover:bg-terminal-surface hover:-translate-y-1 hover:shadow-card-hover transition-all duration-200 group min-h-[180px]`}
+                >
+                  {hasLogo ? (
+                    <BrandBackgroundLogo brand={brand} />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <LetterBadge brand={brand} />
+                    </div>
+                  )}
                 </div>
-              </div>
+              </LocalizedClientLink>
             )
           })}
         </div>
