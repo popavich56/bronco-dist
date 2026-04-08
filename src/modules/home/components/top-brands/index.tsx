@@ -25,9 +25,9 @@ const accentMap: Record<BrandAccent, { border: string; text: string; bg: string 
 // the right side of the card where the text content sits.
 const logoFadeStyle: CSSProperties = {
   WebkitMaskImage:
-    "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.25) 65%, rgba(0,0,0,0) 90%)",
+    "linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.25) 65%, rgba(0,0,0,0) 90%)",
   maskImage:
-    "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.25) 65%, rgba(0,0,0,0) 90%)",
+    "linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.25) 65%, rgba(0,0,0,0) 90%)",
 }
 
 function BrandBackgroundLogo({ brand }: { brand: TopBrand }) {
@@ -38,7 +38,7 @@ function BrandBackgroundLogo({ brand }: { brand: TopBrand }) {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-y-0 left-0 w-[92%] opacity-85 dark:opacity-60 group-hover:opacity-95 dark:group-hover:opacity-80 transition-opacity duration-300"
+      className="pointer-events-none absolute inset-y-0 right-0 w-[110%] opacity-85 dark:opacity-60 group-hover:opacity-95 dark:group-hover:opacity-80 transition-opacity duration-300"
       style={logoFadeStyle}
     >
       {lightSrc && (
@@ -48,7 +48,7 @@ function BrandBackgroundLogo({ brand }: { brand: TopBrand }) {
             alt=""
             fill
             sizes="(max-width: 640px) 60vw, (max-width: 1024px) 30vw, 200px"
-            className="object-contain object-left drop-shadow-[0_4px_8px_rgba(0,0,0,0.15)]"
+            className="object-contain object-right drop-shadow-[0_4px_8px_rgba(0,0,0,0.15)]"
           />
         </div>
       )}
@@ -59,7 +59,7 @@ function BrandBackgroundLogo({ brand }: { brand: TopBrand }) {
             alt=""
             fill
             sizes="(max-width: 640px) 60vw, (max-width: 1024px) 30vw, 200px"
-            className="object-contain object-left drop-shadow-[0_4px_8px_rgba(0,0,0,0.15)]"
+            className="object-contain object-right drop-shadow-[0_4px_8px_rgba(0,0,0,0.15)]"
           />
         </div>
       )}
