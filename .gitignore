@@ -39,6 +39,9 @@ yarn-error.log*
 # uploaded permits (local dev storage)
 /public/uploads/
 
+# generated audit/report outputs
+/scripts/*.csv
+
 # vercel
 .vercel
 
